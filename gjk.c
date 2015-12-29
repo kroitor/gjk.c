@@ -39,7 +39,8 @@ vec2 tripleProduct (vec2 a, vec2 b, vec2 c) {
 
 //-----------------------------------------------------------------------------
 // This is to compute average center (roughly). It might be different from
-// Center of Gravity, especially for bodies with nonuniform density.
+// Center of Gravity, especially for bodies with nonuniform density,
+// but this is ok as initial direction of simplex search in GJK.
 
 vec2 averagePoint (const vec2 * vertices, size_t count) {
     vec2 avg = { 0.f, 0.f };
@@ -89,8 +90,8 @@ int gjk (const vec2 * vertices1, size_t count1,
     size_t index = 0; // index of current vertex of simplex
     vec2 a, b, c, d, ao, ab, ac, abperp, acperp, simplex[3];
     
-    vec2 position1 = averagePoint (vertices1, count1); // rough average can be different from center
-    vec2 position2 = averagePoint (vertices2, count2); // but this initial direction is ok for GJK )
+    vec2 position1 = averagePoint (vertices1, count1); // not a CoG but
+    vec2 position2 = averagePoint (vertices2, count2); // it's ok for GJK )
 
     // initial direction from the center of 1st body to the center of 2nd body
     d = subtract (position1, position2);
