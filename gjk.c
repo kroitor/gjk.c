@@ -177,37 +177,3 @@ int main(int argc, const char * argv[]) {
     printf (collisionDetected ? "Bodies collide!\n" : "No collision\n");
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
