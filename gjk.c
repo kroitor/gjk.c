@@ -22,7 +22,7 @@ float lengthSquared (vec2 v) { return v.x * v.x + v.y * v.y; }
 
 //-----------------------------------------------------------------------------
 // This is mostly used to calculate perpendicular vectors which
-// kinda 'prefer' directions towards the origin of Minkowski space
+// kinda 'prefer' directions towards the Origin in Minkowski space
 
 vec2 tripleProduct (vec2 a, vec2 b, vec2 c) {
     
