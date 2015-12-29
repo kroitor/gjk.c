@@ -2,7 +2,7 @@
 This is a rough but fast implementation of GJK collision detection algorithm in plain C. It is in 2D for now, full 3D version is upcoming... This 2D-version uses Minkowski sums and builds a triangle-simplex in Minkowski space to tell if two arbitrary polygons are colliding. 3D-version will be roughly the same, but will build a tetrahedron-simplex inside a 3-dimensional Minkowski space. It currently only tells if there is a collision or not. C code for distance and contact points coming soon.
 
 ## Disclaimer
-Fuck all licenses and fuck copyright. I made it for learning purposes, it's public knowledge and it's absolutely free for any usage.
+Fuck all licenses and copyright. I made it for learning purposes, it's public knowledge and it's absolutely free for any usage.
 
 ## Usage example
 ```
