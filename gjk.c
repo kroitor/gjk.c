@@ -128,8 +128,6 @@ int gjk (const vec2 * vertices1, size_t count1,
         if (dotProduct (acperp, ao) >= 0) {
             
             d = acperp; // new direction is normal to AC
-            simplex[1] = simplex[2]; // swap element in the middle (point B)
-            --index;
             
         } else {
             
@@ -139,11 +137,12 @@ int gjk (const vec2 * vertices1, size_t count1,
                 return 1; // collision
             
             simplex[0] = simplex[1]; // swap first element (point C)
-            simplex[1] = simplex[2]; // swap element in the middle (point B)
-            --index;
 
             d = abperp; // new direction is normal to AB
         }
+        
+        simplex[1] = simplex[2]; // swap element in the middle (point B)
+        --index;
     }
     
     return 0;
