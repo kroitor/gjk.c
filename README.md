@@ -5,7 +5,18 @@ This is a rough but fast implementation of GJK collision detection algorithm in 
 Fuck all licenses and copyright. I made it for learning purposes, it's public knowledge and it's absolutely free for any usage.
 
 ## Usage example
+This is an illustration of the example case from dyn4j.
+
+![Example case from dyn4j](http://www.dyn4j.org/wp-content/uploads/2010/04/gjk-figure1.png "Example case from dyn4j")
+
+The two tested polygons are defined as arrays of plain C vector struct { float x; float y; }.
+
 ```
+struct _vec2 { float x; float y; };
+typedef struct _vec2 vec2;
+
+...
+
 int main(int argc, const char * argv[]) {
     
     vec2 vertices1[] = {
