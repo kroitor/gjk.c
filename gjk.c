@@ -121,7 +121,7 @@ int gjk (const vec2 * vertices1, size_t count1,
         if (index < 2) {
             b = simplex[0];
             ab = subtract (b, a); // from point A to B
-            d = tripleProduct (ab, ao, ab); // normal to AB
+            d = tripleProduct (ab, ao, ab); // normal to AB towards Origin
             if (lengthSquared (d) == 0)
                 d = perpendicular (ab);
             continue; // skip to next iteration
@@ -136,7 +136,7 @@ int gjk (const vec2 * vertices1, size_t count1,
         
         if (dotProduct (acperp, ao) >= 0) {
             
-            d = acperp; // new direction is normal to AC
+            d = acperp; // new direction is normal to AC towards Origin
             
         } else {
             
@@ -147,7 +147,7 @@ int gjk (const vec2 * vertices1, size_t count1,
             
             simplex[0] = simplex[1]; // swap first element (point C)
 
-            d = abperp; // new direction is normal to AB
+            d = abperp; // new direction is normal to AB towards Origin
         }
         
         simplex[1] = simplex[2]; // swap element in the middle (point B)
