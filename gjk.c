@@ -81,8 +81,8 @@ int gjk (const vec2 * vertices1, size_t count1,
     size_t index = 0; // index of current vertex of simplex
     vec2 a, b, c, d, ao, ab, ac, abperp, acperp, simplex[3];
     
-    vec2 position1 = averagePoint (vertices1, count1); // rough average
-    vec2 position2 = averagePoint (vertices2, count2);
+    vec2 position1 = averagePoint (vertices1, count1); // rough average can be different from center
+    vec2 position2 = averagePoint (vertices2, count2); // but this initial direction is ok for GJK )
 
     // initial direction from the center of 1st body to the center of 2nd body
     d = subtract (position1, position2);
