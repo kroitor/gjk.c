@@ -11,11 +11,11 @@ int main(int argc, const char * argv[]) {
     vec2 vertices1[] = {
         { 4, 11 },
         { 4, 5 },
-        { 9, 5 },
+        { 9, 9 },
     };
     
     vec2 vertices2[] = {
-        { 7, 7 },
+        { 5, 7 },
         { 7, 3 },
         { 10, 2 },
         { 12, 7 },
