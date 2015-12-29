@@ -21,7 +21,7 @@ float dotProduct (vec2 a, vec2 b) { return a.x * b.x + a.y * b.y; }
 float lengthSquared (vec2 v) { return v.x * v.x + v.y * v.y; }
 
 //-----------------------------------------------------------------------------
-// This is mostly used to calculate perpendicular vectors which
+// This is mostly used to calculate perpendicular normal vectors which
 // kinda 'prefer' pointing towards the Origin in Minkowski space
 
 vec2 tripleProduct (vec2 a, vec2 b, vec2 c) {
