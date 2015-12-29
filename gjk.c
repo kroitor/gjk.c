@@ -144,9 +144,6 @@ int gjk (const vec2 * vertices1, size_t count1,
 
             d = abperp; // new direction is normal to AB
         }
-        
-//        simplex[1] = simplex[2]; // swap element in the middle (point B)
-//        --index;
     }
     
     return 0;
