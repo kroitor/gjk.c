@@ -12,7 +12,7 @@ struct _vec2 { float x; float y; };
 typedef struct _vec2 vec2;
 
 //-----------------------------------------------------------------------------
-// basic vector arithmetic operations
+// Basic vector arithmetic operations
 
 vec2 subtract (vec2 a, vec2 b) { a.x -= b.x; a.y -= b.y; return a; }
 vec2 negate (vec2 v) { v.x = -v.x; v.y = -v.y; return v; }
@@ -54,6 +54,7 @@ vec2 averagePoint (const vec2 * vertices, size_t count) {
 
 //-----------------------------------------------------------------------------
 // Get furthest vertex along a certain direction
+
 size_t indexOfFurthestPoint (const vec2 * vertices, size_t count, vec2 d) {
     
     float maxProduct = dotProduct (d, vertices[0]);
@@ -70,6 +71,7 @@ size_t indexOfFurthestPoint (const vec2 * vertices, size_t count, vec2 d) {
 
 //-----------------------------------------------------------------------------
 // Minkowski sum support function for GJK
+
 vec2 support (const vec2 * vertices1, size_t count1,
               const vec2 * vertices2, size_t count2, vec2 d) {
 
@@ -79,6 +81,7 @@ vec2 support (const vec2 * vertices1, size_t count1,
 }
 
 //-----------------------------------------------------------------------------
+// The GJK yes/no test
 
 int gjk (const vec2 * vertices1, size_t count1,
          const vec2 * vertices2, size_t count2) {
@@ -156,6 +159,8 @@ int gjk (const vec2 * vertices1, size_t count1,
 //-----------------------------------------------------------------------------
 
 int main(int argc, const char * argv[]) {
+    
+    // test case from dyn4j
     
     vec2 vertices1[] = {
         { 4, 11 },
