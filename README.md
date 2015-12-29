@@ -1,8 +1,8 @@
 # gjk.c – Gilbert-Johnson-Keerthi in plain C
 This is a rough but fast implementation of GJK collision detection algorithm in plain C. It is in 2D for now, full 3D version is upcoming (soon)... It uses Minkowski sums and builds a simplex (a triangle) in Minkowski space to tell if two arbitrary polygons are colliding. 
 
-## Disclaimer (fuck all licenses and licensees)
-I made it for my learning purposes and it's absolutely free for any usage (at your own risk).
+## Disclaimer
+Fuck all licenses and licensees. I made it for my learning purposes and it's absolutely free for any usage (at your own risk ofcourse).
 
 ## Usage example
 ```
