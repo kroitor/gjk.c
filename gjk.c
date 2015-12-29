@@ -4,14 +4,15 @@
 
 //-----------------------------------------------------------------------------
 // Gilbert-Johnson-Keerthi (GJK) collision detection algorithm in 2D
-// http://mollyrocket.com/849
 // http://www.dyn4j.org/2010/04/gjk-gilbert-johnson-keerthi/
+// http://mollyrocket.com/849
 //-----------------------------------------------------------------------------
 
 struct _vec2 { float x; float y; };
 typedef struct _vec2 vec2;
 
 //-----------------------------------------------------------------------------
+// basic vector arithmetic operations
 
 vec2 subtract (vec2 a, vec2 b) { a.x -= b.x; a.y -= b.y; return a; }
 vec2 negate (vec2 v) { v.x = -v.x; v.y = -v.y; return v; }
@@ -20,6 +21,8 @@ float dotProduct (vec2 a, vec2 b) { return a.x * b.x + a.y * b.y; }
 float lengthSquared (vec2 v) { return v.x * v.x + v.y * v.y; }
 
 //-----------------------------------------------------------------------------
+// This is mostly used to calculate perpendicular vectors which
+// kinda 'prefer' directions towards the origin of Minkowski space
 
 vec2 tripleProduct (vec2 a, vec2 b, vec2 c) {
     
@@ -35,6 +38,8 @@ vec2 tripleProduct (vec2 a, vec2 b, vec2 c) {
 }
 
 //-----------------------------------------------------------------------------
+// This is to compute average center (roughly). It might be different from
+// Center of Gravity, especially for bodies with nonuniform density.
 
 vec2 averagePoint (const vec2 * vertices, size_t count) {
     vec2 avg = { 0.f, 0.f };
@@ -48,7 +53,7 @@ vec2 averagePoint (const vec2 * vertices, size_t count) {
 }
 
 //-----------------------------------------------------------------------------
-
+// Get furthest vertex along a certain direction
 size_t indexOfFurthestPoint (const vec2 * vertices, size_t count, vec2 d) {
     
     float maxProduct = dotProduct (d, vertices[0]);
@@ -64,7 +69,7 @@ size_t indexOfFurthestPoint (const vec2 * vertices, size_t count, vec2 d) {
 }
 
 //-----------------------------------------------------------------------------
-
+// Minkowski sum support function for GJK
 vec2 support (const vec2 * vertices1, size_t count1,
               const vec2 * vertices2, size_t count2, vec2 d) {
 
