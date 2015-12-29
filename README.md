@@ -5,7 +5,7 @@ This is a rough but fast implementation of GJK collision detection algorithm in 
 Fuck all licenses and copyright. I made it for learning purposes, it's public knowledge and it's absolutely free for any usage.
 
 ## Usage example
-This is an illustration of the example case from dyn4j.
+This is an illustration of the example case from dyn4j (http://www.dyn4j.org – Java Collision Detection And Physics Engine).
 
 ![Example case from dyn4j](http://www.dyn4j.org/wp-content/uploads/2010/04/gjk-figure1.png "Example case from dyn4j")
 
@@ -44,7 +44,7 @@ int main(int argc, const char * argv[]) {
 }
 ```
 ## References (must see)
-Most of the info (along with reference implementation) was taken from http://www.dyn4j.org – Java Collision Detection And Physics Engine. It has a very thorough explanation of GJK and it is definitely a must visit for those who need to understand the intricacies of the algorithm.
+Most of the info (along with reference implementation) was taken from dyn4j. It has a very thorough explanation of GJK and it is definitely a must visit for those who need to understand the intricacies of the algorithm.
 
 1. http://www.dyn4j.org/2010/04/gjk-gilbert-johnson-keerthi/ GJK description
 2. http://mollyrocket.com/849 Awesome old-school GJK / Minkowski space video
