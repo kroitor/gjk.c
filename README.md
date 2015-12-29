@@ -31,8 +31,9 @@ int main(int argc, const char * argv[]) {
 }
 ```
 ## References (must see)
-Most of the info (along with reference implementation) was taken from dyn4j:
+Most of the info (along with reference implementation) was taken from dyn4j (a Physics Engine in Java, http://www.dyn4j.org/). The dyn4j site has a very thorough explanation of GJK and it is definitely a must visit for those who need to understand the intricacies of the algorithm.
 
-1. http://www.dyn4j.org/2010/04/gjk-gilbert-johnson-keerthi/
-2. http://mollyrocket.com/849
-3. https://github.com/wnbittle/dyn4j
+1.  Java Collision Detection And Physics Engine – many useful articles there
+2. http://www.dyn4j.org/2010/04/gjk-gilbert-johnson-keerthi/ GJK description
+3. http://mollyrocket.com/849 GJK / Minkowski space video
+4. https://github.com/wnbittle/dyn4j Quality source code for reference
