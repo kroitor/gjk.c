@@ -19,6 +19,8 @@ typedef struct _vec2 vec2;
 
 int main(int argc, const char * argv[]) {
     
+    // test case from dyn4j
+
     vec2 vertices1[] = {
         { 4, 11 },
         { 4, 5 },
