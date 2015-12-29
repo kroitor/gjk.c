@@ -11,7 +11,7 @@ This is an illustration of the example case from dyn4j.
 
 The two tested polygons are defined as arrays of plain C vector struct type. This implementation of GJK doesn't really care about the order of the vertices in the arrays, as it treats all polygons as convex shapes. But it is better to have them ordered  *counter-clockwise for compatibility*.
 
-```
+```c
 struct _vec2 { float x; float y; };
 typedef struct _vec2 vec2;
 
