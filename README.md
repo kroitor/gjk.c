@@ -50,5 +50,5 @@ Most of the info (along with reference implementation) was taken from dyn4j. It 
 2. http://mollyrocket.com/849 Awesome old-school GJK / Minkowski space video
 3. https://github.com/wnbittle/dyn4j Quality source code for reference
 
-## P.S. 3D version coming soon...
+## P.S. 3D-version coming soon...
 ![3D-version of GJK in plain C coming soon...](http://s21.postimg.org/da9txc3uv/Screen_Shot_2016_01_13_at_09_13_12.jpg "3D-version of GJK in plain C coming soon...")
