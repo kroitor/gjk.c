@@ -76,7 +76,7 @@ size_t indexOfFurthestPoint (const vec2 * vertices, size_t count, vec2 d) {
 vec2 support (const vec2 * vertices1, size_t count1,
               const vec2 * vertices2, size_t count2, vec2 d) {
 
-    // get furthest point of first body along a certain direction
+    // get furthest point of first body along an arbitrary direction
     size_t i = indexOfFurthestPoint (vertices1, count1, d);
     
     // get furthest point of second body along the opposite direction
