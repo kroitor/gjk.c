@@ -76,8 +76,21 @@ size_t indexOfFurthestPoint (const vec2 * vertices, size_t count, vec2 d) {
 vec2 support (const vec2 * vertices1, size_t count1,
               const vec2 * vertices2, size_t count2, vec2 d) {
 
+    // get furthest point of first body along a certain direction
     size_t i = indexOfFurthestPoint (vertices1, count1, d);
+    
+    // get furthest point of second body along the opposite direction
     size_t j = indexOfFurthestPoint (vertices2, count2, negate (d));
+
+    // return the distance between these two points
+    // see if these two points 'overlap' in Minkowski space
+    
+    // if distance between the two points is equal to or less than zero
+    // then bodies are 'overlapping' along the chosen direction vector
+    
+    // there's a collision if bodies overlap
+    // along any two perpendicular directions in 2D Minkowski space
+    
     return subtract (vertices1[i], vertices2[j]);
 }
 
