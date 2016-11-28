@@ -82,7 +82,7 @@ vec2 support (const vec2 * vertices1, size_t count1,
     // get furthest point of second body along the opposite direction
     size_t j = indexOfFurthestPoint (vertices2, count2, negate (d));
 
-    // see if bodies overlap along all directions in Minkowski space
+    // subtract (Minkowski sum) the two points to see if bodies 'overlap'
     return subtract (vertices1[i], vertices2[j]);
 }
 
