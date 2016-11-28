@@ -83,7 +83,7 @@ vec2 support (const vec2 * vertices1, size_t count1,
     size_t j = indexOfFurthestPoint (vertices2, count2, negate (d));
 
     // return the distance between these two points
-    // see if these two points 'overlap' in Minkowski space
+    // to see if these two points 'overlap' in Minkowski space
     
     // if distance between the two points is equal to or less than zero
     // then bodies are 'overlapping' along the chosen direction vector
