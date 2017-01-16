@@ -121,13 +121,13 @@ The resulting segment `[-30,15]` would look like this:
 ```
 We ignored all insignificant internal points and only took the endpoints of original segments into account thus reducing our calculation to four basic arithmetic operations (subtractions). We did that by switching to a simpler representation of a segment (only two endpoints instead of all points contained inside an original segment). A simpler representation of the difference of two shapes is called a 'simplex'. It literally means 'the simplest possible'. A segment is indeed the simplest possible shape which is sufficient to contain multiple points of a number line. Even if one segment covers the other segment in its entirety (one segment fully contains the other segment) – you can still detect an intersection of them in space. And it does not matter which one you're subtracting from, the resulting set will still contain the Origin at zero.
 
-GJK also works if two segments don't intersect but just barely touch. For example, we have two segments `[1,2]` and `[2,3]`:
+GJK also works if two segments don't intersect but just barely touch. Say, we have two segments `[1,2]` and `[2,3]`:
 ```
 ·····O·····1=====2·····+·····+·····+·····> x
 
 ·····O·····+·····2=====3·····+·····+·····> x
 ```
-We can see that these two segments only have one point in common. Subtracting their endpoints from each other gives:
+These two segments only have one point in common. Subtracting their endpoints from each other gives:
 ```
 1 - 2 = -1
 1 - 3 = -2
