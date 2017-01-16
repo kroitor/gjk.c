@@ -49,7 +49,7 @@ At the very top level the goal of GJK algorithm is to tell if two arbitrary shap
 
 In order to understand GJK one has to build an imaginary visualization of what is going on under the hood. Once you see the picture in your head, you can implement it and even tweak it for your needs. 
 
-Let's start with a naive example of computing a shape difference in one dimension. A segment of a number line is one of the simplest 1D-shapes. Imagine we have two segments on the number line: segment `[1,3]` and segment `[2,4]`:
+Let's start with a naive example of computing a shape difference in one dimension. A segment of a number line is one example of a 1D-shape. Imagine we have two segments on the number line: segment `[1,3]` and segment `[2,4]`:
 ```
 ·····O·····1=====2=====3·····+·····+·····+·····> x
 
@@ -114,7 +114,7 @@ The resulting segment `[-30,15]` would look like this:
 ```
 ·····+···-30=====+=====+=====O=====+=15··+·····> x
 ```
-We ignored all insignificant internal points and only took the endpoints of original segments into account thus reducing our calculation to four basic arithmetic operations (subtractions). We did that by switching to a simpler representation of a segment (only two endpoints instead of all points contained inside an original segment). This simpler representation of the difference of two shapes is called a 'simplex'. It literally means 'the simplest possible'. A segment is indeed the simplest possible shape which is sufficient to contain points of a number line in order to determine if two original segments occupy some common region of 1D-space. Even if one segment covers the other in its entirety (one segments fully contains the other segment) – you can still detect an intersection of them in space. And it does not matter which one you're subtracting from – the resulting set will still contain the Origin at zero.
+We ignored all insignificant internal points and only took the endpoints of original segments into account thus reducing our calculation to four basic arithmetic operations (subtractions). We did that by switching to a simpler representation of a segment (only two endpoints instead of all points contained inside an original segment). A simpler representation of the difference of two shapes is called a 'simplex'. It literally means 'the simplest possible'. A segment is indeed the simplest possible shape which is sufficient to contain multiple points of a number line in order to determine if two original segments occupy some common region of 1D-space. Even if one segment covers the other segment in its entirety (one segment fully contains the other segment) – you can still detect an intersection of them in space. And it does not matter which one you're subtracting from – the resulting set will still contain the Origin at zero.
 
 GJK also works if two segments don't intersect but just barely touch. For example, we have two segments `[1,2]` and `[2,3]`:
 ```
