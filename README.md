@@ -50,11 +50,10 @@ At the very top level the goal of GJK algorithm is to tell if two arbitrary shap
 In order to understand GJK one has to build an imaginary visualization of what is going on under the hood. Once you see the picture in your head, you can implement it and even tweak it for your needs. 
 
 Let's start with a naive example of computing a shape difference in one dimension. A segment of a number line is one example of a 1D-shape. Imagine we have two segments on the number line: segment `[1,3]` and segment `[2,4]`:
-```
-·····O·····1=====2=====3·····+·····+·····+·····> x
 
-·····O·····+·····2=====3=====4·····+·····+·····> x
-```
+![Segment [1,3] on the number line](https://cloud.githubusercontent.com/assets/1294454/21998716/8f47b72e-dc47-11e6-836e-06d523a84105.jpg "Segment [1,3] on the number line")
+![Segment [2,4] on the number line](https://cloud.githubusercontent.com/assets/1294454/21998717/8f487718-dc47-11e6-88f2-57bf590a0ee4.jpg "Segment [2,4] on the number line")
+
 Zero is our point of reference on the number line, so we call it *the Origin*. Easy enough.
 It is obvious that our segments occupy some common region of our 1D-space, so they must be intersecting or colliding, you can tell that just by looking at the representation of both segments in same 1D-space (on the same line). Let's confirm arithmetically that these segments indeed intersect. We do that by subtracting all points of segment `[2,3]` from all points of segment `[1,3]` to see what we get on a number line.
 ```
@@ -71,17 +70,15 @@ It is obvious that our segments occupy some common region of our 1D-space, so th
 3 - 4 = -1
 ```
 We got a lot of numbers, many of them more than once. The resulting set of points (numbers) is larger than each of the original sets of points of two shapes. Let's plot these resulting points in our 1D-space and look at the shape of resulting segment on the number line:
-```          
-·····+····-3====-2====-1=====O=====1·····+·····+·····> x
-```
+
+![Segment [-3,1] on the number line](https://cloud.githubusercontent.com/assets/1294454/21998715/8f465a96-dc47-11e6-9aa5-e30f59453685.jpg "Segment [-3,1] on the number line")
+
 So after all we got resulting segment `[-3,1]` which covers points `-3`, `-2`, `-1`, `0` and `1`. Because two initial shapes had some points in common the resulting segment contains a zero. This comes from a simple fact, that when you subtract a point (a number) from itself you inevitably end up with a zero. Note, that our initial segments had points 2 and 3 in common. When we subtracted 2 from 2 we got 0. When we subtracted 3 from 3 we also got a zero. This is quite obvious. So, if two shapes have at least one common point, because you subtract it from itself, the resulting set must contain the zero point (the Origin) at least once. This is the key of GJK which says: if the Origin is contained inside the resulting set – the original shapes must have collided or kissed at least. Once you get it, you can then apply it to any number of dimensions.
 
 Now let's take a look at a counter-example, say we have two segments `[-2,-1]` and `[1,3]`:
-```
-·····+····-2====-1·····O·····+·····+·····+·····+·····> x
+![Segment [-2,-1] on the number line](https://cloud.githubusercontent.com/assets/1294454/21998714/8f462616-dc47-11e6-9eec-b13454c7a67a.jpg "Segment [-2,-1] on the number line")
+![Segment [1,3] on the number line](https://cloud.githubusercontent.com/assets/1294454/21998716/8f47b72e-dc47-11e6-836e-06d523a84105.jpg "Segment [1,3] on the number line")
 
-·····+·····+·····+·····O·····1=====2=====3·····+·····> x
-```
 We can visually ensure that segment `[-2,-1]` occupies a different region of number line than that of segment `[1,3]`, so these two shapes do not intersect in our 1D-space, therefore there's no collision. Let's prove that arithmetically by subtracting all points of any of the two segments from all points of the other.
 ```
 1 - (-1) = 1 + 1 = 2
@@ -97,6 +94,8 @@ And we again draw the resulting segment on a number line which is our imaginary 
 ```
 ·····+·····O·····+·····2=====3=====4=====5·····+·····> x
 ```
+![Segment [2,5] on the number line](https://cloud.githubusercontent.com/assets/1294454/21998713/8f45117c-dc47-11e6-8e2a-a759b36a559d.jpg "Segment [2,5] on the number line")
+
 We got another bigger segment `[2,5]` which represents a difference of all the points of the original two segments but this time it does not contain the Origin. That is, the resulting set of points does not include zero, because original segments did not have any points in common so they indeed occupy different regions of our number line and don't intersect.
 
 Now, if our initial shapes were too big (long initial segments) we would have to calculate too many differences from too many pairs of points. But it's actually easy to see, that we only need to calculate the difference between the endpoints of two segments, ignoring all the 'inside' points of both segments.
