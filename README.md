@@ -122,7 +122,7 @@ GJK also works if two segments don't intersect but just barely touch. For exampl
 
 ·····O·····+·····2=====3·····+·····+·····> x
 ```
-We can see that these two segments only have one point in common. Subtracting endpoints gives:
+We can see that these two segments only have one point in common. Subtracting their endpoints from each other gives:
 ```
 1 - 2 = -1
 1 - 3 = -2
