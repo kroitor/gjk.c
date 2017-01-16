@@ -69,11 +69,11 @@ It is obvious that our segments occupy some common region of our 1D-space, so th
 3 - 3 =  0
 3 - 4 = -1
 ```
-We got a lot of numbers, many of them more than once. The resulting set of points (numbers) is larger than each of the original sets of points of two shapes. Let's plot these resulting points in our 1D-space and look at the shape of resulting segment on the number line:
+We got a lot of numbers, many of them more than once. The resulting set of points (numbers) is larger than each of the initial sets of points of two shapes. Let's plot these resulting points in our 1D-space and look at the shape of resulting segment on the number line:
 
 ![Segment [-3,1] on the number line](https://cloud.githubusercontent.com/assets/1294454/21998715/8f465a96-dc47-11e6-9aa5-e30f59453685.jpg "Segment [-3,1] on the number line")
 
-So after all we got resulting segment `[-3,1]` which covers points `-3`, `-2`, `-1`, `0` and `1`. Because two initial shapes had some points in common the resulting segment contains a zero. This comes from a simple fact, that when you subtract a point (which is a number) from itself you inevitably end up with a zero. Note, that our initial segments had points 2 and 3 in common. When we subtracted 2 from 2 we got 0. When we subtracted 3 from 3 we also got a zero. This is quite obvious. So, if two shapes have at least one common point, because you subtract that point from itself, the resulting set must contain zero (the Origin) at least once. This is the key of GJK which says: if the Origin is contained inside the resulting set – the original shapes must have collided or kissed at least. Once you get it, you can then apply it to any number of dimensions.
+So after all we got resulting segment `[-3,1]` which covers points `-3`, `-2`, `-1`, `0` and `1`. Because two initial shapes had some points in common the resulting segment contains a zero. This comes from a simple fact, that when you subtract a point (which is a number) from itself you inevitably end up with a zero. Note, that our initial segments had points 2 and 3 in common. When we subtracted 2 from 2 we got 0. When we subtracted 3 from 3 we also got a zero. This is quite obvious. So, if two shapes have at least one common point, because you subtract that point from itself, the resulting set must contain zero (the Origin) at least once. This is the key of GJK which says: if the Origin is contained inside the resulting set – the initial shapes must have collided or kissed at least. Once you get it, you can then apply it to any number of dimensions.
 
 Now let's take a look at a counter-example, say we have two segments `[-2,-1]` and `[1,3]`:
 ![Segment [-2,-1] on the number line](https://cloud.githubusercontent.com/assets/1294454/21998714/8f462616-dc47-11e6-9eec-b13454c7a67a.jpg "Segment [-2,-1] on the number line")
@@ -94,7 +94,7 @@ And we again draw the resulting segment on a number line which is our imaginary 
 
 ![Segment [2,5] on the number line](https://cloud.githubusercontent.com/assets/1294454/21998713/8f45117c-dc47-11e6-8e2a-a759b36a559d.jpg "Segment [2,5] on the number line")
 
-We got another bigger segment `[2,5]` which represents a difference of all the points of the original two segments but this time it does not contain the Origin. That is, the resulting set of points does not include zero, because original segments did not have any points in common so they indeed occupy different regions of our number line and don't intersect.
+We got another bigger segment `[2,5]` which represents a difference of all the points of two initial segments but this time it does not contain the Origin. That is, the resulting set of points does not include zero, because initial segments did not have any points in common so they indeed occupy different regions of our number line and don't intersect.
 
 Now, if our initial shapes were too big (long initial segments) we would have to calculate too many differences from too many pairs of points. But it's actually easy to see, that we only need to calculate the difference between the endpoints of two segments, ignoring all the 'inside' points of both segments.
 
@@ -115,7 +115,7 @@ The resulting segment `[-30,15]` would look like this:
 
 ![Segment [-30,15] on the number line](https://cloud.githubusercontent.com/assets/1294454/21999267/39333c70-dc4a-11e6-91ec-12a08ebb6f34.jpg "Segment [-30,15] on the number line")
 
-We ignored all insignificant internal points and only took the endpoints of original segments into account thus reducing our calculation to four basic arithmetic operations (subtractions). We did that by switching to a simpler representation of a segment (only two endpoints instead of all points contained inside an original segment). A simpler representation of the difference of two shapes is called a *simplex*. It literally means 'the simplest possible'. A segment is indeed the simplest possible shape which is sufficient to contain multiple points of a number line. Even if one segment covers the other segment in its entirety (a segment fully contains another segment) – you can still detect an intersection of them in space. And it does not matter which one you're subtracting from, the resulting set will still contain the Origin at zero.
+We ignored all insignificant internal points and only took the endpoints of initial segments into account thus reducing our calculation to four basic arithmetic operations (subtractions). We did that by switching to a simpler representation of a segment (only two endpoints instead of all points contained inside an initial segment). A simpler representation of the difference of two shapes is called a *simplex*. It literally means 'the simplest possible'. A segment is indeed the simplest possible shape which is sufficient to contain multiple points of a number line. Even if one segment covers the other segment in its entirety (a segment fully contains another segment) – you can still detect an intersection of them in space. And it does not matter which one you're subtracting from, the resulting set will still contain the Origin at zero.
 
 GJK also works if two segments don't intersect but just barely touch. Say, we have two segments `[1,2]` and `[2,3]`:
 
@@ -134,7 +134,7 @@ And the resulting difference looks like:
 
 ![Segment [-2,0] on the number line](https://cloud.githubusercontent.com/assets/1294454/21999595/fbe9927c-dc4b-11e6-8521-816589df8552.jpg "Segment [-2,0] on the number line")
 
-Notice, that in case of only one common point the Origin is not inside resulting segment, but is actually one of its endpoints (the rightmost in this example). When your resulting segment has the Origin at one of its endpoints that means that your original shapes don't intersect, but merely touch at a single point (two segments have only one common point of intersection).
+Notice, that in case of only one common point the Origin is not inside resulting segment, but is actually one of its endpoints (the rightmost in this example). When your resulting segment has the Origin at one of its endpoints that means that your initial shapes don't intersect, but merely touch at a single point (two segments have only one common point of intersection).
 
 What GJK really says is: if you're able to build a simplex that contains (includes) the Origin then your shapes have at least one or more points of intersection (occupy same points in space).
 
@@ -226,12 +226,12 @@ After plotting all of 12 resulting points in our 2D-space and connecting the *ou
                              ·
 ```
 
-GJK says that if we're able to enclose the Origin within the resulting shape, then two original shapes must have collided.
-We immediately see, that this shape actually contains the Origin. Therefore we can visually confirm that our original rectangle `ABCD` indeed intersects our original triangle `EFG`.
+GJK says that if we're able to enclose the Origin within the resulting shape, then two initial shapes must have collided.
+We immediately see, that this shape actually contains the Origin. Therefore we can visually confirm that our initial rectangle `ABCD` indeed intersects our initial triangle `EFG`.
 
 Now, remember, in 1D to determine whether the resulting segment contains the Origin we check if a primitive inequality `leftEndpoint < Origin < rightEndpoint` holds. So we could think of it as if the segment *surrounds* the Origin from all sides of 1D space (from both left and right, as there are only 2 relative sides in one dimension on our sketch). In 1D for an object to be able to surround any point (the Origin is the zero point on a number line), that object must itself consist of at least two of its own points (in other words, it must be a segment defined by its two points on a number line). Therefore the 1D-version is trying to build a simplex of two endpoints (a segment on a number line). And then it checks whether the Origin is contained within the resulting segment.
 
-To determine if the Origin is enclosed by the resulting difference shape in 2D the algorithm tries to build a 2D-version of a simplex, that is the simplest possible 2D-shape or figure in two-dimensional space which can contain points inside itself. The simplest possible definition of any area on a plane is, ofcourse, a triangle, a minimal set of three points, which can be combined into a shape in our planar space. So while calculating the difference the GJK algorithm actually builds various triangles from three of all difference points of two original shapes and then checks whether that triangular-simplex-shape actually contains the Origin or not. If not, it tries again, until it finally manages to enclose the Origin with any three points of the resulting difference set. If it is not able to build such a triangle from any three points of the difference set even after checking all combinations of points, then there was no collision of rectangle `ABCD` with triangle `EFG`.
+To determine if the Origin is enclosed by the resulting difference shape in 2D the algorithm tries to build a 2D-version of a simplex, that is the simplest possible 2D-shape or figure in two-dimensional space which can contain points inside itself. The simplest possible definition of any area on a plane is, ofcourse, a triangle, a minimal set of three points, which can be combined into a shape in our planar space. So while calculating the difference the GJK algorithm actually builds various triangles from three of all difference points of two initial shapes and then checks whether that triangular-simplex-shape actually contains the Origin or not. If not, it tries again, until it finally manages to enclose the Origin with any three points of the resulting difference set. If it is not able to build such a triangle from any three points of the difference set even after checking all combinations of points, then there was no collision of rectangle `ABCD` with triangle `EFG`.
 
 ... to be continued soon )
 
