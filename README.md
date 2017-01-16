@@ -139,34 +139,9 @@ Notice, that in case of only one common point the Origin is not inside resulting
 What GJK really says is: if you're able to build a simplex that contains (includes) the Origin then your shapes have at least one or more points of intersection (occupy same points in space).
 
 Now let's take a look at the picture in 2D. Our 2D-space is now an xy-plane (which is represented by two orthogonal number lines instead of a single number line). Every point in our 2D-space now has two xy-coordinates instead of one number, that is, each point is now a 2D-vector. Suppose we have two basic 2D-shapes – a rectangle `ABCD` intersecting a triangle `EFG` on a plane.
-```
-                 y
 
-                 ^
-                 ·
-                 ·
-                 +           E-----------F
-                 ·            \         / 
-                 ·             \       /  
-                 +     A--------\-----/--------B
-                 ·     |         \   /         |
-                 ·     |          \ /          |
-                 +     |           G           |
-                 ·     |                       |
-                 ·     |                       |
-                 +     D-----------------------C
-                 ·
-                 ·
-·····+·····+·····O·····+·····+·····+·····+·····+·····> x
-                 ·
-                 ·
-                 +
-                 ·
-                 ·
-                 +
-                 ·
-                 ·
-```
+![Rectangle ABCD and triangle EFG on 2D xy-plane](https://cloud.githubusercontent.com/assets/1294454/22000794/450f715a-dc52-11e6-910f-4b548ab97c2d.jpg "Rectangle ABCD and triangle EFG on 2D xy-plane")
+
 These shapes are represented by the following sets of points (2D-vectors, which are pairs of xy-coordinates):
 ```
 A (1, 3)
@@ -197,34 +172,8 @@ D - F = (1 - 4, 1 - 4) = (-3, -3)
 D - G = (1 - 3, 1 - 2) = (-2, -1)
 ```
 After plotting all of 12 resulting points in our 2D-space and connecting the *outermost* points with lines, we get the following difference shape:
-```
-                             y
-            
-                             ^
-                             ·
-                             ·
-                             +     
-                             ·     
-                             ·     
-                 *-----------------------*-----------*
-                |            ·                       /
-               /             ·                       |
-·····+·····+···|·+·····+·····O·····+·····+·····+····/+·····+·····> x
-              /              ·                      |
-              |              ·                     /
-             /   *     *     +     *     *     *   |
-             |               ·                    /
-            /                ·                    |
-            |                +                   /
-           /                 ·                   |
-           |                 ·                  /
-           *-----------*-----------*-----------*
-                             ·
-                             ·
-                             +
-                             ·
-                             ·
-```
+
+![Rectangle ABCD minus triangle EFG on 2D xy-plane](https://cloud.githubusercontent.com/assets/1294454/22000793/450e7e80-dc52-11e6-972c-4843338c3fad.jpg "Rectangle ABCD minus triangle EFG on 2D xy-plane")
 
 GJK says that if we're able to enclose the Origin within the resulting shape, then two initial shapes must have collided.
 We immediately see, that this shape actually contains the Origin. Therefore we can visually confirm that our initial rectangle `ABCD` indeed intersects our initial triangle `EFG`.
