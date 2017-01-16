@@ -49,7 +49,7 @@ At the very top level the goal of GJK algorithm is to tell if two arbitrary shap
 
 In order to understand GJK one has to build an imaginary visualization of what is going on under the hood. Once you see the picture in your head, you can implement it and even tweak it for your needs. 
 
-Let's start with an naive example of computing a shape difference in one dimension. A segment of a number line is the simplest 1D-shape. Imagine we have two segments on the number line: segment `[1,3]` and segment `[2,4]`:
+Let's start with a naive example of computing a shape difference in one dimension. A segment of a number line is the simplest 1D-shape. Imagine we have two segments on the number line: segment `[1,3]` and segment `[2,4]`:
 ```
 ·····O·····1=====2=====3·····+·····+·····+·····> x
 
