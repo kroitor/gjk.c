@@ -51,7 +51,7 @@ In order to understand GJK one has to build an imaginary visualization of what i
 
 ### A 1D intro
 
-Let's start with a naive example of computing a shape difference in one dimension. A segment of a number line is one example of a 1D-shape. Imagine we have two segments on the number line: segment `[1,3]` and segment `[2,4]`:
+Let's start with a naive example of computing a shape difference in one dimension. A segment of a number line is an example of a 1D-shape. Imagine we have two segments on the number line: segment `[1,3]` and segment `[2,4]`:
 
 ![Segment [1,3] on the number line](https://cloud.githubusercontent.com/assets/1294454/21998716/8f47b72e-dc47-11e6-836e-06d523a84105.jpg "Segment [1,3] on the number line")
 ![Segment [2,4] on the number line](https://cloud.githubusercontent.com/assets/1294454/21998717/8f487718-dc47-11e6-88f2-57bf590a0ee4.jpg "Segment [2,4] on the number line")
