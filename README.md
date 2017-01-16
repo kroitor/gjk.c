@@ -56,7 +56,7 @@ Let's start with a naive example of computing a shape difference in one dimensio
 ·····O·····+·····2=====3=====4·····+·····+·····> x
 ```
 Zero is our point of reference on the number line, so we call it *the Origin*. Easy enough.
-It is obvious that our segments occupy some common region of our 1D-space, so they must be intersecting or colliding, you can tell that just by looking at the representation of both segments in same 1D-space (on the same line). Let's confirm arithmetically that these segments indeed intersect by subtracting all points of segment `[2,3]` from all points of segment `[1,3]` to see what we get on a number line.
+It is obvious that our segments occupy some common region of our 1D-space, so they must be intersecting or colliding, you can tell that just by looking at the representation of both segments in same 1D-space (on the same line). Let's confirm arithmetically that these segments indeed intersect. We do that by subtracting all points of segment `[2,3]` from all points of segment `[1,3]` to see what we get on a number line.
 ```
 1 - 2 = -1
 1 - 3 = -2
