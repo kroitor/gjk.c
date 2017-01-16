@@ -43,6 +43,160 @@ int main(int argc, const char * argv[]) {
     return 0;
 }
 ```
+## GJK Explanation
+
+At the very top level the goal of GJK algorithm is to tell if two arbitrary shapes are intersecting (colliding) in space or not right now. The space can be of any nature. It might be your in-game world simulation, or a calculation on a table of statistical data or any other application you can imagine. You can have as many dimensions as you want, the amount of dimensions does not really matter, the logic is the same for 1D, 2D, 3D, etc... The algorithm itself does not require any hard math whatsoever, it's actually very intuitive and easy. It takes an arithmetic difference of two shapes by subtracting all points of one shape from all points of another shape. If two shapes have a common point in them, subtracting that point from itself results in a difference of zero. So, if zero is found in the resulting difference of two shapes then there's a collision. In fact, the algorithm does not have to calculate all differences for every single pair of points - only a small subset of significant points is examined, therefore it works very fast while being very accurate.
+
+In order to understand GJK one has to build an imaginary visualization of what is going on under the hood. Once you see the picture in your head, you can implement it and even tweak it for your needs. 
+
+Let's start with an naive example of computing a shape difference in one dimension. A segment of a number line is the simplest 1D-shape. Imagine we have two segments on the number line: segment `[1,3]` and segment `[2,4]`:
+```
+·····O·····1=====2=====3·····+·····+·····+·····> x
+
+·····O·····+·····2=====3=====4·····+·····+·····> x
+```
+Zero is our point of reference on the number line, so we call it the Origin. Easy enough.
+It is obvious that our segments occupy some common region of our 1D-space, so they must be intersecting or colliding, you can tell that by just looking at the representation of both segments in same 1D-space (on the same line). Let's confirm arithmetically that these segments indeed intersect by subtracting all points of segment `[2,3]` from all points of segment `[1,3]` to see what we get on a number line.
+```
+1 - 2 = -1
+1 - 3 = -2
+1 - 4 = -3
+2 - 2 =  0
+2 - 3 = -1
+2 - 4 = -2
+3 - 2 =  1
+3 - 3 =  0
+3 - 4 = -1
+```
+We got a lot of points, many of them more than once. The resulting set of points is larger than each of the original sets of points of two shapes. Let's plot all resulting points in our 1D-space and look at the shape of resulting segment on the number line:
+```          
+·····+····-3====-2====-1=====O=====1·····+·····+·····> x
+```
+So after all we got resulting segment `[-3,1]` which covers points -3, -2, -1, 0 and 1. Because two initial shapes had some points in common the resulting segment contains a zero. This comes from a simple fact, that when you subtract a point (a number) from itself you inevitably end up with a zero. Note, that our initial segments had points 2 and 3 in common. When we subtracted 2 from 2 we got 0. This is quite obvious. So, if two shapes have at least one common point, because you subtract it from itself, the resulting set must contain the zero point (the Origin) at least once. This is the key of GJK which says: if the Origin is contained inside the resulting set – the original shapes must have collided or kissed at least. Once you get it, you can then apply it to any number of dimensions.
+
+Now let's take a look at a counter-example, say we have two segments `[-2,-1]` and `[1,3]`:
+```
+·····+····-2====-1·····O·····+·····+·····+·····+·····> x
+
+·····+·····+·····+·····O·····1=====2=====3·····+·····> x
+```
+We can visually ensure that segment `[-2,-1]` occupies a different region of number line than that of segment `[1,3]`, so these two shapes do not intersect in our 1D-space, therefore there's no collision. Let's prove that arithmetically by subtracting all points of any of the two segments from all points of the other.
+```
+1 - (-1) = 1 + 1 = 2
+1 - (-2) = 1 + 2 = 3
+2 - (-1) = 2 + 1 = 3
+2 - (-2) = 2 + 2 = 4
+3 - (-1) = 3 + 1 = 4
+3 - (-2) = 3 + 2 = 5 
+```
+And we again draw the resulting segment on a number line which is our imaginary 1D-space:
+```
+·····+·····O·····+·····2=====3=====4=====5·····+·····> x
+```
+We got another bigger segment which represents a differences of all the points of the original two segments but this time it does not contain the Origin. That is, the resulting set of points does not include zero, because original segments did not have any points in common so they indeed occupy different regions of our number line and don't intersect.
+
+Now, if our initial shapes were to big (long initial segments) we would have to calculate to many differences from too pairs of points. But it's actually easy to see, that we only need to calculate the difference between the endpoints of two segments, ignoring all the 'inside' points of both.
+
+Consider two segments `[10,20]` and `[5,40]`:
+```
+·····O····10====20·····+·····+·····+·····+·····> x
+
+·····O··5==+=====+=====+====40·····+·····+·····> x
+```
+Now subtract four endpoints from each other:
+```
+10 - 5  =   5
+20 - 5  =  15
+10 - 40 = -30
+20 - 40 = -20
+```
+The resulting segment `[-30,15]` would look like this:
+```
+·····+···-30=====+=====+=====O=====+=15··+·····> x
+```
+We ignored all insignificant internal points and only took the endpoints of original segments into account thus reducing our calculation to four basic arithmetic operations (subtractions). We did that by switching to a simpler representation of a segment (only two endpoints instead of all points contained inside an original segment). This simpler representation of the difference of two shapes is called a 'simplex'. That is indeed enough to tell that two original segments occupy some common region of the number line (which is our 1D space in this example). Even if one segment covers the other in its entirety (one segments fully contains the other segment) – you can still detect an intersection between them in space. And it does not matter which one you're subtracting from – the resulting set will still contain the Origin at zero.
+
+GJK also works if two segments don't intersect but just barely touch. For example, we have two segments `[1,2]` and `[2,3]`:
+```
+·····O·····1=====2·····+·····+·····+·····> x
+
+·····O·····+·····2=====3·····+·····+·····> x
+```
+We can see that these two segments only have one point in common. Subtracting endpoints gives:
+```
+1 - 2 = -1
+1 - 3 = -2
+2 - 2 =  0
+2 - 3 = -1
+```
+And the resulting difference looks like:
+```
+·····+····-2====-1=====O·····+·····+·····+·····> x
+```
+Notice, that in case of only one point in common the Origin is not in the middle of the resulting simplex, but is actually one of its endpoints. When your resulting segment has the Origin at one of its endpoints that means that your original shapes don't intersect, but merely touch at a single point (two segments have only one common point of intersection).
+
+What GJK really says is: if you're able to build a simplex that contains (includes) the Origin then your shapes have at least one or more points of intersection (occupy same points in space).
+
+Now let's take a look at the picture in 2D. Our 2D-space is now an xy-plane (which is represented by two orthogonal number lines instead of a single number line). Every point in our 2D-space now has two xy-coordinates instead of one number, that is, each point is now a 2D-vector. Suppose we have two basic 2D-shapes – a rectangle ABCD intersecting a triangle EFG on a plane.
+```
+                 y
+
+                 ^
+                 ·
+                 ·
+                 +           E-----------F
+                 ·            \         / 
+                 ·             \       /  
+                 +     A--------\-----/--------B
+                 ·     |         \   /         |
+                 ·     |          \ /          |
+                 +     |           G           |
+                 ·     |                       |
+                 ·     |                       |
+                 +     D-----------------------C
+                 ·
+                 ·
+·····+·····+·····O·····+·····+·····+·····+·····+·····> x
+                 ·
+                 ·
+                 +
+                 ·
+                 ·
+                 +
+                 ·
+                 ·
+```
+These shapes are represented by the following sets of points (2D-vectors, which are pairs of xy-coordinates):
+```
+A (1, 3)
+B (5, 3)
+C (5, 1)
+D (1, 1)
+
+E (2, 4)
+F (4, 4)
+G (3, 2)
+```
+Now, because we have much more numbers here, the arithmetic becomes a little more involved, but its still very easy – we literally subtract all points of one shape from all points of another shape one by one.
+```
+A - E = (1 - 2, 3 - 4) = (-1, -1)
+A - F = (1 - 4, 3 - 4) = (-2, -1)
+A - G = (1 - 3, 3 - 2) = (-2,  1)
+
+B - E = (5 - 2, 3 - 4) = ( 3, -1)
+B - F = (5 - 4, 3 - 4) = ( 1, -1)
+B - G = (5 - 3, 3 - 2) = ( 2,  1)
+
+C - E = (5 - 2, 1 - 4) = ( 3, -3)
+C - F = (5 - 4, 1 - 4) = ( 1, -3)
+C - G = (5 - 3, 1 - 2) = ( 2, -1)
+
+D - E = (1 - 2, 1 - 4) = (-1, -3)
+D - F = (1 - 4, 1 - 4) = (-3, -3)
+D - G = (1 - 3, 1 - 2) = (-2, -1)
+```
+... to be continued soon )
+
 ## References (must see)
 Most of the info (along with reference implementation) was taken from dyn4j. It has a very thorough explanation of GJK and it is definitely a must visit for those who need to understand the intricacies of the algorithm.
 
