@@ -79,7 +79,7 @@ Now let's take a look at a counter-example, say we have two segments `[-2,-1]` a
 ![Segment [-2,-1] on the number line](https://cloud.githubusercontent.com/assets/1294454/21998714/8f462616-dc47-11e6-9eec-b13454c7a67a.jpg "Segment [-2,-1] on the number line")
 ![Segment [1,3] on the number line](https://cloud.githubusercontent.com/assets/1294454/21998716/8f47b72e-dc47-11e6-836e-06d523a84105.jpg "Segment [1,3] on the number line")
 
-We can visually ensure that segment `[-2,-1]` occupies a different region of number line than that of segment `[1,3]`, so these two shapes do not intersect in our 1D-space, therefore there's no collision. Let's prove that arithmetically by subtracting all points of any of the two segments from all points of the other.
+We can visually ensure that segment `[-2,-1]` occupies a different region of number line than that of segment `[1,3]`. There's a gap of 2 units between our initial shapes, so these two shapes do not intersect in our 1D-space, therefore there's no collision. Let's prove that arithmetically by subtracting all points of any of the two segments from all points of the other.
 ```
 1 - (-1) = 1 + 1 = 2
 1 - (-2) = 1 + 2 = 3
