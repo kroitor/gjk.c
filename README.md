@@ -49,6 +49,8 @@ At the very top level the goal of GJK algorithm is to tell if two arbitrary shap
 
 In order to understand GJK one has to build an imaginary visualization of what is going on under the hood. Once you see the picture in your head, you can implement it and even tweak it for your needs. 
 
+### A 1D intro
+
 Let's start with a naive example of computing a shape difference in one dimension. A segment of a number line is one example of a 1D-shape. Imagine we have two segments on the number line: segment `[1,3]` and segment `[2,4]`:
 
 ![Segment [1,3] on the number line](https://cloud.githubusercontent.com/assets/1294454/21998716/8f47b72e-dc47-11e6-836e-06d523a84105.jpg "Segment [1,3] on the number line")
@@ -138,6 +140,8 @@ Notice, that in case of only one common point the Origin is not inside resulting
 
 What GJK really says is: if you're able to build a simplex that contains (includes) the Origin then your shapes have at least one or more points of intersection (occupy same points in space).
 
+### Moving on to 2D
+
 Now let's take a look at the picture in 2D. Our 2D-space is now an xy-plane (which is represented by two orthogonal number lines instead of a single number line). Every point in our 2D-space now has two xy-coordinates instead of one number, that is, each point is now a 2D-vector. Suppose we have two basic 2D-shapes – a rectangle `ABCD` intersecting a triangle `EFG` on a plane.
 
 ![Rectangle ABCD and triangle EFG on 2D xy-plane](https://cloud.githubusercontent.com/assets/1294454/22000794/450f715a-dc52-11e6-910f-4b548ab97c2d.jpg "Rectangle ABCD and triangle EFG on 2D xy-plane")
@@ -181,6 +185,10 @@ We immediately see, that this shape actually contains the Origin. Therefore we c
 Now, remember, in 1D to determine whether the resulting segment contains the Origin we check if a primitive inequality `leftEndpoint < Origin < rightEndpoint` holds. So we could think of it as if the segment *surrounds* the Origin from all sides of 1D space (from both left and right, as there are only 2 relative sides in one dimension on our sketch). In 1D for an object to be able to surround any point (the Origin is the zero point on a number line), that object must itself consist of at least two of its own points (in other words, it must be a segment defined by its two points on a number line). Therefore the 1D-version is trying to build a simplex of two endpoints (a segment on a number line). And then it checks whether the Origin is contained within the resulting segment.
 
 To determine if the Origin is enclosed by the resulting difference shape in 2D the algorithm tries to build a 2D-version of a simplex, that is the simplest possible 2D-shape or figure in two-dimensional space which can contain points inside itself. The simplest possible definition of any area on a plane is, ofcourse, a triangle, a minimal set of three points, which can be combined into a shape in our planar space. So while calculating the difference the GJK algorithm actually builds various triangles from three of all difference points of two initial shapes and then checks whether that triangular-simplex-shape actually contains the Origin or not. If not, it tries again, until it finally manages to enclose the Origin with any three points of the resulting difference set. If it is not able to build such a triangle from any three points of the difference set even after checking all combinations of points, then there was no collision of rectangle `ABCD` with triangle `EFG`.
+
+...
+
+### Adding 3rd dimension
 
 ... to be continued soon )
 
