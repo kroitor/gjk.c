@@ -61,9 +61,11 @@ It is obvious that our segments occupy some common region of our 1D-space, so th
 1 - 2 = -1
 1 - 3 = -2
 1 - 4 = -3
+
 2 - 2 =  0
 2 - 3 = -1
 2 - 4 = -2
+
 3 - 2 =  1
 3 - 3 =  0
 3 - 4 = -1
@@ -84,8 +86,10 @@ We can visually ensure that segment `[-2,-1]` occupies a different region of num
 ```
 1 - (-1) = 1 + 1 = 2
 1 - (-2) = 1 + 2 = 3
+
 2 - (-1) = 2 + 1 = 3
 2 - (-2) = 2 + 2 = 4
+
 3 - (-1) = 3 + 1 = 4
 3 - (-2) = 3 + 2 = 5 
 ```
@@ -106,8 +110,9 @@ Consider two segments `[10,20]` and `[5,40]`:
 Now subtract four endpoints from each other:
 ```
 10 - 5  =   5
-20 - 5  =  15
 10 - 40 = -30
+
+20 - 5  =  15
 20 - 40 = -20
 ```
 The resulting segment `[-30,15]` would look like this:
@@ -126,6 +131,7 @@ We can see that these two segments only have one point in common. Subtracting th
 ```
 1 - 2 = -1
 1 - 3 = -2
+
 2 - 2 =  0
 2 - 3 = -1
 ```
