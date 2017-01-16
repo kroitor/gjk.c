@@ -105,7 +105,7 @@ Consider two segments `[10,20]` and `[5,40]`:
 ![Segment [10,20] on the number line](https://cloud.githubusercontent.com/assets/1294454/21999180/deb68374-dc49-11e6-9ef4-ea631b35178c.jpg "Segment [10,20] on the number line")
 ![Segment [5,40] on the number line](https://cloud.githubusercontent.com/assets/1294454/21999179/de9cceac-dc49-11e6-8ddf-656ec1829c43.jpg "Segment [5,40] on the number line")
 
-Now subtract four endpoints from each other:
+Now subtract their four endpoints from each other:
 ```
 10 - 5  =   5
 10 - 40 = -30
