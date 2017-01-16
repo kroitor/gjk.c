@@ -95,7 +95,7 @@ And we again draw the resulting segment on a number line which is our imaginary 
 ```
 We got another bigger segment `[2,5]` which represents a difference of all the points of the original two segments but this time it does not contain the Origin. That is, the resulting set of points does not include zero, because original segments did not have any points in common so they indeed occupy different regions of our number line and don't intersect.
 
-Now, if our initial shapes were to big (long initial segments) we would have to calculate to many differences from too many pairs of points. But it's actually easy to see, that we only need to calculate the difference between the endpoints of two segments, ignoring all the 'inside' points of both.
+Now, if our initial shapes were to big (long initial segments) we would have to calculate too many differences from too many pairs of points. But it's actually easy to see, that we only need to calculate the difference between the endpoints of two segments, ignoring all the 'inside' points of both segments.
 
 Consider two segments `[10,20]` and `[5,40]`:
 ```
