@@ -99,11 +99,10 @@ We got another bigger segment `[2,5]` which represents a difference of all the p
 Now, if our initial shapes were too big (long initial segments) we would have to calculate too many differences from too many pairs of points. But it's actually easy to see, that we only need to calculate the difference between the endpoints of two segments, ignoring all the 'inside' points of both segments.
 
 Consider two segments `[10,20]` and `[5,40]`:
-```
-·····O····10====20·····+·····+·····+·····+·····> x
 
-·····O··5==+=====+=====+====40·····+·····+·····> x
-```
+![Segment [10,20] on the number line](https://cloud.githubusercontent.com/assets/1294454/21999180/deb68374-dc49-11e6-9ef4-ea631b35178c.jpg "Segment [10,20] on the number line")
+![Segment [5,40] on the number line](https://cloud.githubusercontent.com/assets/1294454/21999179/de9cceac-dc49-11e6-8ddf-656ec1829c43.jpg "Segment [5,40] on the number line")
+
 Now subtract four endpoints from each other:
 ```
 10 - 5  =   5
@@ -113,9 +112,9 @@ Now subtract four endpoints from each other:
 20 - 40 = -20
 ```
 The resulting segment `[-30,15]` would look like this:
-```
-·····+···-30=====+=====+=====O=====+=15··+·····> x
-```
+
+![Segment [-30,15] on the number line](https://cloud.githubusercontent.com/assets/1294454/21999267/39333c70-dc4a-11e6-91ec-12a08ebb6f34.jpg "Segment [-30,15] on the number line")
+
 We ignored all insignificant internal points and only took the endpoints of original segments into account thus reducing our calculation to four basic arithmetic operations (subtractions). We did that by switching to a simpler representation of a segment (only two endpoints instead of all points contained inside an original segment). A simpler representation of the difference of two shapes is called a 'simplex'. It literally means 'the simplest possible'. A segment is indeed the simplest possible shape which is sufficient to contain multiple points of a number line. Even if one segment covers the other segment in its entirety (one segment fully contains the other segment) – you can still detect an intersection of them in space. And it does not matter which one you're subtracting from, the resulting set will still contain the Origin at zero.
 
 GJK also works if two segments don't intersect but just barely touch. Say, we have two segments `[1,2]` and `[2,3]`:
