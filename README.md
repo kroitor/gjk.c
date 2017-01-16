@@ -72,7 +72,7 @@ We got a lot of numbers, many of them more than once. The resulting set of point
 ```          
 ·····+····-3====-2====-1=====O=====1·····+·····+·····> x
 ```
-So after all we got resulting segment `[-3,1]` which covers points -3, -2, -1, 0 and 1. Because two initial shapes had some points in common the resulting segment contains a zero. This comes from a simple fact, that when you subtract a point (a number) from itself you inevitably end up with a zero. Note, that our initial segments had points 2 and 3 in common. When we subtracted 2 from 2 we got 0. When we subtracted 3 from 3 we also got a zero. This is quite obvious. So, if two shapes have at least one common point, because you subtract it from itself, the resulting set must contain the zero point (the Origin) at least once. This is the key of GJK which says: if the Origin is contained inside the resulting set – the original shapes must have collided or kissed at least. Once you get it, you can then apply it to any number of dimensions.
+So after all we got resulting segment `[-3,1]` which covers points `-3`, `-2`, `-1`, `0` and `1`. Because two initial shapes had some points in common the resulting segment contains a zero. This comes from a simple fact, that when you subtract a point (a number) from itself you inevitably end up with a zero. Note, that our initial segments had points 2 and 3 in common. When we subtracted 2 from 2 we got 0. When we subtracted 3 from 3 we also got a zero. This is quite obvious. So, if two shapes have at least one common point, because you subtract it from itself, the resulting set must contain the zero point (the Origin) at least once. This is the key of GJK which says: if the Origin is contained inside the resulting set – the original shapes must have collided or kissed at least. Once you get it, you can then apply it to any number of dimensions.
 
 Now let's take a look at a counter-example, say we have two segments `[-2,-1]` and `[1,3]`:
 ```
@@ -114,7 +114,7 @@ The resulting segment `[-30,15]` would look like this:
 ```
 ·····+···-30=====+=====+=====O=====+=15··+·····> x
 ```
-We ignored all insignificant internal points and only took the endpoints of original segments into account thus reducing our calculation to four basic arithmetic operations (subtractions). We did that by switching to a simpler representation of a segment (only two endpoints instead of all points contained inside an original segment). This simpler representation of the difference of two shapes is called a *simplex*. That is indeed enough to tell that two original segments occupy some common region of the number line (which is our 1D space in this example). Even if one segment covers the other in its entirety (one segment fully contains the other segment) – you can still detect an intersection between them in space. And it does not matter which one you're subtracting from – the resulting set will still contain the Origin at zero.
+We ignored all insignificant internal points and only took the endpoints of original segments into account thus reducing our calculation to four basic arithmetic operations (subtractions). We did that by switching to a simpler representation of a segment (only two endpoints instead of all points contained inside an original segment). This simpler representation of the difference of two shapes is called a 'simplex'. It literally means 'the simplest possible'. A segment is indeed the simplest possible shape which is sufficient to contain points of a number line in order to determine if two original segments occupy some common region of 1D-space. Even if one segment covers the other in its entirety (one segments fully contains the other segment) – you can still detect an intersection of them in space. And it does not matter which one you're subtracting from – the resulting set will still contain the Origin at zero.
 
 GJK also works if two segments don't intersect but just barely touch. For example, we have two segments `[1,2]` and `[2,3]`:
 ```
@@ -137,7 +137,7 @@ Notice, that in case of only one point in common the Origin is not in the middle
 
 What GJK really says is: if you're able to build a simplex that contains (includes) the Origin then your shapes have at least one or more points of intersection (occupy same points in space).
 
-Now let's take a look at the picture in 2D. Our 2D-space is now an xy-plane (which is represented by two orthogonal number lines instead of a single number line). Every point in our 2D-space now has two xy-coordinates instead of one number, that is, each point is now a 2D-vector. Suppose we have two basic 2D-shapes – a rectangle ABCD intersecting a triangle EFG on a plane.
+Now let's take a look at the picture in 2D. Our 2D-space is now an xy-plane (which is represented by two orthogonal number lines instead of a single number line). Every point in our 2D-space now has two xy-coordinates instead of one number, that is, each point is now a 2D-vector. Suppose we have two basic 2D-shapes – a rectangle `ABCD` intersecting a triangle `EFG` on a plane.
 ```
                  y
 
@@ -195,7 +195,7 @@ D - E = (1 - 2, 1 - 4) = (-1, -3)
 D - F = (1 - 4, 1 - 4) = (-3, -3)
 D - G = (1 - 3, 1 - 2) = (-2, -1)
 ```
-After plotting all of 12 resulting points in our 2D-space, we get the following difference shape:
+After plotting all of 12 resulting points in our 2D-space and connecting the *outermost* points with lines, we get the following difference shape:
 ```
                              y
             
@@ -205,25 +205,32 @@ After plotting all of 12 resulting points in our 2D-space, we get the following 
                              +     
                              ·     
                              ·     
-                 +-----------------------+-----------+
+                 *-----------------------*-----------*
                 |            ·                       /
                /             ·                       |
 ·····+·····+···|·+·····+·····O·····+·····+·····+····/+·····+·····> x
               /              ·                      |
               |              ·                     /
-             /   +     +     +     +     +     +   |
+             /   *     *     +     *     *     *   |
              |               ·                    /
             /                ·                    |
             |                +                   /
            /                 ·                   |
            |                 ·                  /
-           +-----------+-----------+-----------+
+           *-----------*-----------*-----------*
                              ·
                              ·
                              +
                              ·
                              ·
 ```
+
+GJK says that if we're able to enclose the Origin within the resulting shape, then two original shapes must have collided.
+We immediately see, that this shape actually contains the Origin. Therefore we can visually confirm that our original rectangle `ABCD` indeed intersects our original triangle `EFG`.
+
+Now, remember, in 1D to determine whether the resulting segment contains the Origin we check if a primitive inequality `leftEndpoint < Origin < rightEndpoint` holds. So we could think of it, as if the segment "surrounds" the Origin from all sides of 1D space (from both left and right, as there are only 2 relative sides in one dimension on our sketch). In 1D for an object to be able to surround any point (the Origin is the zero point on a number line), that object must itself consist of at least two of its own points (in other words, it must be a segment defined by its two points on a number line). Therefore the 1D-version is trying to build a simplex of two endpoints (a segment on a number line). And then it checks whether the Origin is contained within the resulting segment.
+
+To determine if the Origin is enclosed by the resulting difference shape in 2D the algorithm tries to build a 2D-version of a simplex, that is the simplest possible 2D-shape or figure in two-dimensional space which can contain points inside itself. The simplest possible definition of any area on a plane is, ofcourse, a triangle, a minimal set of three points, which can be combined into a shape in our planar space.
 
 ... to be continued soon )
 
