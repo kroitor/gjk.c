@@ -91,9 +91,7 @@ We can visually ensure that segment `[-2,-1]` occupies a different region of num
 3 - (-2) = 3 + 2 = 5 
 ```
 And we again draw the resulting segment on a number line which is our imaginary 1D-space:
-```
-·····+·····O·····+·····2=====3=====4=====5·····+·····> x
-```
+
 ![Segment [2,5] on the number line](https://cloud.githubusercontent.com/assets/1294454/21998713/8f45117c-dc47-11e6-8e2a-a759b36a559d.jpg "Segment [2,5] on the number line")
 
 We got another bigger segment `[2,5]` which represents a difference of all the points of the original two segments but this time it does not contain the Origin. That is, the resulting set of points does not include zero, because original segments did not have any points in common so they indeed occupy different regions of our number line and don't intersect.
