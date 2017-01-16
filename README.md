@@ -92,7 +92,7 @@ We can visually ensure that segment `[-2,-1]` occupies a different region of num
 3 - (-1) = 3 + 1 = 4
 3 - (-2) = 3 + 2 = 5 
 ```
-And we again draw the resulting segment on a number line which is our imaginary 1D-space:
+And we again draw the resulting segment on a number line in our imaginary 1D-space:
 
 ![Segment [2,5] on the number line](https://cloud.githubusercontent.com/assets/1294454/21998713/8f45117c-dc47-11e6-8e2a-a759b36a559d.jpg "Segment [2,5] on the number line")
 
