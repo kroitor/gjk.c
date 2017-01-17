@@ -198,12 +198,19 @@ And this is where the true power of simplicity of GJK comes into play. Think thi
 
 After we subtracted our initial shapes one from another we got a resulting set of all of the points of a new shape that represents the difference of initial shapes. The most straightforward way to build such an Origin-enclosing triangle from a given set of points is to start taking triples of points (combinations of three points) to see if they form a triangle with the Origin inside it. If a triple of points makes such a triangle, then we can conclude that the difference of two shapes contains the Origin, so initial shapes must have collided or intersected. If not, we try some other triple, and that is done in a loop until we run out of points. If none of the triples did enclose the Origin, then no such triangle was found and there was no collision at all.
 
-So, if we randomly select any three of our points and connect them with line segments, we would probably end up with a triangle similar to one of the following:
+So, if we randomly select any three of our points and connect them with line segments, we will probably end up with a triangle similar to one of the following:
 
 ![2-Simplex on a coordinate plane](https://cloud.githubusercontent.com/assets/1294454/22035222/38bca25c-dd00-11e6-9236-c93f8ba6d050.jpg "2-Simplex on a coordinate plane")
 ![2-Simplex on a coordinate plane](https://cloud.githubusercontent.com/assets/1294454/22035223/38d78054-dd00-11e6-99e3-e2e0c40dfe2c.jpg "2-Simplex on a coordinate plane")
 ![2-Simplex on a coordinate plane](https://cloud.githubusercontent.com/assets/1294454/22035224/38e5afda-dd00-11e6-903b-69b98087e5da.jpg "2-Simplex on a coordinate plane")
 ![2-Simplex on a coordinate plane](https://cloud.githubusercontent.com/assets/1294454/22035443/12889bb2-dd01-11e6-9d75-234dbf351722.jpg "2-Simplex on a coordinate plane")
+
+All of these triangles satisfy our criteria (all of them contain the Origin), so if we randomly select one of these and find the Origin inside, then we can immediately tell that there was a collision. But if we selected a triple of points that does not contain the Origin we might end up with something like this:
+
+![Bad 2-Simplex on a coordinate plane](https://cloud.githubusercontent.com/assets/1294454/22040185/12e3d646-dd13-11e6-9f41-61f671e254ae.jpg "Bad 2-Simplex on a coordinate plane")
+![Bad 2-Simplex on a coordinate plane](https://cloud.githubusercontent.com/assets/1294454/22040186/12e6f074-dd13-11e6-9dfc-6831d4f284d1.jpg "Bad 2-Simplex on a coordinate plane")
+
+As long as our choice of points is random, we might have to iterate through all of possible triples in the worst case.
 
 WORK IN PROGRESS, to be continued soon... )
 
