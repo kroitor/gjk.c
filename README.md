@@ -224,7 +224,7 @@ WORK IN PROGRESS, to be continued soon... )
 
 ### Adding 3rd Dimension
 
-A careful reader might have already noticed a pattern of how the algorithm actually works.
+A careful reader might have already noticed a pattern in the algorithm...
 
 ![Simplices in various spaces](https://cloud.githubusercontent.com/assets/1294454/22039058/c30ea898-dd0e-11e6-8e15-62a5b612036d.jpg "Simplices in various spaces")
 
