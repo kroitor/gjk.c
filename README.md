@@ -232,6 +232,14 @@ For a 1D number line we need a 1-simplex of two points to enclose the Origin. If
 
 WORK IN PROGRESS, to be continued soon... )
 
+### Approximating Roundness
+
+WORK IN PROGRESS, to be continued soon... )
+
+### Contact Points
+
+WORK IN PROGRESS, to be continued soon... )
+
 ## References (must see)
 Most of the info (along with reference implementation) was taken from dyn4j. It has a very thorough explanation of GJK and it is definitely a must visit for those who need to understand the intricacies of the algorithm.
 
