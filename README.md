@@ -197,7 +197,7 @@ To determine if the Origin is enclosed by the resulting difference shape in 2D t
 ![2-Simplex on a coordinate plane](https://cloud.githubusercontent.com/assets/1294454/22035222/38bca25c-dd00-11e6-9236-c93f8ba6d050.jpg "2-Simplex on a coordinate plane")
 ![2-Simplex on a coordinate plane](https://cloud.githubusercontent.com/assets/1294454/22035223/38d78054-dd00-11e6-99e3-e2e0c40dfe2c.jpg "2-Simplex on a coordinate plane")
 ![2-Simplex on a coordinate plane](https://cloud.githubusercontent.com/assets/1294454/22035224/38e5afda-dd00-11e6-903b-69b98087e5da.jpg "2-Simplex on a coordinate plane")
-![2-Simplex on a coordinate plane](https://cloud.githubusercontent.com/assets/1294454/22035395/e3937a3e-dd00-11e6-8cd2-bf4a2e19b0cc.jpg "2-Simplex on a coordinate plane")
+![2-Simplex on a coordinate plane](https://cloud.githubusercontent.com/assets/1294454/22035443/12889bb2-dd01-11e6-9d75-234dbf351722.jpg "2-Simplex on a coordinate plane")
 
 WORK IN PROGRESS, to be continued soon... )
 
