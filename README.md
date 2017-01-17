@@ -43,7 +43,7 @@ int main(int argc, const char * argv[]) {
     return 0;
 }
 ```
-## GJK Explanation
+## How it works
 
 The goal of this explanation is to help people visualize the logic of GJK. To explain how it works we have to oversimplify certain things. There's no complicated math except basic arithmetic and a little bit of vector math, nothing more, so that a 3rd-grader could understand it.
 
