@@ -194,11 +194,11 @@ In 2D the process is similar. We can immediately tell if the Origin is inside th
 
 To determine if the Origin is enclosed by the resulting difference shape in 2D the algorithm tries to build a 2D-version of a simplex, that is the simplest possible 2D-shape or figure in two-dimensional space which can contain points inside itself. The simplest possible definition of any area on a plane is, ofcourse, a triangle, a minimal set of three points, which can be combined into a shape in our planar space. So while calculating the difference the GJK algorithm actually builds various triangles from three of all difference points of two initial shapes and then checks whether that triangular-simplex-shape actually contains the Origin or not. If not, it tries again, until it finally manages to enclose the Origin with any three points of the resulting difference set. If it is not able to build such a triangle from any three points of the difference set even after checking all combinations of points, then there was no collision of rectangle `ABCD` with triangle `EFG`.
 
-...
+... to be continued soon ... )
 
 ### Adding 3rd dimension
 
-... to be continued soon )
+... to be continued soon ... )
 
 ## References (must see)
 Most of the info (along with reference implementation) was taken from dyn4j. It has a very thorough explanation of GJK and it is definitely a must visit for those who need to understand the intricacies of the algorithm.
