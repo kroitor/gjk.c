@@ -196,7 +196,7 @@ And this is where the true power of simplicity of GJK comes into play. Think thi
 
 After we subtracted our initial shapes one from another we got a resulting set of all of the points of a new shape that represents the difference of the initial shapes. The most straightforward way to build such an Origin-enclosing triangle from a given set of points is to start taking triples of points (combinations of three points) to see if they form a triangle with the Origin inside it. If a triple of points makes such a triangle, then we can conclude that the difference of two shapes contains the Origin, so initial shapes must have collided or intersected. If not, we take some other triple up until we run out of points. If no such triple was found then there was no collision.
 
-So, if we randomly select any three of our points and connect them with line segments, we would probably end up with some similar triangles:
+So, if we randomly select any three of our points and connect them with line segments, we would probably end up with a triangle similar to one of the following:
 
 ![2-Simplex on a coordinate plane](https://cloud.githubusercontent.com/assets/1294454/22035222/38bca25c-dd00-11e6-9236-c93f8ba6d050.jpg "2-Simplex on a coordinate plane")
 ![2-Simplex on a coordinate plane](https://cloud.githubusercontent.com/assets/1294454/22035223/38d78054-dd00-11e6-99e3-e2e0c40dfe2c.jpg "2-Simplex on a coordinate plane")
