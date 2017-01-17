@@ -51,7 +51,7 @@ At the very top level the GJK algorithm tells if two arbitrary shapes are inters
 
 In order to understand GJK one has to build an imaginary visualization of what is going on under the hood. Once you see the picture in your head, you can implement it and even tweak it for your needs. 
 
-### A 1D intro
+### A 1D Intro
 
 Let's start with a naive example of computing a shape difference in one dimension. A segment of a number line is an example of a 1D-shape. Imagine we have two segments on the number line: segment `[1,3]` and segment `[2,4]`:
 
@@ -222,7 +222,7 @@ To calculate the difference between any two numbers we subtract any of them from
 
 WORK IN PROGRESS, to be continued soon... )
 
-### Adding 3rd dimension
+### Adding 3rd Dimension
 
 A careful reader might have already noticed a pattern in how the algorithm actually works.
 
