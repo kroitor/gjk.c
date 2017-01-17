@@ -1,10 +1,10 @@
-# gjk.c – Gilbert-Johnson-Keerthi in plain C
+# gjk.c – Gilbert-Johnson-Keerthi In Plain C
 This is a rough but fast implementation of GJK collision detection algorithm in plain C. Just one C file, less then 200 lines, no dependencies. It is in 2D for now, full 3D version is upcoming... This 2D-version uses Minkowski sums and builds a triangle-simplex in Minkowski space to tell if two arbitrary convex polygons are colliding. 3D-version will be roughly the same, but will build a tetrahedron-simplex inside a 3-dimensional Minkowski space. It currently only tells if there is a collision or not. C-code for distance and contact points coming soon.
 
 ## Disclaimer
 Fuck licenses and copyright. I made it for learning purposes, this is public knowledge and it's absolutely free for any usage.
 
-## Usage example
+## Usage Example
 This is an illustration of the example case from [dyn4j](http://www.dyn4j.org/2010/04/gjk-gilbert-johnson-keerthi/).
 
 ![Example case from dyn4j](http://www.dyn4j.org/wp-content/uploads/2010/04/gjk-figure1.png "Example case from dyn4j")
@@ -43,7 +43,7 @@ int main(int argc, const char * argv[]) {
     return 0;
 }
 ```
-## How it works
+## How It Works
 
 The goal of this explanation is to help people visualize the logic of GJK. To explain how it works we have to oversimplify certain things. There's no complicated math except basic arithmetic and a little bit of vector math, nothing more, so that a 3rd-grader could understand it.
 
@@ -144,7 +144,7 @@ Notice, that in case of only one common point the Origin is not inside resulting
 
 What GJK really says is: if you're able to build a simplex that contains (includes) the Origin then your shapes have at least one or more points of intersection (occupy same points in space).
 
-### Moving on to 2D
+### Moving On To 2D
 
 Now let's take a look at the picture in 2D. Our 2D-space is now an xy-plane (which is represented by two orthogonal number lines instead of a single number line). Every point in our 2D-space now has two xy-coordinates instead of one number, that is, each point is now a 2D-vector. Suppose we have two basic 2D-shapes – a rectangle `ABCD` intersecting a triangle `EFG` on a plane.
 
@@ -185,6 +185,8 @@ After plotting all of 12 resulting points in our 2D-space and connecting the *ou
 
 GJK says that if we're able to enclose the Origin within the resulting shape, then two initial shapes must have collided.
 We immediately see, that this shape actually contains the Origin. Therefore we can visually confirm that our initial rectangle `ABCD` indeed intersects our initial triangle `EFG`.
+
+### Building The Simplex
 
 Now, remember, in 1D to determine whether the resulting segment contains the Origin we check if a primitive inequality `leftEndpoint < Origin < rightEndpoint` holds. So we could think of it as if the segment *surrounds* the Origin from all sides of 1D space (from both left and right, as there are only 2 relative sides in one dimension on our sketch). In 1D for an object to be able to surround any point (the Origin is the zero point on a number line), that object must itself consist of at least two of its own points (in other words, it must be a segment defined by its two points on a number line). Therefore the 1D-version is trying to build a simplex of two endpoints (a segment on a number line). And then it checks whether the Origin is contained within the resulting segment.
 
