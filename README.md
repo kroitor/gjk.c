@@ -194,6 +194,8 @@ In 2D the process is similar. We can immediately tell if the Origin is inside th
 
 And this is where the true power of simplicity of GJK comes into play. Think this way: you need at least two points in 1D to surround the Origin. But in 2D two points are not enough to surround anything on a plane. Two points define a single straight line on a plane, but a straight line cannot enclose anything, because it's a line and it is straight. Therefore in 2D you need at least three points connected by segments, that is a triangle, to be able to enclose at least some area of the plane. So the simplest possible shape that can *enclose* something in 2D is a triangle. Now our task of arithmetically enclosing the Origin within our resulting polygon shape simplifies a little bit. We have to find such three points from our resulting set of points, that make a triangle that encloses the Origin. GJK can build a triangle and test if a certain point lies within that triangle, so we just made this task solvable by a machine.
 
+![Simplices in various spaces](https://cloud.githubusercontent.com/assets/1294454/22039058/c30ea898-dd0e-11e6-8e15-62a5b612036d.jpg "Simplices in various spaces")
+
 After we subtracted our initial shapes one from another we got a resulting set of all of the points of a new shape that represents the difference of the initial shapes. The most straightforward way to build such an Origin-enclosing triangle from a given set of points is to start taking triples of points (combinations of three points) to see if they form a triangle with the Origin inside it. If a triple of points makes such a triangle, then we can conclude that the difference of two shapes contains the Origin, so initial shapes must have collided or intersected. If not, we take some other triple up until we run out of points. If none of the triples did enclose the Origin, then no such triangle was found and there was no collision.
 
 So, if we randomly select any three of our points and connect them with line segments, we would probably end up with a triangle similar to one of the following:
@@ -217,7 +219,7 @@ WORK IN PROGRESS, to be continued soon... )
 
 A careful reader might have already noticed a pattern in how the algorithm actually works.
 
-For a single dimension (1D number line) we need a support function and two points to enclose the Origin. If we can find such two points then our shapes do intersect indeed. If we cannot find such two points then our initial shapes must have some distance (non-zero difference) between them. For two dimensions (2D coordinate plane) we need a support function and a simplex of three points (a triangle) to enclose the Origin. To be able to enclose the Origin in three dimensions (3D space) we need a support function and a simplex of four points (a tetrahedron).
+For a single dimension (1D number line) we need a support function and a 1-simplex of two points to enclose the Origin. If we can find such two points then our shapes do intersect indeed. If we cannot find such two points then our initial shapes must have some distance (non-zero difference) between them. For two dimensions (2D coordinate plane) we need a support function and a 2-simplex of three points (a triangle) to enclose the Origin. To be able to enclose the Origin in three dimensions (3D space) we need a support function and a 3-simplex of four points (a tetrahedron).
 
 WORK IN PROGRESS, to be continued soon... )
 
