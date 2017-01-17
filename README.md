@@ -210,7 +210,7 @@ All of these triangles satisfy our criteria (all of them contain the Origin), so
 ![Bad 2-Simplex on a coordinate plane](https://cloud.githubusercontent.com/assets/1294454/22040185/12e3d646-dd13-11e6-9f41-61f671e254ae.jpg "Bad 2-Simplex on a coordinate plane")
 ![Bad 2-Simplex on a coordinate plane](https://cloud.githubusercontent.com/assets/1294454/22040186/12e6f074-dd13-11e6-9dfc-6831d4f284d1.jpg "Bad 2-Simplex on a coordinate plane")
 
-As long as our choice of points is random, we might have to iterate through all of possible triples in the worst case.
+As long as our choice of points is random we might have to iterate through all possible triples in the worst case. But random walk is not the best strategy for finding the triple we're interested in that satisfies our criteria, there's a better algorithm for that ) The task of the machine is to find the best three points that enclose the Origin out of all possible triples of points, if such a combination is possible at all.
 
 WORK IN PROGRESS, to be continued soon... )
 
