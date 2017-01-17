@@ -140,7 +140,7 @@ And the resulting difference looks like:
 
 ![Segment [-2,0] on the number line](https://cloud.githubusercontent.com/assets/1294454/21999595/fbe9927c-dc4b-11e6-8521-816589df8552.jpg "Segment [-2,0] on the number line")
 
-Notice, that in case of only one common point the Origin is not inside resulting segment, but is actually one of its endpoints (the rightmost in this example). When your resulting segment has the Origin at one of its endpoints that means that your initial shapes don't intersect, but merely touch at a single point (two segments have only one common point of intersection).
+Notice, that in case of only one common point the Origin is not inside resulting segment, but is actually one of its endpoints (the rightmost in this example). When your resulting segment has the Origin at one of its endpoints that means that your initial shapes do not collide, but merely touch at a single point (two segments have only one common point of intersection).
 
 What GJK really says is: if you're able to build a simplex that contains (includes) the Origin then your shapes have at least one or more points of intersection (occupy same points in space).
 
