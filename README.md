@@ -218,7 +218,7 @@ WORK IN PROGRESS, to be continued soon... )
 
 #### A Word On Math
 
-To calculate the difference between any two numbers we subtract any of them from the other like this: `A - B = C`. But in general when dealing with 2D or 3D coordinate vectors (which is usually the case in many applications) the order of subtraction actually does matter. A more accurate way of representing the difference of two vectors is to take one vector and sum it with a negated version of the other vector, so that `B = -B` and then `A + B = C`. Because of this fact the Minkowski support function is often defined as a sum of two vectors where the second vector is negated, this is why the function is called *Minkowski addition* or *Minkwoski sum* and you will probably never hear of *Minkowski subtraction*.
+To calculate the difference between any two numbers we subtract any of them from the other like this: `A - B = C`. But in general when dealing with 2D or 3D coordinate vectors (which is usually the case in many applications) the order of subtraction actually does matter. A more accurate way of representing the difference of two vectors is to take one vector and sum it with a negated version of the other vector, so that `B = -B` and then `A + B = C`. Because of this fact the Minkowski support function is often defined as a sum of two point-vectors where the second vector is negated, this is why the function is called *Minkowski addition* or *Minkwoski sum* and you will probably never hear of *Minkowski subtraction*.
 
 WORK IN PROGRESS, to be continued soon... )
 
