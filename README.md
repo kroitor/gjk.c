@@ -208,7 +208,7 @@ WORK IN PROGRESS, to be continued soon... )
 
 A careful reader might have already noticed a pattern in how the algorithm actually works.
 
-For a single dimension (1D number line) we need a Minkowski sum support function and two points to enclose the Origin. If we can find such two points then our shapes do intersect indeed. If we cannot find such two points then our initial shapes must have some distance (non-zero difference) between them. For two dimensions (2D coordinate plane) we need a Minkowski sum support function and a simplex of three points (a triangle) to enclose the Origin. To be able to enclose the Origin in three dimensions (3D space) we need a Minkowski sum support function and a simplex of four points (a tetrahedron).
+For a single dimension (1D number line) we need a support function and two points to enclose the Origin. If we can find such two points then our shapes do intersect indeed. If we cannot find such two points then our initial shapes must have some distance (non-zero difference) between them. For two dimensions (2D coordinate plane) we need a support function and a simplex of three points (a triangle) to enclose the Origin. To be able to enclose the Origin in three dimensions (3D space) we need a support function and a simplex of four points (a tetrahedron).
 
 WORK IN PROGRESS, to be continued soon... )
 
