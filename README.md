@@ -179,8 +179,6 @@ D - E = (1 - 2, 1 - 4) = (-1, -3)
 D - F = (1 - 4, 1 - 4) = (-3, -3)
 D - G = (1 - 3, 1 - 2) = (-2, -1)
 ```
-<font style="font-size: 75%; opacity: 0.5;">Because of the nature of Minkowski space, the support function is not commutative. To calculate the difference between any two numbers we subtract any of them from the other one like this: `A - B = C`. But when we deal with Minkowski space and 2D or 3D coordinate vectors   (which is a usual case in many applications) the order of subtraction actually matters in general. A more accurate way to represent the difference of two vectors is to take the first vector and sum it with the negated version of the second vector, so that `A + (-B) = C`. Because of this fact the Minkowski support function is never calculated as a difference, but rather as a sum of two vectors where the second vector is negated, this is why the function is always called *Minkowski addition* or *Minkwoski sum* and you will probably never hear of *Minkowski subtraction*.</font>
-
 After plotting all of 12 resulting points in our 2D-space and connecting the *outermost* points with lines, we get the following difference shape:
 
 ![Rectangle ABCD minus triangle EFG on 2D xy-plane](https://cloud.githubusercontent.com/assets/1294454/22000793/450e7e80-dc52-11e6-972c-4843338c3fad.jpg "Rectangle ABCD minus triangle EFG on 2D xy-plane")
@@ -202,8 +200,11 @@ To determine if the Origin is enclosed by the resulting difference shape in 2D t
 
 ### The Minkowski Sum Support Function
 
-... WORK IN PROGRESS ...
+#### A Word on Vector Math
 
+Because of the nature of Minkowski space, the support function is not commutative. To calculate the difference between any two numbers we subtract any of them from the other one like this: `A - B = C`. But when we deal with Minkowski space and 2D or 3D coordinate vectors   (which is a usual case in many applications) the order of subtraction actually matters in general. A more accurate way to represent the difference of two vectors is to take the first vector and sum it with the negated version of the second vector, so that `A + (-B) = C`. Because of this fact the Minkowski support function is never calculated as a difference, but rather as a sum of two vectors where the second vector is negated, this is why the function is always called *Minkowski addition* or *Minkwoski sum* and you will probably never hear of *Minkowski subtraction*.
+
+... WORK IN PROGRESS ...
 ... to be continued soon ... )
 
 ### Adding 3rd dimension
