@@ -232,7 +232,7 @@ For a 1D number line we need a 1-simplex of two points to enclose the Origin. If
 
 WORK IN PROGRESS, to be continued soon... )
 
-### Approximating Roundness
+### Roundness And Curvature
 
 WORK IN PROGRESS, to be continued soon... )
 
