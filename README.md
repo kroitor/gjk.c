@@ -196,11 +196,11 @@ To determine if the Origin is enclosed by the resulting difference shape in 2D t
 
 WORK IN PROGRESS, to be continued soon... )
 
-### The Minkowski Sum Support Function
+### The Support Function
 
 #### A Word on Vector Math
 
-Because of the nature of Minkowski space, the support function is not commutative. To calculate the difference between any two numbers we subtract any of them from the other one like this: `A - B = C`. But when we deal with Minkowski space and 2D or 3D coordinate vectors   (which is a usual case in many applications) the order of subtraction actually matters in general. A more accurate way to represent the difference of two vectors is to take the first vector and sum it with the negated version of the second vector, so that `A + (-B) = C`. Because of this fact the Minkowski support function is never calculated as a difference, but rather as a sum of two vectors where the second vector is negated, this is why the function is always called *Minkowski addition* or *Minkwoski sum* and you will probably never hear of *Minkowski subtraction*.
+To calculate the difference between any two numbers we subtract any of them from the other one like this: `A - B = C`. But when we deal with 2D or 3D coordinate vectors (which is usually the case in many applications) the order of subtraction in general actually does matter. A more accurate way of representing the difference of two vectors is to take the first vector and sum it with the negated version of the second vector, so that `A + (-B) = C`. Because of this fact the Minkowski support function is never calculated as a difference, but rather as a sum of two vectors where the second vector is negated, this is why the function is always called *Minkowski addition* or *Minkwoski sum* and you will probably never hear of *Minkowski subtraction*.
 
 WORK IN PROGRESS, to be continued soon... )
 
