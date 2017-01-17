@@ -123,7 +123,7 @@ Notice that when we subtract the *opposite points* of initial shapes from one an
 
 We ignored all insignificant internal points and only took the endpoints of initial segments into account thus reducing our calculation to four basic arithmetic operations (subtractions). We did that by switching to a simpler representation of a segment (only two endpoints instead of all points contained inside an initial segment). A simpler representation of the difference of two shapes is called a *simplex*. It literally means 'the simplest possible'. A simplest possible *thing* in a one-dimensional number-line-world is a number (a point in space). A segment is the simplest possible shape which is sufficient to contain multiple points of a number line. Even if one segment covers the other segment in its entirety (a segment fully contains another segment) – you can still detect an intersection of them in space. And it does not matter which one you're subtracting from, the resulting set will still contain the Origin at zero.
 
-GJK also works if two initial shapes don't intersect but just barely touch. Say, we have two shapes: segment `[1,2]` and segment `[2,3]`:
+GJK also works if two initial shapes don't intersect but just barely touch. Say, we have two shapes, segment `[1,2]` and segment `[2,3]`:
 
 ![Segment [1,2] on the number line](https://cloud.githubusercontent.com/assets/1294454/21999597/fbec71fe-dc4b-11e6-8afa-371f87457339.jpg "Segment [1,2] on the number line")
 ![Segment [2,3] on the number line](https://cloud.githubusercontent.com/assets/1294454/21999596/fbebff44-dc4b-11e6-811a-f832ab3eb9a4.jpg "Segment [2,3] on the number line")
