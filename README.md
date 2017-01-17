@@ -73,7 +73,7 @@ It is obvious that our segments occupy some common region of our 1D-space, so th
 3 - 3 =  0
 3 - 4 = -1
 ```
-We got a lot of numbers, many of them more than once. The resulting set of points (numbers) is larger than each of the initial sets of points of two shapes. Let's plot these resulting points in our 1D-space and look at the shape of resulting segment on the number line:
+We got a lot of numbers, many of them more than once. The resulting set of points (numbers) is larger than each of our initial sets of points of two shapes. Let's plot these resulting points in our 1D-space and look at the shape of resulting segment on the number line:
 
 ![Segment [-3,1] on the number line](https://cloud.githubusercontent.com/assets/1294454/21998715/8f465a96-dc47-11e6-9aa5-e30f59453685.jpg "Segment [-3,1] on the number line")
 
