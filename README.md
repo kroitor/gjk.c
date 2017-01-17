@@ -179,12 +179,12 @@ D - E = (1 - 2, 1 - 4) = (-1, -3)
 D - F = (1 - 4, 1 - 4) = (-3, -3)
 D - G = (1 - 3, 1 - 2) = (-2, -1)
 ```
-After plotting all of 12 resulting points in our 2D-space and connecting the *outermost* points with lines, we get the following difference shape:
+After plotting all of 12 resulting points in our 2D-space and connecting the *outermost* points with lines we get the following difference shape:
 
 ![Rectangle ABCD minus triangle EFG on 2D xy-plane](https://cloud.githubusercontent.com/assets/1294454/22000793/450e7e80-dc52-11e6-972c-4843338c3fad.jpg "Rectangle ABCD minus triangle EFG on 2D xy-plane")
 
-GJK says that if we're able to enclose the Origin within the resulting shape, then two initial shapes must have collided.
-We immediately see, that this shape actually contains the Origin. Therefore we can visually confirm that our initial rectangle `ABCD` indeed intersects our initial triangle `EFG`.
+GJK says that if we're able to enclose the Origin within the resulting shape then two initial shapes must have collided.
+We immediately see that this shape actually contains the Origin. Therefore we can visually confirm that our initial rectangle `ABCD` indeed intersects our initial triangle `EFG`.
 
 ### Building The Simplex
 
