@@ -242,7 +242,7 @@ WORK IN PROGRESS, to be continued soon... )
 
 WORK IN PROGRESS, to be continued soon... )
 
-### Adding 3rd Dimension
+### Adding 3D
 
 A careful reader might have already noticed a pattern in the algorithm...
 
