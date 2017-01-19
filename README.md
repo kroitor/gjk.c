@@ -216,7 +216,7 @@ To reveal its true efficiency the algorithm introduces a special routine that ca
 
 ### The Support Function
 
-Remember that in a 1D-space numbers are subtracted from one another to obtain the resulting 1-simplex. The algorithm can skip 'internal' points and only compute the difference of outermost opposite points. The support function calculates the difference of opposite points in a more general way. As a bonus it also allows *flat vs curved* collisions! With it you can detect intersections of ellipses, circles, curves and splines in 2D and rounded shapes and more complex objects in 3D (which is cool).
+Remember that in a 1D-space to obtain the resulting 1-simplex you subtract points from one another. The algorithm can skip 'internal' points and only compute the difference of outermost opposite points. The support function calculates the difference of opposite points in a more general way. As a bonus it also allows *flat vs curved* collisions! With it you can detect intersections of ellipses, circles, curves and splines in 2D and rounded shapes and more complex objects in 3D (which is cool).
 
 Let's think of opposite points in 2D. If you choose some pair of opposite points of a 2D-shape, you might end up with something like this:
 
