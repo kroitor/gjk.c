@@ -212,7 +212,7 @@ All of these triangles satisfy our criteria (all of them contain the Origin), so
 
 As long as our choice of points is random we might have to try all possible triples in worst case. Random walk is not the best strategy for finding a triangle that satisfies our criteria, there's a better algorithm for that ;) The goal of the algorithm is to find a combination of the best three points that enclose the Origin out of all possible triples of points, if such a combination exists at all. If such a triple does not exist then there is some distance between our initial shapes. The search for simplex is the core of GJK.
 
-To reveal its true efficiency the algorithm introduces a special routine that calculates the difference of two points of initial shapes. It is called 'a support function' and it is the workhorse of the search.
+To reveal its true efficiency the algorithm introduces a special routine that calculates the difference of two points of initial shapes. It is called a *support function* and it is the workhorse of the search.
 
 ### The Support Function
 
