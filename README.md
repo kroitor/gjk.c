@@ -218,12 +218,12 @@ To reveal its true efficiency the algorithm introduces a special routine that ca
 
 Remember that in a 1D-space to obtain the resulting 1-simplex you subtract points from one another. The algorithm can skip 'internal' points and only compute the difference of outermost opposite points. The support function calculates the difference of opposite points in a more general way. As a bonus it also allows *flat vs curved* collisions! With it you can detect intersections of ellipses, circles, curves and splines in 2D and rounded shapes and more complex objects in 3D (which is cool).
 
-Let's think of opposite points in 2D. If you choose a random pair of opposite points of an arbitrary 2D-shape, you might end up with points like these:
+Let's think of opposite points in 2D. If you choose a pair of opposite points of a 2D-shape, you might end up with points like these:
 
 ![Opposite points of a shape in 2D](https://cloud.githubusercontent.com/assets/1294454/22091779/cf553a08-de09-11e6-8161-c6abbbc9bd1b.jpg "Opposite points of a shape in 2D")
 ![Opposite points of a shape in 2D](https://cloud.githubusercontent.com/assets/1294454/22092331/f897542e-de0d-11e6-9127-c5c4f178b56a.jpg "Opposite points of a shape in 2D")
 
-Now imagine you take two 2D-shapes and pick a random point of the first shape then pick a second point on the opposite side of the second shape. You might end up with something similar to this:
+That is trivial. Now imagine you take not one but two arbitrary shapes and pick a random point of the first shape then pick a second point on the opposite side of the other shape. You might end up with something similar to this:
 
 ![Opposite points of two intersecting shapes in 2D](https://cloud.githubusercontent.com/assets/1294454/22092276/8fad1020-de0d-11e6-8287-3f43d05530ea.jpg "Opposite points of two intersecting shapes in 2D")
 ![Opposite points of two non-intersecting shapes in 2D](https://cloud.githubusercontent.com/assets/1294454/22092386/564bbb28-de0e-11e6-835d-e31e65788e3a.jpg "Opposite points of two non-intersecting shapes in 2D")
