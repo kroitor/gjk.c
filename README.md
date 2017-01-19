@@ -210,11 +210,22 @@ All of these triangles satisfy our criteria (all of them contain the Origin), so
 ![Bad 2-Simplex on a coordinate plane](https://cloud.githubusercontent.com/assets/1294454/22040185/12e3d646-dd13-11e6-9f41-61f671e254ae.jpg "Bad 2-Simplex on a coordinate plane")
 ![Bad 2-Simplex on a coordinate plane](https://cloud.githubusercontent.com/assets/1294454/22040186/12e6f074-dd13-11e6-9dfc-6831d4f284d1.jpg "Bad 2-Simplex on a coordinate plane")
 
-As long as our choice of points is random we might have to try all possible triples in worst case. Random walk is not the best strategy for finding a triangle that satisfies our criteria, there's a better algorithm for that ;) The goal of the algorithm is to find a combination of the best three points that enclose the Origin out of all possible triples of points, if such a combination exists at all. If such a triple does not exist then there is some distance between our initial shapes.
+As long as our choice of points is random we might have to try all possible triples in worst case. Random walk is not the best strategy for finding a triangle that satisfies our criteria, there's a better algorithm for that ;) The goal of the algorithm is to find a combination of the best three points that enclose the Origin out of all possible triples of points, if such a combination exists at all. If such a triple does not exist then there is some distance between our initial shapes. The search for simplex is the core of GJK.
 
-WORK IN PROGRESS, to be continued soon... )
+To reveal its true efficiency the algorithm introduces a special routine that calculates the difference of two points of initial shapes. It is called 'a support function' and it is the workhorse of the search.
 
 ### The Support Function
+
+Remember that with a single dimension 1D points are subtracted one from another to obtain the resulting segment. This can be optimised a little bit to skip 'internal' points and only compute the difference of outermost opposite points. The support function calculates the difference of opposite points in a more general way. As a bonus it also allows round shapes and curved surfaces! You can mix flat-surface/curved-surface collisions with it (which is cool).
+
+Now think of opposite points in 2D. If you choose some pair of opposite points of a 2D-shape, you might end up with something like this:
+
+![Opposite points of a shape in 2D](https://cloud.githubusercontent.com/assets/1294454/22091779/cf553a08-de09-11e6-8161-c6abbbc9bd1b.jpg "Opposite points of a shape in 2D")
+![Opposite points of a shape in 2D](https://cloud.githubusercontent.com/assets/1294454/22091780/cf763d0c-de09-11e6-928e-564c430b658a.jpg "Opposite points of a shape in 2D")
+
+First, you give it a direction and both shapes. A direction is itself a vector, pointing somewhere. It can be random, you choose whatever you want for a start, later you'll see why initial direction doesn't really matter. The support function then looks along a given direction and from the first shape it takes a point which is the furthest along initial direction.
+
+...
 
 #### A Word On Math
 
