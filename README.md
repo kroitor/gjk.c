@@ -226,7 +226,7 @@ Let's think of opposite points in 2D. If you choose some pair of opposite points
 Now imagine you take two 2D-shapes and pick a random point of the first shape then pick a second point on the opposite side of the second shape. You might end up with something similar to this:
 
 ![Opposite points of two intersecting shapes in 2D](https://cloud.githubusercontent.com/assets/1294454/22092276/8fad1020-de0d-11e6-8287-3f43d05530ea.jpg "Opposite points of two intersecting shapes in 2D")
-![Opposite points of two non-intersecting shapes in 2D](https://cloud.githubusercontent.com/assets/1294454/22092277/8fce2bf2-de0d-11e6-9458-3e7808651f44.jpg "Opposite points of two non-intersecting shapes in 2D")
+![Opposite points of two non-intersecting shapes in 2D](https://cloud.githubusercontent.com/assets/1294454/22092386/564bbb28-de0e-11e6-835d-e31e65788e3a.jpg "Opposite points of two non-intersecting shapes in 2D")
 
 First, you give it a direction and both shapes. A direction is itself a vector, pointing somewhere. It can be random, you choose whatever you want for a start, later you'll see why initial direction doesn't really matter. The support function then looks along a given direction and from the first shape it takes a point which is the furthest along initial direction.
 
