@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta charset="UTF-8">
+        
+        <title>Widget</title>
+        
+        <script src="https://rawgit.com/xpl/useless/master/build/useless.client.js"></script>
+        <script src="https://rawgit.com/xpl/useless/master/build/useless.devtools.js"></script>
+
+        <style type="text/css">
+            @charset "utf-8";
+            
+            body {
+                padding-top: 100px;
+                font-family: Helvetica, sans-serif;
+            }
+
+            axis {
+                margin: 0 auto;
+                width: 600px;
+                display: block;
+                position: relative;
+            }
+
+            axis, axis * {
+                user-select: none;
+                cursor: default;
+            }
+
+            axis:before {
+                content: '';
+                display: block;
+                left: 0;
+                right: 0;
+                top: 0;
+                height: 1px;
+                position: absolute;
+                background: black;
+                opacity: 0.5;
+            }
+
+            axis center {
+                position: absolute;
+                left: 50%;
+            }
+
+            tick {
+                position: absolute;
+                padding-top: 20px;
+                font-size: 12px;
+            }
+
+            tick text {
+                margin-left: -0.2em;
+            }
+
+            tick[selected] text {
+                font-weight: bold;
+            }
+
+            tick:not([selected]) text {
+                opacity: 0.25;
+            }
+
+            tick.neg text {
+                position: relative;
+                left: -0.35em;
+            }
+
+            tick.zero text {
+                font-weight: bold;
+            }
+
+            tick:before {
+                content: '';
+                display: block;
+                background: black;
+                top: -4px;
+                height: 9px;
+                left: 0;
+                width: 1px;
+                position: absolute;
+                opacity: 0.5;
+            }
+
+            tick.zero:before {
+                top: -7px;
+                height: 16px;
+                width: 2px;
+            }
+
+            segment {
+                display: block;
+                position: absolute;
+                height: 20px;
+                margin-top: -10px;
+                background: transparent;
+            }
+
+            segment, segment * {
+                cursor: move;
+            }
+
+            segment:before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 50%;
+                width: 100%;
+                height: 3px;
+                margin-top: -1px;
+                background: magenta;
+            }
+
+            segment terminal {
+                display: block;
+                height: 20px;
+                width: 20px;
+                position: absolute;
+            }
+
+            segment terminal:before {
+                content: '';
+                display: block;
+                width: 10px;
+                height: 10px;
+                margin-top: 5px;
+                border-radius: 100%;
+                background: magenta;
+            }
+
+            segment terminal.left  { left:  0; margin-left:  -10px; }
+            segment terminal.right { right: 0; margin-right: -10px; }
+            
+        </style>
+
+        <script>
+
+            const $ = jQuery
+
+            document.ready (() => {
+
+                _.each (N.all ('axis'), axis => {
+
+                    const center = N ('center').appendTo (axis)
+
+                    const numTicks = 10
+                    const width = axis.clientBBox.width
+                    const tickWidth = (width / numTicks) / 2
+
+                    const ticks = {}
+
+                    _.times (numTicks, i => {
+
+                        ticks[i] = N ('tick')
+                                        .cls (i === 0 ? 'zero' : '')
+                                        .css ({ left: (i * tickWidth) + 'px' })
+                                        .add (N ('text', i + ''))
+                                        .appendTo (center)
+
+                        if (i !== 0) {
+                            ticks[-i] = N ('tick')
+                                            .cls ('neg')
+                                            .css ({ left: -(i * tickWidth) + 'px' })
+                                            .add (N ('text', -i + ''))
+                                            .appendTo (center)
+                        }
+                    })
+
+                    center.add (segment (
+                                    axis.intAttribute ('from'),
+                                    axis.intAttribute ('to')))
+
+                    function segment (from, to) {
+
+                        const terminals = [N ('terminal').cls ('left'),
+                                           N ('terminal').cls ('right')]
+
+                        const segment = N ('segment', terminals)
+
+                        const set = function (from_, to_) {
+
+                            from = from_
+                            to   = to_
+
+                            segment.css ({
+                                left: (from * tickWidth) + 'px',
+                                width: ((to - from) * tickWidth) + 'px'
+                            })
+
+                            for (let i = (-numTicks + 1); i < numTicks; i++) {
+                                ticks[i].toggleAttribute ('selected', (i >= from) && (i <= to))
+                            }
+                        }
+
+                        $(segment).drag ({
+
+                            start () {
+                                return [from, to]
+                            },
+
+                            move (memo, offset) { offset = offset.scale (1 / tickWidth)
+
+                                set (Math.round (memo[0] + offset.x),
+                                     Math.round (memo[1] + offset.x))
+                            }
+                        })
+
+                        $(terminals[0]).drag ({
+
+                            start () { return from },
+
+                            move (memo, offset) {
+                                set (Math.min (to - 1, Math.round (memo + offset.scale (1 / tickWidth).x)), to)
+                            }
+                        })
+
+                        $(terminals[1]).drag ({
+
+                            start () { return to },
+
+                            move (memo, offset) {
+                                set (from, Math.max (from + 1, Math.round (memo + offset.scale (1 / tickWidth).x)))
+                            }
+                        })
+
+                        set (from, to)
+
+                        return segment
+                    }
+                })
+            })
+
+        </script>
+
+    </head>
+    <body>
+        <axis from="2" to="6"></axis>
+    </body>
+</html>
