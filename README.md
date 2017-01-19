@@ -221,7 +221,7 @@ Remember that with a single dimension 1D points are subtracted one from another 
 Let's think of opposite points in 2D. If you choose some pair of opposite points of a 2D-shape, you might end up with something like this:
 
 ![Opposite points of a shape in 2D](https://cloud.githubusercontent.com/assets/1294454/22091779/cf553a08-de09-11e6-8161-c6abbbc9bd1b.jpg "Opposite points of a shape in 2D")
-![Opposite points of a shape in 2D](https://cloud.githubusercontent.com/assets/1294454/22091780/cf763d0c-de09-11e6-928e-564c430b658a.jpg "Opposite points of a shape in 2D")
+![Opposite points of a shape in 2D](https://cloud.githubusercontent.com/assets/1294454/22092331/f897542e-de0d-11e6-9127-c5c4f178b56a.jpg "Opposite points of a shape in 2D")
 
 Now imagine you take two 2D-shapes and pick a random point of the first shape then pick a second point on the opposite side of the second shape. You might end up with something similar to this:
 
