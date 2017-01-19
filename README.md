@@ -252,7 +252,9 @@ For a 1D number line we need a 1-simplex of two points to enclose the Origin. If
 
 WORK IN PROGRESS, to be continued soon... )
 
-### Contact Points And Depth Of Collision
+### Contact Points
+
+### Distance or Depth Of Collision
 
 WORK IN PROGRESS, to be continued soon... )
 
