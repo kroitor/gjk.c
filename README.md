@@ -216,12 +216,17 @@ To reveal its true efficiency the algorithm introduces a special routine that ca
 
 ### The Support Function
 
-Remember that with a single dimension 1D points are subtracted one from another to obtain the resulting segment. This can be optimised a little bit to skip 'internal' points and only compute the difference of outermost opposite points. The support function calculates the difference of opposite points in a more general way. As a bonus it also allows round shapes and curved surfaces! You can mix flat-surface/curved-surface collisions with it (which is cool).
+Remember that with a single dimension 1D points are subtracted one from another to obtain the resulting segment. This can be optimised a little bit to skip 'internal' points and only compute the difference of outermost opposite points. The support function calculates the difference of opposite points in a more general way. As a bonus it also allows mixing *flat vs curved* collisions! With it you can detect intersections of ellipses, circles, curves and splines in 2D and rounded shapes and more complex objects in 3D (which is cool).
 
-Now think of opposite points in 2D. If you choose some pair of opposite points of a 2D-shape, you might end up with something like this:
+Let's think of opposite points in 2D. If you choose some pair of opposite points of a 2D-shape, you might end up with something like this:
 
 ![Opposite points of a shape in 2D](https://cloud.githubusercontent.com/assets/1294454/22091779/cf553a08-de09-11e6-8161-c6abbbc9bd1b.jpg "Opposite points of a shape in 2D")
 ![Opposite points of a shape in 2D](https://cloud.githubusercontent.com/assets/1294454/22091780/cf763d0c-de09-11e6-928e-564c430b658a.jpg "Opposite points of a shape in 2D")
+
+Now imagine you take two 2D-shapes and pick a random point of the first shape then pick a second point on the opposite side of the second shape. You might end up with something similar to this:
+
+![Opposite points of two intersecting shapes in 2D](https://cloud.githubusercontent.com/assets/1294454/22092276/8fad1020-de0d-11e6-8287-3f43d05530ea.jpg "Opposite points of two intersecting shapes in 2D")
+![Opposite points of two non-intersecting shapes in 2D](https://cloud.githubusercontent.com/assets/1294454/22092277/8fce2bf2-de0d-11e6-9458-3e7808651f44.jpg "Opposite points of two non-intersecting shapes in 2D")
 
 First, you give it a direction and both shapes. A direction is itself a vector, pointing somewhere. It can be random, you choose whatever you want for a start, later you'll see why initial direction doesn't really matter. The support function then looks along a given direction and from the first shape it takes a point which is the furthest along initial direction.
 
