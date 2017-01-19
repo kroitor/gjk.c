@@ -230,7 +230,7 @@ Now imagine you take two 2D-shapes and pick a random point of the first shape th
 
 First, you give it a direction and both shapes. A direction is itself a vector, pointing somewhere. It can be random, you choose whatever you want for a start, later you'll see why initial direction doesn't really matter. The support function then looks along a given direction and from the first shape it takes a point which is the furthest along initial direction.
 
-...
+WORK IN PROGRESS, to be continued soon... )
 
 #### A Word On Math
 
