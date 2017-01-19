@@ -247,7 +247,7 @@ For a 1D number line we need a 1-simplex of two points to enclose the Origin. If
 
 WORK IN PROGRESS, to be continued soon... )
 
-### Contact Points And Distance
+### Contact Points And Depth
 
 WORK IN PROGRESS, to be continued soon... )
 
