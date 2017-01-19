@@ -260,7 +260,7 @@ WORK IN PROGRESS, to be continued soon... )
 Most of the info (along with reference implementation) was taken from dyn4j. It has a very thorough explanation of GJK and it is definitely a must visit for those who need to understand the intricacies of the algorithm.
 
 1. http://www.dyn4j.org/2010/04/gjk-gilbert-johnson-keerthi/ GJK description (+ a lot of other useful articles)
-2. http://mollyrocket.com/849 Awesome old-school GJK / Minkowski space video
+2. http://mollyrocket.com/849 Awesome old-school GJK / Minkowski space video by Casey Muratori
 3. https://github.com/wnbittle/dyn4j Quality source code for reference
 
 ## P.S. 3D-version coming soon...
