@@ -232,9 +232,9 @@ That is trivial. Now imagine you take not one but two arbitrary shapes and pick 
 ![Opposite points of two intersecting shapes in 2D](https://cloud.githubusercontent.com/assets/1294454/22092276/8fad1020-de0d-11e6-8287-3f43d05530ea.jpg "Opposite points of two intersecting shapes in 2D")
 ![Opposite points of two non-intersecting shapes in 2D](https://cloud.githubusercontent.com/assets/1294454/22092386/564bbb28-de0e-11e6-835d-e31e65788e3a.jpg "Opposite points of two non-intersecting shapes in 2D")
 
-When you take a difference of two points you get another point of resulting shape. That point is literally the distance vector. So, if you take a point of a shape and then choose a point of the other shape and then subtract the two points from one another, you get exact distance and direction between your shapes (at specific points). 
+A difference of two points yields another point of resulting shape. That point is literally the distance vector. So, if you take a point of a shape and then choose a point of the other shape and then subtract the two points from one another, you get exact distance and direction between your shapes (at specific points). 
 
-The key is: when you subtract opposite points of two shapes your resulting point-vector will always land somewhere on the contour (an outermost edge) of your resulting shape. 
+Note, that when you subtract *opposite* points of two shapes your resulting point-vector will always land somewhere on the contour (an outermost edge) of your resulting shape. 
 
 First, you give it a direction and both shapes. A direction is itself a vector, pointing somewhere. It can be random, you choose whatever you want for a start, later you'll see why initial direction doesn't really matter. The support function then looks along a given direction and from the first shape it takes a point which is the furthest along initial direction.
 
