@@ -144,7 +144,7 @@ Notice, that in case of only one common point the Origin is not inside resulting
 
 What GJK really says is: if you're able to build a simplex that contains (includes) the Origin then your shapes have at least one or more points of intersection (occupy same points in space).
 
-WORK IN PROGRESS, A live demo of GJK in a 1D-space and a video GJK in action coming up soon )
+WORK IN PROGRESS, A live demo of GJK in a 1D-space and a video of GJK in action coming up soon )
 
 ### Moving On To 2D
 
@@ -248,7 +248,7 @@ WORK IN PROGRESS, to be continued soon... )
 
 To calculate the difference of two numbers we subtract one of them from the other like this: `A - B = C`. In 1D which number of the two is A and which one is B does not matter, the algorithm works either way. But in general when dealing with 2D or 3D coordinate vectors (which is usually the case in many applications) the order of subtraction actually does matter. A more accurate way of representing the difference of two vectors is to take one vector and sum it with a negated version of the other vector, so that `B = -B` and then `A + B = C`. Because of this fact the Minkowski support function is often defined as a sum of the first point-vector with the negated version of the second point-vector. After negating the second vector you simply add it to the first one to get their resulting difference. This is why the function is called *Minkowski addition* or *Minkwoski sum* and you will probably never hear of *Minkowski subtraction*.
 
-WORK IN PROGRESS, A live demo of GJK in a 2D-space and a video GJK in action coming up soon )
+WORK IN PROGRESS, A live demo of GJK in a 2D-space and a video of GJK in action coming up soon )
 
 ### Roundness And Curvature
 
@@ -262,7 +262,7 @@ A careful reader might have already noticed a pattern in the algorithm...
 
 For a 1D number line we need a 1-simplex of two points to enclose the Origin. If we can find such two points then our shapes do intersect indeed. If we cannot find such two points then our initial shapes must have some distance (non-zero difference) between them. For 2D coordinate plane a 2-simplex of three points (a triangle) is necessary to enclose the Origin. In 3D space we need a 3-simplex of four points (a tetrahedron). These are all examples of simplest possible shape primitives in given dimensions.
 
-WORK IN PROGRESS, A live demo of GJK in a 3D-space and a video GJK in action coming up soon )
+WORK IN PROGRESS, A live demo of GJK in a 3D-space and a video of GJK in action coming up soon )
 
 ### Distance or Depth Of Collision
 
