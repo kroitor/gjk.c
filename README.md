@@ -256,7 +256,7 @@ Resulting point `(2, 2)` ends up exactly on the contour of our difference shape.
 
 The support function of GJK maps a difference of two real-world points into Minkowski space. It seeks for two opposite points which are furthest apart along a given direction and returns their difference. In seek of opposite points along a direction the support function does the following:
 
-![The GJK support function in seek of opposite points along a given direction](https://cloud.githubusercontent.com/assets/1294454/22177876/724e0502-e038-11e6-9069-40dc175bf4a9.jpg "The GJK support function in seek of opposite points along a given direction")
+![The GJK support function in seek of opposite points along a given direction](https://cloud.githubusercontent.com/assets/1294454/22177903/6e2dc3b2-e039-11e6-8492-7eb58f658560.jpg "The GJK support function in seek of opposite points along a given direction")
 
 1. Start at the Origin.
 2. Choose any direction you like (denoted as `D` on the image above). A direction is itself a vector, pointing somewhere. It can be random, you choose whatever you want for a start, later you'll see why initial direction doesn't really matter. The direction vector always starts at the Origin and is sometimes written as `OD = D(x,y) - O(0,0) = D(x,y)` (that is a direction from `O` towards `D`).
