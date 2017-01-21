@@ -242,6 +242,15 @@ Note, that when you subtract *opposite* points of two shapes your resulting poin
 
 ![Difference of opposite points projected into 2D Minkowski Space](https://cloud.githubusercontent.com/assets/1294454/22171779/de7209dc-dfa6-11e6-9437-c4414cc77e78.jpg "Difference of opposite points projected into 2D Minkowski Space")
 
+It's easy to show arithmetically, that the resulting point is obtained by calculating the difference of the two opposing points.
+
+```
+A (x1, y1) - B (x2, y2) = C (x1 - x2, y1 - y2)
+A ( 1, 3 ) - B ( 3, 1 ) = C ( 1 - 3 ,  3 - 1 ) = ( -2, 2 )
+```
+
+Point `(-2, 2)` is our resul and it is exactly on the contour of our difference shape. If your initial points are opposite their difference will always be an outermost point of your resulting shape. Also notice, that the distance between the resulting point `(-2, 2)` and the Origin corresponds exactly to the distance between two initial opposite points. THe left side of the picture shows our simulated world space. On the right is our 2D *Minkowski space*. Minkowski space is an imaginary world of shape differences. By subtracting two points we therefore create a *mapping* or *projection* of a real-world intersection into *Minkowski space* (into the world of differences).
+
 WORK IN PROGRESS, to be continued soon... )
 
 First, you give it a direction and both shapes. A direction is itself a vector, pointing somewhere. It can be random, you choose whatever you want for a start, later you'll see why initial direction doesn't really matter. The support function then looks along a given direction and from the first shape it takes a point which is the furthest along initial direction.
