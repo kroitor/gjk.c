@@ -242,7 +242,7 @@ Note, that when you subtract *opposite* points of two shapes your resulting poin
 
 ![Difference of opposite points projected into 2D Minkowski Space](https://cloud.githubusercontent.com/assets/1294454/22177875/724dd816-e038-11e6-8ed0-f28746cffc35.jpg "Difference of opposite points projected into 2D Minkowski Space")
 
-The left side of the picture shows our simulated world space. On the right is our 2D *Minkowski space*. In GJK you can think of it as if it was an imaginary world of shape differences. By subtracting two points in one world we therefore obtain a new point in another world. It is also often called a *mapping* or a *projection* of a real-world intersection into Minkowski space (into the world of differences).
+The left side of the picture shows our simulated world space. On the right is our 2D *Minkowski space*. In GJK you can think of it as if it was an imaginary world of shape differences. By subtracting two points in one world we therefore obtain a new point in another world. It is also often called a *mapping* or a *projection* of a real-world intersection into Minkowski space (into the world of differences). The resulting shape in Minkowski space looks like a weird union of all points of the initial shapes. But this is how all intersections really look like in 2D. 
 
 It's easy to show arithmetically that the resulting point is obtained by taking the difference of the two opposing points:
 
@@ -272,15 +272,13 @@ Now its easy to show that it does not matter which initial direction you choose 
 
 ![The GJK support function in seek of opposite points along another direction](https://cloud.githubusercontent.com/assets/1294454/22178263/d12adcbc-e042-11e6-8a74-7c667c703f0d.jpg "The GJK support function in seek of opposite points along another direction")
 
-And it's easy to verify arithmetically that the intersection of points `A` and `B` along another direction `D` still yields one of many points on the contour of our resulting shape:
+It doesn't matter which direction `D` you choose to seek for opposite points `A` and `B`. By taking their difference you get a point `C` somewhere on a contour in Minkowski space. And it's easy to verify arithmetically that the intersection of points `A` and `B` along another direction `D` still yields one of many points on the contour of our resulting shape:
 
 ```
 A(2, -2) - B(-1, 2) = C(2 - (-1), -2 - 2) = C(3, -4)
 ```
 
-The resulting shape in Minkowski space looks like a weird union of all points of the initial shapes. But this is how all intersections really look like in 2D. It doesn't matter which direction `D` you choose to seek for opposite points `A` and `B`. By taking their difference you get a point `C` somewhere on a contour in Minkowski space.
-
-So, in general the support function takes a given direction and two shapes, then finds two opposite points and returns their intersection. The intersection of two points always yields a third point. In 1D a point is a number. Thus, an intersection of two numbers (two points) in 1D gives a third number (another 1D-point). In 2D an intersection of two vectors (two points) gives a third vector (another 2D-point). So given a direction and two shapes the support function always returns another point regardless of how many dimensions you have. It works the same for 1D, 2D, 3D, etc... The returned point is a point on the contour of intersection. In mathematics the intersection is usually denoted with symbol `∩`. 
+So, in general the support function can work in any given direction. You give it a direction and two shapes, and then it finds two opposite points and returns their intersection. The intersection of two points always yields a third point. In 1D a point is a number. Thus, an intersection of two numbers (two points) in 1D gives a third number (another 1D-point). In 2D an intersection of two vectors (two points) gives a third vector (another 2D-point). So given a direction and two shapes the support function always returns another point regardless of how many dimensions you have. It works the same for 1D, 2D, 3D, etc... The returned point is a point on the contour of intersection. In mathematics the intersection is usually denoted with symbol `∩`. 
 
 ```
 C = support (D, shape1, shape2) // take an arbitrary direction D and return a point of (shape1 ∩ shape2)
