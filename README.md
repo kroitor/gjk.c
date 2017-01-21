@@ -272,7 +272,7 @@ Now its easy to show that it does not matter which initial direction you choose 
 
 ![The GJK support function in seek of opposite points along another direction](https://cloud.githubusercontent.com/assets/1294454/22178263/d12adcbc-e042-11e6-8a74-7c667c703f0d.jpg "The GJK support function in seek of opposite points along another direction")
 
-It doesn't matter which direction `D` you choose to seek for opposite points `A` and `B`. By taking their difference you get a point `C` somewhere on a contour in Minkowski space. And it's easy to verify arithmetically that the intersection of points `A` and `B` along another direction `D` still yields one of many points on the contour of our resulting shape:
+It doesn't matter which direction `D` you choose to seek for opposite points `A` and `B`. By taking their difference you get a point `C` somewhere on a contour in Minkowski space. And it's easy to verify arithmetically that the intersection of opposite points `A` and `B` along any direction `D` still yields one of many points on the contour of our resulting shape:
 
 ```
 A(2, -2) - B(-1, 2) = C(2 - (-1), -2 - 2) = C(3, -4)
