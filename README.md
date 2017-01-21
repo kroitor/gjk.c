@@ -278,6 +278,8 @@ And it's easy to verify arithmetically that the intersection of points `A` and `
 A(2, -2) - B(-1, 2) = C(2 - (-1), -2 - 2) = C(3, -4)
 ```
 
+As you may have already noticed, the resulting shape looks like a weird union of all points of two initial shapes. But this is how all intersections really look like in 2D. Regardless of whichever direction `D` you choose to seek for opposite points, in result you get a point on a contour in Minkowski space.
+
 WORK IN PROGRESS, to be continued soon... )
 
 #### A Word On Math
