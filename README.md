@@ -249,7 +249,7 @@ A (x1, y1) - B (x2, y2) = (x1 - x2, y1 - y2)
 A ( 1, -1) - B ( 3, 1 ) = (  1 - 3, -1 - 1 ) = ( -2, -2 )
 ```
 
-Point `(-2, -2)` is our resul and it is exactly on the contour of our difference shape. If your initial points are opposite their difference will always be an outermost point of your resulting shape. Also notice, that the distance between the resulting point `(-2, -2)` and the Origin corresponds exactly to the distance between two initial opposite points. THe left side of the picture shows our simulated world space. On the right is our 2D *Minkowski space*. Minkowski space is an imaginary world of shape differences. By subtracting two points we therefore create a *mapping* or *projection* of a real-world intersection into *Minkowski space* (into the world of differences).
+Resulting point `(-2, -2)` is exactly on the contour of our difference shape. If your initial points are opposite their difference will always be an outermost point of your resulting shape. Also notice, that the distance between the resulting point `(-2, -2)` and the Origin corresponds exactly to the distance between two initial opposite points. THe left side of the picture shows our simulated world space. On the right is our 2D *Minkowski space*. Minkowski space is an imaginary world of shape differences. By subtracting two points we therefore create a *mapping* or *projection* of a real-world intersection into *Minkowski space* (into the world of differences).
 
 WORK IN PROGRESS, to be continued soon... )
 
