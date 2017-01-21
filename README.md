@@ -278,7 +278,7 @@ It doesn't matter which direction `D` you choose to seek for opposite points `A`
 A(2, -2) - B(-1, 2) = C(2 - (-1), -2 - 2) = C(3, -4)
 ```
 
-So, in general the support function can work in any given direction. You give it a direction and two shapes, and then it finds two opposite points and returns their intersection. The intersection of two points always yields a third point. In 1D a point is a number. Thus, an intersection of two numbers (two points) in 1D gives a third number (another 1D-point). In 2D an intersection of two vectors (two points) gives a third vector (another 2D-point). So given a direction and two shapes the support function always returns another point regardless of how many dimensions you have. It works the same for 1D, 2D, 3D, etc... The returned point is a point on the contour of intersection. In mathematics the intersection is usually denoted with symbol `∩`. 
+So, in general the support function can work in any given direction. You give it a direction and two shapes, and then it finds two opposite points and returns their intersection. The intersection of two points always yields a third point. In 1D a point is a number. Thus, an intersection of two numbers (two points) in 1D gives a third number (another 1D-point). In 2D an intersection of two vectors (two points) gives a third vector (another 2D-point). So given a direction and two shapes the support function always returns another point regardless of how many dimensions you have. It works the same for 1D, 2D, 3D, etc... The returned point is on the contour of intersection. In mathematics the intersection is usually denoted with symbol `∩`. 
 
 ```
 C = support (D, shape1, shape2) // take an arbitrary direction D and return a point of (shape1 ∩ shape2)
