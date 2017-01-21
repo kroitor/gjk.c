@@ -240,7 +240,7 @@ A difference of two points yields another point of resulting shape. That point i
 
 Note, that when you subtract *opposite* points of two shapes your resulting point-vector will always land somewhere on the contour (an outermost edge) of your resulting shape. Below is an illustration of how a difference of two opposite points (on the left) finally maps to a contour point of resulting shape (on the right).
 
-![Difference of opposite points projected into 2D Minkowski Space](https://cloud.githubusercontent.com/assets/1294454/22171746/03050804-dfa6-11e6-96af-011ab79bdc5d.jpg "Difference of opposite points projected into 2D Minkowski Space")
+![Difference of opposite points projected into 2D Minkowski Space](https://cloud.githubusercontent.com/assets/1294454/22171779/de7209dc-dfa6-11e6-9437-c4414cc77e78.jpg "Difference of opposite points projected into 2D Minkowski Space")
 
 WORK IN PROGRESS, to be continued soon... )
 
