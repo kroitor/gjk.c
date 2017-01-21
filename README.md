@@ -270,7 +270,7 @@ In other words, the support function takes an arbitrary line and two opposite po
 
 Now its easy to show that it does not matter which initial direction you choose to start with. The support function does not care about given initial direction at all. Say, if on step 2 we choose a different arbitrary `D`, we might end up with something like this:
 
-![The GJK support function in seek of opposite points along another direction](https://cloud.githubusercontent.com/assets/1294454/22178189/028c1566-e041-11e6-8a30-7d3cfff6cb0b.jpg "The GJK support function in seek of opposite points along another direction")
+![The GJK support function in seek of opposite points along another direction](https://cloud.githubusercontent.com/assets/1294454/22178263/d12adcbc-e042-11e6-8a74-7c667c703f0d.jpg "The GJK support function in seek of opposite points along another direction")
 
 And it's easy to verify arithmetically that the intersection of points `A` and `B` along another direction `D` still yields one of many points on the contour of our resulting shape:
 
