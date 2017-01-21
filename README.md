@@ -242,6 +242,8 @@ Note, that when you subtract *opposite* points of two shapes your resulting poin
 
 ![Difference of opposite points projected into 2D Minkowski Space](https://cloud.githubusercontent.com/assets/1294454/22171921/b39395d8-dfaa-11e6-8819-71e93c1ddd0c.jpg "Difference of opposite points projected into 2D Minkowski Space")
 
+The left side of the picture shows our simulated world space. On the right is our 2D *Minkowski space*. In GJK you can think of it as if it was an imaginary world of shape differences. By subtracting two points in one world we therefore obtain a new point in another world. It is also often called a *mapping* or a *projection* of a real-world intersection into Minkowski space (into the world of differences).
+
 It's easy to show arithmetically that the resulting point is obtained by taking the difference of the two opposing points:
 
 ```
@@ -249,7 +251,7 @@ A (x1, y1) - B (x2, y2) = (x1 - x2, y1 - y2)
 A ( 1, -1) - B ( 3, 1 ) = ( 1 - 3,  -1 - 1 ) = ( -2, -2 )
 ```
 
-Resulting point `(-2, -2)` ends up exactly on the contour of our difference shape. If your initial points are opposite their difference will always be one of the outermost (*"external"*) points of your resulting shape. Also notice, that our resulting distance vector `(-2, -2)` is in one-to-one correspondence to the distance between two initial opposite points. The left side of the picture shows our simulated world space. On the right is our 2D *Minkowski space*. In GJK you can think of it as if it was an imaginary world of shape differences. By subtracting two points in one world we therefore obtain a new point in another world. It is also often called a *mapping* or a *projection* of a real-world intersection into Minkowski space (into the world of differences).
+Resulting point `(-2, -2)` ends up exactly on the contour of our difference shape. If your initial points are opposite their difference will always be one of the outermost (*"external"*) points of your resulting shape. Also notice, that our resulting distance vector `(-2, -2)` is in one-to-one correspondence to the distance between two initial opposite points. They are literally the same. 
 
 WORK IN PROGRESS, to be continued soon... )
 
