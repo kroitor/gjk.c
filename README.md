@@ -251,7 +251,7 @@ A (x1, y1) - B (x2, y2) = (x1 - x2, y1 - y2)
 A ( 1, -1) - B ( 3, 1 ) = ( 1 - 3,  -1 - 1 ) = ( -2, -2 )
 ```
 
-Resulting point `(-2, -2)` ends up exactly on the contour of our difference shape. If your initial points are opposite their difference will always be one of the outermost (*"external"*) points of your resulting shape. Also notice, that our resulting distance vector `(-2, -2)` is in one-to-one correspondence to the distance between two initial opposite points. They are literally the same. 
+Resulting point `(-2, -2)` ends up exactly on the contour of our difference shape. If initial points are opposite their difference will always be one of the outermost (*"external"*) points of the resulting shape. Also notice, that resulting distance vector `(-2, -2)` is in one-to-one correspondence to the distance between the two initial opposite points. They are literally the same. 
 
 WORK IN PROGRESS, to be continued soon... )
 
