@@ -257,7 +257,7 @@ The support function of GJK maps a difference of two real-world points into Mink
 
 ![The GJK support function in seek of opposite points along a given direction](https://cloud.githubusercontent.com/assets/1294454/22172812/04bd55f4-dfc2-11e6-8a2b-9fbd9d4f4e85.jpg "The GJK support function in seek of opposite points along a given direction")
 
-1. Start at the Origin
+1. Start at the Origin.
 2. Choose any direction you like (denoted as `D` on the image above). A direction is itself a vector, pointing somewhere. It can be random, you choose whatever you want for a start, later you'll see why initial direction doesn't really matter. The direction vector always starts at the Origin and is sometimes written as `OD = D(x,y) - O(0,0) = D(x,y)` (that is a direction from `O` towards `D`).
 3. Take the first of two shapes. It does not matter which one of the two is first.
 4. From the Origin seek for the furthest point of first shape in direction `D`.
