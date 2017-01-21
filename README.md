@@ -251,7 +251,12 @@ A (x1, y1) - B (x2, y2) = (x1 - x2, y1 - y2)
 A ( 1, -1) - B ( 3, 1 ) = ( 1 - 3,  -1 - 1 ) = ( -2, -2 )
 ```
 
-Resulting point `(-2, -2)` ends up exactly on the contour of our difference shape. If initial points are opposite their difference will always be one of the outermost (*"external"*) points of the resulting shape. Also notice, that resulting distance vector `(-2, -2)` is in one-to-one correspondence to the distance between the two initial opposite points. They are literally the same. 
+Resulting point `(-2, -2)` ends up exactly on the contour of our difference shape. If initial points are opposite their difference will always be one of the outermost (*"external"*) points of the resulting shape. Also notice, that resulting distance vector `(-2, -2)` is in one-to-one correspondence to the distance between the two initial opposite points. They are literally the same.
+
+The support function of GJK maps a difference of two real-world points into Minkowski space. It seeks for two opposite points which are furthest apart along a given direction and returns their difference. In seek of opposite points along a direction the support function does the following:
+
+![The GJK support function in seek of opposite points along a given direction](https://cloud.githubusercontent.com/assets/1294454/22172812/04bd55f4-dfc2-11e6-8a2b-9fbd9d4f4e85.jpg "The GJK support function in seek of opposite points along a given direction")
+
 
 WORK IN PROGRESS, to be continued soon... )
 
