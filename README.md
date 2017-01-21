@@ -275,8 +275,6 @@ Now its easy to show that it does not matter which initial direction you choose 
 And it's easy to verify arithmetically that the intersection of points `A` and `B` along `D` still yields one of many points on the contour of our resulting shape:
 
 ```
-A(x1, y1) - B(x2, y2) = C(x1 - x2, y1 - y2)
-
  A(2, -2) - B(-1, 2)  = C(2 - (-1), -2 - 2) = C(3, -4)
 ```
 
