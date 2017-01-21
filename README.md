@@ -240,36 +240,37 @@ A difference of two points yields another point of resulting shape. That point i
 
 Note, that when you subtract *opposite* points of two shapes your resulting point-vector will always land somewhere on the contour (an outermost edge) of your resulting shape. Below is an illustration of how a difference of two opposite points (on the left) finally lands on the contour of resulting shape (on the right).
 
-![Difference of opposite points projected into 2D Minkowski Space](https://cloud.githubusercontent.com/assets/1294454/22171921/b39395d8-dfaa-11e6-8819-71e93c1ddd0c.jpg "Difference of opposite points projected into 2D Minkowski Space")
+![Difference of opposite points projected into 2D Minkowski Space](https://cloud.githubusercontent.com/assets/1294454/22177875/724dd816-e038-11e6-8ed0-f28746cffc35.jpg "Difference of opposite points projected into 2D Minkowski Space")
 
 The left side of the picture shows our simulated world space. On the right is our 2D *Minkowski space*. In GJK you can think of it as if it was an imaginary world of shape differences. By subtracting two points in one world we therefore obtain a new point in another world. It is also often called a *mapping* or a *projection* of a real-world intersection into Minkowski space (into the world of differences).
 
 It's easy to show arithmetically that the resulting point is obtained by taking the difference of the two opposing points:
 
 ```
-A (x1, y1) - B (x2, y2) = (x1 - x2, y1 - y2)
-A ( 1, -1) - B ( 3, 1 ) = ( 1 - 3,  -1 - 1 ) = ( -2, -2 )
+A(x1, y1) - B(x2, y2) = C(x1 - x2, y1 - y2)
+
+ A(3,  1) -  B(1, -1) =  C(3 - 1, 1 - (-1)) = C(2, 2)
 ```
 
-Resulting point `(-2, -2)` ends up exactly on the contour of our difference shape. If initial points are opposite their difference will always be one of the outermost (*"external"*) points of the resulting shape. Also notice, that resulting distance vector `(-2, -2)` is in one-to-one correspondence to the distance between the two initial opposite points. They are literally the same.
+Resulting point `(2, 2)` ends up exactly on the contour of our difference shape. If initial points are opposite their difference will always be one of the outermost (*"external"*) points of the resulting shape. Also notice, that resulting distance vector `(2, 2)` is in one-to-one correspondence to the distance between the two initial opposite points. They are literally the same.
 
 The support function of GJK maps a difference of two real-world points into Minkowski space. It seeks for two opposite points which are furthest apart along a given direction and returns their difference. In seek of opposite points along a direction the support function does the following:
 
-![The GJK support function in seek of opposite points along a given direction](https://cloud.githubusercontent.com/assets/1294454/22172812/04bd55f4-dfc2-11e6-8a2b-9fbd9d4f4e85.jpg "The GJK support function in seek of opposite points along a given direction")
+![The GJK support function in seek of opposite points along a given direction](https://cloud.githubusercontent.com/assets/1294454/22177876/724e0502-e038-11e6-9069-40dc175bf4a9.jpg "The GJK support function in seek of opposite points along a given direction")
 
 1. Start at the Origin.
 2. Choose any direction you like (denoted as `D` on the image above). A direction is itself a vector, pointing somewhere. It can be random, you choose whatever you want for a start, later you'll see why initial direction doesn't really matter. The direction vector always starts at the Origin and is sometimes written as `OD = D(x,y) - O(0,0) = D(x,y)` (that is a direction from `O` towards `D`).
 3. Take the first of two shapes. It does not matter which one of the two is first.
 4. From the Origin seek for the furthest point of first shape in direction `D`.
-5. To find the furthest point in direction `D` calculate the dot product of all the point-vectors of the first shape with direction `D`. This is the same as taking magnitudes (or distances) from the Origin to each point of the first shape in direction `D`. It is also often called *projecting a point-vector onto a direction-vector*. The distance to point `B` along direction `D` is the projection of vector `B` onto vector `D`. That distance is the length of the projected point-vector or its *magnitude*. The most distant point `B` along `D` will have the greatest dot product of `B` and `D` (greatest magnitude). This way our first point most distant from the Origin along direction `D` is found.
-6. Next an opposite point of the *other* shape must be found. To do that the support function switches the direction `D` to the opposite, literally `D = -D`. The process from step 5 is repeated, but this time with the other shape and a reverse direction. It looks for a point of the second shape that is most distant from the Origin along direction `-D`. It calculates all dot products of all the point-vectors of the second shape and direction-vector `-D` and takes the point which has the greatest dot product with `-D`. This way the second point `A` is found that is most distant from the Origin and is also opposite to the first point.
+5. To find the furthest point in direction `D` calculate the dot product of all the point-vectors of the first shape with direction `D`. This is the same as taking magnitudes (or distances) from the Origin to each point of the first shape in direction `D`. It is also often called *projecting a point-vector onto a direction-vector*. The distance to point `A` along direction `D` is the projection of vector `A` onto vector `D`. That distance is the length of the projected point-vector or its *magnitude*. The most distant point `A` along `D` will have the greatest dot product of `A` and `D` (greatest magnitude). This way our first point most distant from the Origin along direction `D` is found.
+6. Next an opposite point of the *other* shape must be found. To do that the support function switches the direction `D` to the opposite, literally `D = -D`. The process from step 5 is repeated, but this time with the other shape and a reverse direction. It looks for a point of the second shape that is most distant from the Origin along direction `-D`. It calculates all dot products of all the point-vectors of the second shape and direction-vector `-D` and takes the point which has the greatest dot product with `-D`. This way the second point `B` is found that is most distant from the Origin and is also opposite to the first point.
 7. Once two opposite points `A` and `B` have been found, subtract one of them from the other and done. It doesn't matter which one you are subtracting from. The resulting vector is a mapping of their difference into 2D Minkowski space.
 
 WORK IN PROGRESS, to be continued soon... )
 
 #### A Word On Math
 
-To calculate the difference of two numbers we subtract one of them from the other like this: `A - B = C`. In 1D which number of the two is A and which one is B does not matter, the algorithm works either way. But in general when dealing with 2D or 3D coordinate vectors (which is usually the case in many applications) the order of subtraction actually does matter. A more accurate way of representing the difference of two vectors in Minkowski space is to take one vector and sum it with a negated version of the other vector, so that `A + (-B) = C`. Because of this fact the Minkowski support function is often defined as a sum of the first point-vector with the negated version of the second point-vector. After negating the second vector you simply add it to the first one to get their resulting difference. This is why the support function is called *Minkowski addition* or *Minkwoski sum* and you will probably never hear of *Minkowski subtraction*.
+To calculate the difference of two numbers we subtract one of them from the other like this: `A - B = C`. In 1D which number of the two is A and which one is B does not matter, the algorithm works either way. But in general when dealing with 2D or 3D coordinate vectors (which is usually the case in many applications) the order of subtraction actually does matter. A more accurate way of representing the difference of two vectors in Minkowski space is to take one vector and sum it with a negated version of the other vector, so that `A + (-B) = C`. Because of this fact the Minkowski support function is often defined as a sum of the first point-vector with the negated version of the second point-vector. After negating the second vector you simply add it to the first one to get their *arithmetic* resulting difference. This is why the support function is called *Minkowski addition* or *Minkwoski sum* and you will probably never hear of *Minkowski subtraction*.
 
 WORK IN PROGRESS, A live demo of GJK in a 2D-space and a video of GJK in action coming up soon )
 
