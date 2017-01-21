@@ -238,7 +238,9 @@ That is trivial. Now imagine you take not one but two arbitrary shapes and pick 
 
 A difference of two points yields another point of resulting shape. That point is literally the distance vector. So, if you take a point of a shape and then choose a point of the other shape and then subtract the two points from one another, you get exact distance and direction between your shapes (at specific points). 
 
-Note, that when you subtract *opposite* points of two shapes your resulting point-vector will always land somewhere on the contour (an outermost edge) of your resulting shape. 
+Note, that when you subtract *opposite* points of two shapes your resulting point-vector will always land somewhere on the contour (an outermost edge) of your resulting shape. Below is an illustration of how a difference of two opposite points (on the left) finally maps to a contour point of resulting shape (on the right).
+
+![Difference of opposite points projected into 2D Minkowski Space](https://cloud.githubusercontent.com/assets/1294454/22171746/03050804-dfa6-11e6-96af-011ab79bdc5d.jpg "Difference of opposite points projected into 2D Minkowski Space")
 
 WORK IN PROGRESS, to be continued soon... )
 
