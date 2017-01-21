@@ -257,12 +257,13 @@ The support function of GJK maps a difference of two real-world points into Mink
 
 ![The GJK support function in seek of opposite points along a given direction](https://cloud.githubusercontent.com/assets/1294454/22172812/04bd55f4-dfc2-11e6-8a2b-9fbd9d4f4e85.jpg "The GJK support function in seek of opposite points along a given direction")
 
-
-WORK IN PROGRESS, to be continued soon... )
-
-First, you give it a direction and both shapes. A direction is itself a vector, pointing somewhere. It can be random, you choose whatever you want for a start, later you'll see why initial direction doesn't really matter. The support function then looks along a given direction and from the first shape it takes a point which is the furthest along initial direction.
-
-WORK IN PROGRESS, to be continued soon... )
+1. Start at the Origin
+2. Choose any direction you like (denoted as `D` on the image above). A direction is itself a vector, pointing somewhere. It can be random, you choose whatever you want for a start, later you'll see why initial direction doesn't really matter. The direction vector always starts at the Origin and is sometimes written as `OD = D(x,y) - O(0,0) = D(x,y)` (that is a direction from `O` towards `D`).
+3. Take the first of two shapes. It does not matter which one of the two is first.
+4. From the Origin seek for the furthest point of first shape in direction `D`.
+5. To find the furthest point in direction `D` the support function calculates the dot product of all the point-vectors of the first shape with direction D. This is the same as taking magnitudes (or distances) from the Origin to each point of the first shape in direction `D`. This is also often called *projecting one point-vector onto a direction-vector*. The distance to a point P along direction D is the projection of vector P onto vector `D` (the length of the projected point-vector). The most distant point P along D will have the greatest dot product of P and D. This way our first point most distant from the Origin along direction `D` is found.
+6. Next an opposite point of the *other* shape must be found. To do that the support function switches the direction D to the opposite, literally `D = -D`. It then looks for a point of the second shape that is most distant from the Origin along direction `-D`. It calculates all dot products of all the point-vectors of the second shape and direction-vector `-D` and takes the point which has the greatest dot product with `-D`. This way the second point is found that is most distant from the Origin and is also opposite to the first point.
+7. Once two points have been found, just take the arithmetic difference of the two and done. The resulting vector is a mapping of their difference into 2D Minkowski space.
 
 #### A Word On Math
 
