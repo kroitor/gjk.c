@@ -242,7 +242,7 @@ Note, that when you subtract *opposite* points of two shapes your resulting poin
 
 ![Difference of opposite points projected into 2D Minkowski Space](https://cloud.githubusercontent.com/assets/1294454/22177875/724dd816-e038-11e6-8ed0-f28746cffc35.jpg "Difference of opposite points projected into 2D Minkowski Space")
 
-The left side of the picture shows our simulated world space. On the right is our 2D *Minkowski space*. In GJK you can think of Minkowski space as if it was an imaginary world of shape differences. By subtracting two points in real world we therefore obtain a new point in another surreal world. It is also often called a *mapping* or a *projection* of a real-world intersection into Minkowski space (into the world of differences). The resulting shape in Minkowski space looks like a weird inverted union of all points of the initial shapes. But this is how all intersections really look like in 2D. 
+The left side of the picture shows our simulated world space. On the right is our 2D *Minkowski space*. In GJK you can think of Minkowski space as if it was an imaginary world of shape differences. By subtracting two points in real world we therefore obtain a new point in another surreal world. It is also often called a *mapping* or a *projection* of a real-world intersection into Minkowski space (into the world of differences). The resulting shape in Minkowski space looks like a weird inside-out union of all points of the initial shapes. But this is how all intersections really look like in 2D. 
 
 It's easy to show arithmetically that the resulting point is obtained by taking the difference of the two opposing points:
 
