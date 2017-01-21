@@ -242,7 +242,7 @@ Note, that when you subtract *opposite* points of two shapes your resulting poin
 
 ![Difference of opposite points projected into 2D Minkowski Space](https://cloud.githubusercontent.com/assets/1294454/22171921/b39395d8-dfaa-11e6-8819-71e93c1ddd0c.jpg "Difference of opposite points projected into 2D Minkowski Space")
 
-It's easy to show arithmetically, that the resulting point is obtained by calculating the difference of the two opposing points.
+It's easy to show arithmetically that the resulting point is obtained by taking the difference of the two opposing points:
 
 ```
 A (x1, y1) - B (x2, y2) = (x1 - x2, y1 - y2)
