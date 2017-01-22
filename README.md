@@ -368,7 +368,7 @@ Remember, the whole point of having a support function was to help us quickly bu
 The general plan of GJK is:
 
 1. Find best points for a simplex with the help of the support function.
-2. Check if the Origin is enclosed by that simplex.
+2. Check if those three points form a simplex that encloses the Origin from all sides.
 3. If it does, there is a collision – hooray and thanks for the support, support function )
 4. If it doesn't, well... try other points, why not?
 5. If a simplex cannot be built at all no matter how many times you try – it might be a *degenerate case* (explained later).
