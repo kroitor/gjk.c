@@ -374,7 +374,7 @@ Now the actual logic of GJK kicks in. The general plan of GJK is:
 5. If a simplex cannot be built at all no matter how many times you try – it might be a *degenerate case* (explained later).
 6. If it's not a degenerate case, than there's no collision.
 
-All of that is done in a loop. The algorithm finds and checks different points if they satisfy the condition. The whole process is called an *evolution*. If it succeeds to enclose the Origin in another branch of evolution (upon another loop iteration), then the intersection is detected. If not, it tries again until finally it either succeds or fails. 
+All of that is done in a loop. The algorithm tries different points and checks if they satisfy the condition. The whole process is called an *evolution*. If it succeeds to enclose the Origin in another branch of evolution (upon another loop iteration), then the intersection is detected. If not, it tries again until finally it either succeds or fails. 
 
 Some people might be reasonably worried of the possibility that the evolution of GJK runs out of control and continues on and on without ever stopping. It might even become intelligent some day and who knows what could happen... So they add a limit of iterations into their implementations which is a countdown that cuts power off when the game is over, forcing the algorithm to stop. It's like an emergency halt or a safety button in case something goes wrong with float number precision or whatever. But that is actually not necessary in general.
 
