@@ -286,7 +286,7 @@ C = support (D, shape1, shape2) // take an arbitrary direction D and return a po
 
 The intersection of two points always yields a third point. In 1D a point is a number. Thus, an intersection of two numbers or two points in 1D gives a third number or another 1D-point. In 2D an intersection of two vectors or two points gives a third vector or another 2D-point. 
 
-Here's how a general implementation of the support function for any space of any amount of dimensions might look like in C language:
+Here's how a general implementation of the support function for any space of any amount of dimensions might look like in C programming language:
 
 ```C
 //-----------------------------------------------------------------------------
