@@ -295,8 +295,8 @@ Here's how a general implementation of the support function for any space of any
 // In general a vector has one or more components.
 
 vec subtract (vec a, vec b) {
-    for (int i = 0; i < a.size; i++)
-        a.components[i] -= b.components[i];
+    for (int i = 0; i < a.size; i++)        // this is not very clean,
+        a.components[i] -= b.components[i]; // but at least it's understandable
     return a;
 }
 
