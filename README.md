@@ -371,8 +371,8 @@ The general plan of GJK is:
 2. Check if the Origin is enclosed by that simplex.
 3. If it does, there is a collision – hooray and thanks for the support, support function )
 4. If it doesn't, well... try other points, why not?
-5. If a simplex cannot be built at all no matter how many times you try – it might be a *degenerate case* (explained later)
-6. If it's not a degenerate case, than there's no intersection
+5. If a simplex cannot be built at all no matter how many times you try – it might be a *degenerate case* (explained later).
+6. If it's not a degenerate case, than there's no collision.
 
 Let us do that by an example, step-by-step. To build a 2-simplex in 2D we need three points that would enclose the Origin within a triangle and we have our nice support function for that.
 
