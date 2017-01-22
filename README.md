@@ -364,7 +364,7 @@ vec support (const vec * vertices1, size_t count1, // first shape
 
 It does not really care how many dimensions are there in space. So given a direction and two shapes the support function always returns another point regardless of how many dimensions you have. It works the same for 1D, 2D, 3D, etc... The point returned by the support  function is always on the contour of intersection. This is because the initial points involved in the intersection are opposite.
 
-Remember, the whole point of having a support function was to help us quickly build the simplex for GJK. The support function is used in the search for a 2-simplex that encloses the Origin in 2D. Now that we have such a support function, we can move on and build the rest of the algorithm on top of it.
+Remember, the whole point of having a support function was to help us quickly build the simplex for GJK. The support function is used in the search for a 2-simplex that encloses the Origin in 2D. Now that we have such a function, we can move on and build the rest of the algorithm on top of it.
 
 #### The Evolution
 
