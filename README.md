@@ -292,12 +292,12 @@ Here's how a general implementation of the support function for any space of any
 //-----------------------------------------------------------------------------
 // Subtract two points (vectors) arithmetically.
 // In 1D a vector has only one component (one coordinate on a number line).
-// In general a vector has or many components.
+// In general a vector has one or more components.
 
 vec subtract (vec a, vec b) { return a + (-b); }
 
 //-----------------------------------------------------------------------------
-// Dot product is the sum of all corresponding components multiplied 
+// Dot product is the sum of all corresponding components of both vectors multiplied 
 
 float dotProduct (vec a, vec b) {
     float product = 0;    
