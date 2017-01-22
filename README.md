@@ -278,10 +278,10 @@ It doesn't matter which direction `D` you choose to seek for opposite points `A`
 A(2, -2) - B(-1, 2) = C(2 - (-1), -2 - 2) = C(3, -4)
 ```
 
-So, in general the support function can work in any given direction and in any given space. You give it a direction and two shapes, and then it finds two opposite points in your space and returns their intersection in Minkowski space. In mathematics the intersection is usually denoted with symbol `∩`. 
+So, in general the support function can work in any given direction and in any given space. You give it two shapes and a direction, and then it finds two opposite points in your space and returns their intersection in Minkowski space. In mathematics the intersection is usually denoted with symbol `∩`. 
 
 ```
-C = support (D, shape1, shape2) // take an arbitrary direction D and return a point of (shape1 ∩ shape2)
+C = support (shape1, shape2, D) // return a point of (shape1 ∩ shape2) in arbitrary direction D
 ```
 
 The intersection of two points always yields a third point. In 1D a point is a number. Thus, an intersection of two numbers or two points in 1D gives a third number or another 1D-point. In 2D an intersection of two vectors or two points gives a third vector or another 2D-point. 
