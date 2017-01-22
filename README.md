@@ -45,7 +45,7 @@ int main(int argc, const char * argv[]) {
 ```
 ## How It Works
 
-The goal of this explanation is to help people visualize the logic of GJK. To explain it we have to oversimplify certain things. There's no complicated math except basic arithmetic and a little bit of vector math, nothing more, so that a 3rd-grader could understand it. It is actually not very difficult to have GJK algorithm explained properly in an understandable form.
+The goal of this explanation is to help people visualize the logic of GJK. To explain it we have to oversimplify certain things. There's no complicated math except basic arithmetic and a little bit of vector math, nothing more, so that a 3rd-grader could understand it. It is actually not very difficult to have GJK algorithm explained in a properly understandable way.
 
 At the very top level GJK tells if two arbitrary shapes are intersecting (colliding) or not. The algorithm is used to calculate the depth of intersection (collision distance). A collision occurs when two shapes try to occupy the same points in space at the same time. The space can be of any nature. It might be your in-game world simulation, or a calculation on a table of statistical data, or a built-in navigation system for a robot or any other application you can imagine. You can use it for calculating collisions of solid bodies and numeric intersections of any kind. You can have as many dimensions as you want, the amount of dimensions does not really matter, the logic is the same for 1D, 2D, 3D, etc... With GJK you can even calculate collisions in 4D if you're able to comprehend this. 
 
