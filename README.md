@@ -365,7 +365,7 @@ Remember, the whole point of having a support function was to help us quickly bu
 
 #### The Evolution
 
-Now the actual logic of GJK kicks in. The general plan of GJK is:
+This is where the actual logic of GJK kicks in. The general plan of GJK is:
 
 1. Find best points for a simplex with the help of the support function.
 2. Check if a simplex of those points encloses the Origin from all sides.
