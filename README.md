@@ -294,13 +294,14 @@ Here's how a general implementation of the support function for any space of any
 
 ```C
 //-----------------------------------------------------------------------------
-// Subtract two points (vectors) arithmetically with A + (-B) = C.
+// Sum two points (vectors) arithmetically with A + (-B) = C.
+// The second vector should be negated prior to adding the two vectors together.
 // A 1D-vector has only one component (one coordinate on a number line).
 // In general a vector has one or more components.
 
-vec subtract (vec a, vec b) {
-    for (int i = 0; i < a.size; i++)         // a + (-b) = c
-        a.components[i] += -b.components[i]; // this is not very clean, but...
+vec sum (vec a, vec b) {
+    for (int i = 0; i < a.size; i++)         
+        a.components[i] += b.components[i];  // this is not very clean, but...
     return a;                                // at least it's understandable
 }
 
@@ -346,8 +347,8 @@ vec support (const vec * vertices1, size_t count1, // first shape
     // get furthest point of second body along the opposite direction
     size_t j = indexOfFurthestPoint (vertices2, count2, negate (d));
 
-    // subtract (Minkowski sum) the two points to see if bodies 'overlap'
-    return subtract (vertices1[i], vertices2[j]);
+    // Minkowski sum the two points to see if bodies 'overlap'
+    return sum (vertices1[i], -vertices2[j]); // a + (-b) = c
 }
 ```
 
