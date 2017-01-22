@@ -378,11 +378,17 @@ All of that is done in a loop. The algorithm tries different points and checks i
 
 Some people might be reasonably worried of the possibility that the evolution of GJK runs out of control and continues on and on without ever stopping. It might even become intelligent some day and who knows what could happen... So they add a limit of iterations into their implementations which is a countdown that cuts power off when the game is over, forcing the algorithm to stop. It's like an emergency halt or a safety button in case something goes wrong with float number precision or whatever. But that is actually not necessary in general.
 
+...
+
 Let us do a single iteration of the main loop by an example, step-by-step. To build a 2-simplex in 2D we need three points that would enclose the Origin within a triangle and we have our nice support function for that. Before we begin the search for three points we reserve a place for each one of them and label or tag each place `C`, `B` and `A` in that order. Their naming might be a little confusing, as we've used `A` and `B` to denote opposite points previously in this text, but it's an ancient tradition, sorry, can't do much about that. These will be placeholders for the points we might find in the search process.
 
 The first point `C` is the easiest to obtain. You just choose a random direction `D` and call the support function which calculates that point for you as we did earlier. Once you get the first resulting point, you place it in placeholder `C`. From now on we will be referring to that point by that label or tag `C`. Don't forget, that `C` is a point on the difference contour line in Minkowski space.
 
+...
+
 The second point `B` is also quite easy to get. You simply reverse your initial direction `D` and call the support function again passing it `-D` this time. Note that `-D` is a negative version of `D`, which in 2D geometry means simply *'the opposite direction'* or *'the other side'*. You call the support function with the opposite direction and get the second point which is labelled or tagged as `B`.
+
+...
 
 By calling the support function the second time with the opposite direction you get a second point `B` which is another point on the same contour line in Minkowski space. That second point `B` is exactly opposite to the first point `C`, because they are in the opposite directions, right? Now, if your shapes do intersect, then the Origin must be inside the resulting difference contour in Minkowski space. If you connect two opposite points on that contour, they kinda cut the space in two halves...
 
