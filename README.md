@@ -375,7 +375,7 @@ WORK IN PROGRESS, A live demo of GJK in a 2D-space and a video of GJK in action 
 
 A collision is when two bodies occupy the same points in space. In two dimensions a collision is either an intersection of two shapes (when shapes kinda "overlap") or they might not intersect but instead one shape could just touch the other, and that is also considered to be a collision. There's even more details to the nature of collisions, because there are different types of touch...
 
-If we look at the full-on collision when a shape overlaps or penetrates another shape we usually see something like this:
+A full-on collision when a shape overlaps or penetrates another shape usually looks like this:
 
 ![A usual case of overlapping or penetrating collision](https://cloud.githubusercontent.com/assets/1294454/22180045/d361a334-e075-11e6-8436-b756a6a5cfcb.jpg "A usual case of overlapping or penetrating collision")
 
