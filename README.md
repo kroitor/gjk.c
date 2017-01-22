@@ -386,9 +386,11 @@ WORK IN PROGRESS, A live demo of GJK in a 2D-space and a video of GJK in action 
 
 ...
 
-#### Voronoi Para Nos
+##### Voronoi Para Nos
 
 WORK IN PROGRESS, to be continued soon... )
+
+...
 
 ##### A Touch Of Degenerate Case
 
