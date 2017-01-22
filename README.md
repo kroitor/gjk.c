@@ -290,19 +290,23 @@ Here's how a general implementation of the support function for any space of any
 
 ```C
 //-----------------------------------------------------------------------------
-// Subtract two points (vectors) arithmetically.
-// In 1D a vector has only one component (one coordinate on a number line).
+// Subtract two points (vectors) arithmetically with A + (-B) = C.
+// A 1D-vector has only one component (one coordinate on a number line).
 // In general a vector has one or more components.
 
-vec subtract (vec a, vec b) { return a + (-b); }
+vec subtract (vec a, vec b) {
+    for (int i = 0; i < a.size; i++)
+        a.components[i] -= b.components[i];
+    return a;
+}
 
 //-----------------------------------------------------------------------------
 // Dot product is the sum of all corresponding components of both vectors multiplied 
 
 float dotProduct (vec a, vec b) {
     float product = 0;    
-    for (int i = 0; i < a.size; i++) {
-        product += a[i] * b[i];
+    for (int i = 0; i < a.size; i++)
+        product += a.components[i] * b.components[i];
     return product;
 }
 
