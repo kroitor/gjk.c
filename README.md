@@ -265,7 +265,7 @@ The support function of GJK maps a difference of two real-world points into Mink
 
 In other words, the support function takes an arbitrary line and two opposite points furthest from the Origin along that line, one point from each of the initial shapes. This is similar to subtracting segments in 1D. The support function finds the endpoints of two shapes along some direction-line and returns their difference that is another point in Minkowski space. On a one-dimensional number line the resulting point is a 1D-number. One a two-dimensional coordinate plane the resulting point is a 2D-vector (it has two coordinates).
 
-Now its easy to show that it does not matter which initial direction you choose to start with. The support function does not care about given initial direction at all. Say, if on step 2 we choose a different arbitrary `D`, we might end up with something like this:
+Now its easy to show that it does not matter which initial direction you choose to start with. The support function does not care about given initial direction at all. Say, if we choose a different arbitrary `D`, we might end up with something like this:
 
 ![The GJK support function in seek of opposite points along another direction](https://cloud.githubusercontent.com/assets/1294454/22178263/d12adcbc-e042-11e6-8a74-7c667c703f0d.jpg "The GJK support function in seek of opposite points along another direction")
 
