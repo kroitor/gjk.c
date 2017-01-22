@@ -286,6 +286,10 @@ C = support (D, shape1, shape2) // take an arbitrary direction D and return a po
 
 The intersection of two points always yields a third point. In 1D a point is a number. Thus, an intersection of two numbers or two points in 1D gives a third number or another 1D-point. In 2D an intersection of two vectors or two points gives a third vector or another 2D-point. 
 
+##### A Word On Math
+
+To calculate the difference of two numbers we subtract one of them from the other like this: `A - B = C`. In 1D which number of the two is A and which one is B does not matter, the algorithm works either way. This is because in 1D you have only one possible direction that is the actual number line itself. But in general when dealing with 2D or 3D coordinate vectors (which is usually the case in many applications) the order of subtraction actually does matter. A more accurate way of representing the difference of two vectors in Minkowski space is to take one vector and sum it with a negated version of the other vector, so that `A + (-B) = C`. Because of this fact the Minkowski support function is often defined as a sum of the first point-vector with the negated version of the second point-vector. After negating the second vector you simply add it to the first one to get their *arithmetic* resulting difference. This is why the support function is called *Minkowski addition* or *Minkwoski sum* and you will probably never hear of *Minkowski subtraction*.
+
 Here's how a general implementation of the support function for any space of any amount of dimensions might look like in C programming language:
 
 ```C
@@ -348,10 +352,6 @@ vec support (const vec * vertices1, size_t count1, // first shape
 ```
 
 It does not really care how many dimensions are there in space. So given a direction and two shapes the support function always returns another point regardless of how many dimensions you have. It works the same for 1D, 2D, 3D, etc... The point returned by the support  function is always on the contour of intersection. This is because the initial points involved in the intersection are opposite.
-
-##### A Word On Math
-
-To calculate the difference of two numbers we subtract one of them from the other like this: `A - B = C`. In 1D which number of the two is A and which one is B does not matter, the algorithm works either way. This is because in 1D you have only one possible direction that is the actual number line itself. But in general when dealing with 2D or 3D coordinate vectors (which is usually the case in many applications) the order of subtraction actually does matter. A more accurate way of representing the difference of two vectors in Minkowski space is to take one vector and sum it with a negated version of the other vector, so that `A + (-B) = C`. Because of this fact the Minkowski support function is often defined as a sum of the first point-vector with the negated version of the second point-vector. After negating the second vector you simply add it to the first one to get their *arithmetic* resulting difference. This is why the support function is called *Minkowski addition* or *Minkwoski sum* and you will probably never hear of *Minkowski subtraction*.
 
 Remember, the whole point of having a support function was to help us quickly build the simplex for GJK. The support function is used in the search for a 2-simplex that encloses the Origin in 2D. Now that we have such a support function, we can move on and build the rest of the algorithm on top of it.
 
