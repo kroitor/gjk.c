@@ -294,11 +294,21 @@ Here's how a general implementation of the Minkowski sum support function for an
 
 ```C
 //-----------------------------------------------------------------------------
-// Return an arithmetic sum of two point-vectors.
-// A 1D-vector has only one component (one coordinate on a number line).
-// In general a vector has one or more components.
+// Negate or 'flip' a point-vector in reverse direction
+
+vec negate (vec p) {
+    for (int i = 0; i < p.size; i++)
+        p.components[i] = -p.components[i];
+    return p;
+}
+
+//-----------------------------------------------------------------------------
+// Return an arithmetic sum of two point-vectors
+// A 1D-vector has only one component (one coordinate on a number line)
+// In general a vector has one or more components
 
 vec sum (vec a, vec b) {
+    return a + b;
     for (int i = 0; i < a.size; i++)         
         a.components[i] += b.components[i];  // this is not very clean, but...
     return a;                                // at least it's understandable
@@ -315,9 +325,9 @@ float dotProduct (vec a, vec b) {
 }
 
 //-----------------------------------------------------------------------------
-// Get furthest vertex along a certain direction d.
-// This is the same as finding max dot product with d.
-// In 1D direction is always 1 (the number 1 on the number line).
+// Get furthest vertex along a certain direction d
+// This is the same as finding max dot product with d
+// In 1D direction is always 1 (the number 1 on the number line)
 
 size_t indexOfFurthestPoint (const vec * vertices, size_t count, vec d) {
     
@@ -348,7 +358,7 @@ vec support (const vec * vertices1, size_t count1, // first shape
 
     // return the Minkowski sum of two points to see if bodies 'overlap'
     // note that the second point-vector is negated
-    return sum (vertices1[i], -vertices2[j]); // a + (-b) = c
+    return sum (vertices1[i], negate (vertices2[j])); // a + (-b) = c
 }
 ```
 
