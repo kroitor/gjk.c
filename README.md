@@ -294,8 +294,7 @@ Here's how a general implementation of the Minkowski sum support function for an
 
 ```C
 //-----------------------------------------------------------------------------
-// Sum two points (vectors) arithmetically with A + (-B) = C.
-// The second vector should be negated prior to adding the two vectors together.
+// Return an arithmetic sum of two point-vectors.
 // A 1D-vector has only one component (one coordinate on a number line).
 // In general a vector has one or more components.
 
