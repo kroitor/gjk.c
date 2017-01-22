@@ -222,7 +222,7 @@ As long as the choice of points for our 2-simplex is random we might have to try
 
 In order to build the simplex efficiently the algorithm introduces a special routine that calculates the difference of two points of initial shapes. It is called a *support function* and it is the workhorse of the search.
 
-### The Support Function
+#### The Support Function
 
 Remember that in a 1D-space to obtain the resulting 1-simplex you subtract points from one another. The algorithm can skip 'internal' points and only compute the difference of outermost opposite points. The support function calculates the difference of opposite points in a more general way. As a bonus it also allows *flat vs curved* collisions! With it you can detect intersections of ellipses, circles, curves and splines in 2D and rounded shapes and more complex objects in 3D (which is cool).
 
@@ -278,17 +278,82 @@ It doesn't matter which direction `D` you choose to seek for opposite points `A`
 A(2, -2) - B(-1, 2) = C(2 - (-1), -2 - 2) = C(3, -4)
 ```
 
-So, in general the support function can work in any given direction. You give it a direction and two shapes, and then it finds two opposite points and returns their intersection. The intersection of two points always yields a third point. In 1D a point is a number. Thus, an intersection of two numbers (two points) in 1D gives a third number (another 1D-point). In 2D an intersection of two vectors (two points) gives a third vector (another 2D-point). So given a direction and two shapes the support function always returns another point regardless of how many dimensions you have. It works the same for 1D, 2D, 3D, etc... The returned point is on the contour of intersection. In mathematics the intersection is usually denoted with symbol `∩`. 
+So, in general the support function can work in any given direction and in any given space. You give it a direction and two shapes, and then it finds two opposite points in your space and returns their intersection in Minkowski space. In mathematics the intersection is usually denoted with symbol `∩`. 
 
 ```
 C = support (D, shape1, shape2) // take an arbitrary direction D and return a point of (shape1 ∩ shape2)
 ```
 
-#### A Word On Math
+The intersection of two points always yields a third point. In 1D a point is a number. Thus, an intersection of two numbers or two points in 1D gives a third number or another 1D-point. In 2D an intersection of two vectors or two points gives a third vector or another 2D-point. 
+
+Here's how a general implementation of the support function for any space of any amount of dimensions might look like in C language:
+
+```C
+//-----------------------------------------------------------------------------
+// Subtract two points (vectors) arithmetically.
+// In 1D a vector has only one component (one coordinate on a number line).
+// In general a vector has or many components.
+
+vec subtract (vec a, vec b) { return a + (-b); }
+
+//-----------------------------------------------------------------------------
+// Dot product is the sum of all corresponding components multiplied 
+
+float dotProduct (vec a, vec b) {
+    float product = 0;    
+    for (int i = 0; i < a.size; i++) {
+        product += a[i] * b[i];
+    return product;
+}
+
+//-----------------------------------------------------------------------------
+// Get furthest vertex along a certain direction d.
+// This is the same as finding max dot product with d.
+// In 1D direction is always 1 (the number 1 on the number line).
+
+size_t indexOfFurthestPoint (const vec * vertices, size_t count, vec d) {
+    
+    float maxProduct = dotProduct (d, vertices[0]);
+    size_t index = 0;
+    for (size_t i = 0; i < count; i++) {
+        float product = dotProduct (d, vertices[i]);
+        if (product > maxProduct) {
+            maxProduct = product;
+            index = i;
+        }
+    }
+    return index;
+}
+
+//-----------------------------------------------------------------------------
+// Minkowski sum support function for GJK
+
+vec support (const vec * vertices1, size_t count1, // first shape
+             const vec * vertices2, size_t count2, // second shape
+             vec d) {                              // direction
+
+    // get furthest point of first body along an arbitrary direction
+    size_t i = indexOfFurthestPoint (vertices1, count1, d);
+    
+    // get furthest point of second body along the opposite direction
+    size_t j = indexOfFurthestPoint (vertices2, count2, negate (d));
+
+    // subtract (Minkowski sum) the two points to see if bodies 'overlap'
+    return subtract (vertices1[i], vertices2[j]);
+}
+```
+
+It does not really care how many dimensions are there in space. So given a direction and two shapes the support function always returns another point regardless of how many dimensions you have. It works the same for 1D, 2D, 3D, etc... The point returned by the support  function is always on the contour of intersection. This is because the initial points involved in the intersection are opposite.
+
+##### A Word On Math
 
 To calculate the difference of two numbers we subtract one of them from the other like this: `A - B = C`. In 1D which number of the two is A and which one is B does not matter, the algorithm works either way. This is because in 1D you have only one possible direction that is the actual number line itself. But in general when dealing with 2D or 3D coordinate vectors (which is usually the case in many applications) the order of subtraction actually does matter. A more accurate way of representing the difference of two vectors in Minkowski space is to take one vector and sum it with a negated version of the other vector, so that `A + (-B) = C`. Because of this fact the Minkowski support function is often defined as a sum of the first point-vector with the negated version of the second point-vector. After negating the second vector you simply add it to the first one to get their *arithmetic* resulting difference. This is why the support function is called *Minkowski addition* or *Minkwoski sum* and you will probably never hear of *Minkowski subtraction*.
 
-Remember, the whole point of having a support function was to help us quickly build the simplex for GJK. The support function is used in the search for a 2-simplex that encloses the Origin in 2D. Now that we have the support function, we can move on, and build the rest of the algorithm on top of it.
+Remember, the whole point of having a support function was to help us quickly build the simplex for GJK. The support function is used in the search for a 2-simplex that encloses the Origin in 2D. Now that we have such a support function, we can move on and build the rest of the algorithm on top of it.
+
+#### The Evolution
+
+...
 
 WORK IN PROGRESS, A live demo of GJK in a 2D-space and a video of GJK in action coming up soon )
 
