@@ -347,7 +347,7 @@ vec support (const vec * vertices1, size_t count1, // first shape
     // get furthest point of second body along the opposite direction
     size_t j = indexOfFurthestPoint (vertices2, count2, negate (d));
 
-    // Minkowski sum the two points to see if bodies 'overlap'
+    // return the Minkowski sum of two points to see if bodies 'overlap'
     return sum (vertices1[i], -vertices2[j]); // a + (-b) = c
 }
 ```
