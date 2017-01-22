@@ -309,7 +309,7 @@ vec negate (vec p) {
 
 vec sum (vec a, vec b) {
     return a + b;
-    for (int i = 0; i < a.size; i++)         
+    for (int i = 0; i < a.size, i < b.size; i++)         
         a.components[i] += b.components[i];  // this is not very clean, but...
     return a;                                // at least it's understandable
 }
@@ -319,7 +319,7 @@ vec sum (vec a, vec b) {
 
 float dotProduct (vec a, vec b) {
     float product = 0;    
-    for (int i = 0; i < a.size; i++)
+    for (int i = 0; i < a.size, i < b.size; i++)
         product += a.components[i] * b.components[i];
     return product;
 }
