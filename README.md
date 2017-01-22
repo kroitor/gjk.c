@@ -361,6 +361,12 @@ Remember, the whole point of having a support function was to help us quickly bu
 
 WORK IN PROGRESS, A live demo of GJK in a 2D-space and a video of GJK in action coming up soon )
 
+...
+
+##### Degenerate Cases
+
+WORK IN PROGRESS, to be continued soon... )
+
 ### Roundness And Curvature
 
 WORK IN PROGRESS, to be continued soon... )
