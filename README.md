@@ -357,8 +357,8 @@ vec support (const vec * vertices1, size_t count1, // first shape
     size_t j = indexOfFurthestPoint (vertices2, count2, negate (d));
 
     // return the Minkowski sum of two points to see if bodies 'overlap'
-    // note that the second point-vector is negated
-    return sum (vertices1[i], negate (vertices2[j])); // a + (-b) = c
+    // note that the second point-vector is negated, a + (-b) = c
+    return sum (vertices1[i], negate (vertices2[j])); 
 }
 ```
 
