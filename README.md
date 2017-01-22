@@ -324,7 +324,7 @@ float dotProduct (vec a, vec b) {
 //-----------------------------------------------------------------------------
 // Get furthest vertex along a certain direction d
 // This is the same as finding max dot product with d
-// In 1D direction is always 1 (the number 1 on the number line)
+// In 1D direction is always 1 or -1 (to the left or to the right of the Origin)
 
 size_t indexOfFurthestPoint (const vec * vertices, size_t count, vec d) {
     
