@@ -320,7 +320,7 @@ size_t indexOfFurthestPoint (const vec * vertices, size_t count, vec d) {
     float maxProduct = dotProduct (d, vertices[0]);
     size_t index = 0;
     for (size_t i = 0; i < count; i++) {
-        float product = dotProduct (d, vertices[i]);
+        float product = dotProduct (d, vertices[i]); // may be negative
         if (product > maxProduct) {
             maxProduct = product;
             index = i;
