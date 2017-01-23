@@ -406,7 +406,7 @@ WORK IN PROGRESS, to be continued soon... )
 
 ### Roundness And Curvature
 
-What's very remarkable of this algorithm, is that the support function can be also defined for a huge variety of shapes. If every point of a shape can be derived from a simple formula (aka *parametric equation*) then your support function can use that equation to calculate differences of points. Having geometry defined in a parametric way there is no need to keep all points in memory. And you can scale it up and down indefinitely, which is the basis for vector graphics, but this is a whole other topic in itself, we won't dive deep into that here. 
+What's very remarkable of this algorithm, is that the support function can be also defined for a huge variety of shapes. If every point of a shape can be derived from a simple formula (aka *parametric equation*) then your support function can use that equation to calculate differences of points. Having geometry defined in a parametric way there is no need to keep all points in memory. And you can scale shapes up and down indefinitely, which is the basis for vector graphics, but this is a whole other topic in itself, we won't dive deep into that here. 
 
 The key point is: a parametric equation can be an equation of a circle `(x + a)² + (y + b)² = r²` or an equation of an ellipse `(x - h)²/a² + (y - k)²/b² = 1`, or some *spline* (!), or even a combination of polygons and conic sections. So, you can detect collisions and intersections of round shapes very accurately up to an exact point of contact. GJK is not restricted to polygons, you can do perfect circle collisions, and as we'll see later in the 3D section, spherical collisions are also possible as well.
 
