@@ -287,38 +287,23 @@ The intersection of two points always yields a third point. In 1D a point is a n
 
 To calculate the difference of two numbers we subtract one of them from the other like this: `A - B = C`. In 1D which number of the two is A and which one is B does not matter, the algorithm works either way. This is because in 1D you have only one possible direction that is the actual number line itself. But in general when dealing with 2D or 3D coordinate vectors (which is usually the case in many applications) the order of subtraction actually does matter. A more accurate way of representing the difference of two vectors in Minkowski space is to take one vector and sum it with a negated version of the other vector, so that `A + (-B) = C`. Because of this fact the Minkowski support function is often defined as a sum of the first point-vector with the negated version of the second point-vector. After negating the second vector you simply add it to the first one to get their arithmetic total result. This is why the support function is called *Minkowski addition* or *Minkowski sum* and you will probably never hear of *Minkowski subtraction* nor *Minkowski difference*.
 
-Here's how a general implementation of the Minkowski sum support function for any space of arbitrary amount of dimensions might look like in C programming language:
+Here's how a general implementation of the Minkowski sum support function for any space of arbitrary amount of dimensions might look like in pseudocode:
 
 ```C
-//-----------------------------------------------------------------------------
-// Negate or 'flip' a point-vector in reverse direction
-
-vec negate (vec p) {
-    for (int i = 0; i < p.size; i++)
-        p.components[i] = -p.components[i];
-    return p;
-}
-
 //-----------------------------------------------------------------------------
 // Return an arithmetic sum of two point-vectors
 // A 1D-vector has only one component (one coordinate on a number line)
 // In general a vector has one or more components
 
 vec sum (vec a, vec b) {
-    return a + b;
-    for (int i = 0; i < a.size, i < b.size; i++)         
-        a.components[i] += b.components[i];  // this is not very clean, but...
-    return a;                                // at least it's understandable
+    return a + b; // [ a.x + b.x, a.y + b.y, ... ]
 }
 
 //-----------------------------------------------------------------------------
 // Dot product is the sum of all corresponding components of both vectors multiplied 
 
 float dotProduct (vec a, vec b) {
-    float product = 0;    
-    for (int i = 0; i < a.size, i < b.size; i++)
-        product += a.components[i] * b.components[i];
-    return product;
+    return a * b; // a.x * b.x + a.y * b.y + ...
 }
 
 //-----------------------------------------------------------------------------
@@ -327,10 +312,9 @@ float dotProduct (vec a, vec b) {
 // In 1D direction is always 1 or -1 (to the left or to the right of the Origin)
 
 size_t indexOfFurthestPoint (const vec * vertices, size_t count, vec d) {
-    
-    float maxProduct = dotProduct (d, vertices[0]);
     size_t index = 0;
-    for (size_t i = 0; i < count; i++) {
+    float maxProduct = dotProduct (d, vertices[index]);
+    for (size_t i = 1; i < count; i++) {
         float product = dotProduct (d, vertices[i]); // may be negative
         if (product > maxProduct) {
             maxProduct = product;
@@ -351,11 +335,12 @@ vec support (const vec * vertices1, size_t count1, // first shape
     size_t i = indexOfFurthestPoint (vertices1, count1, d);
     
     // get furthest point of second body along the opposite direction
-    size_t j = indexOfFurthestPoint (vertices2, count2, negate (d));
+    // note that this time direction is negated
+    size_t j = indexOfFurthestPoint (vertices2, count2, -d);
 
     // return the Minkowski sum of two points to see if bodies 'overlap'
     // note that the second point-vector is negated, a + (-b) = c
-    return sum (vertices1[i], negate (vertices2[j])); 
+    return sum (vertices1[i], -vertices2[j]); 
 }
 ```
 
