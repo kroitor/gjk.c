@@ -406,6 +406,10 @@ WORK IN PROGRESS, to be continued soon... )
 
 ### Roundness And Curvature
 
+What's very remarkable of this algorithm, is that the support function can be also defined for a huge variety of shapes. If every point of a shape can be derived from a simple equation (aka *parametric*) then your support function can use that equation to calculate differences of points. Having geometry defined in a parametric way there is no need to keep all points in memory, which is the basis for vector graphics, but this is a whole other topic in itself, we won't dive deep into that here. 
+
+The key point is: a parametric equation can be an equation of a circle `(x + a)² + (y + b)² = r²` or an equation of an ellipse `(x - h)²/a² + (y - k)²/b² = 1`, or some *spline* (!), or even a combination of polygons and conic sections. So, you can detect collisions and intersections of round shapes very accurately up to an exact point of contact. The only restriction that still holds in GJK – your shapes should be convex, not concave, so, any line crossing your shape should not intersect its contour more than twice. As long as your shapes are fat and bulgy, you'll be fine. But there's a hint: you can always make a concave shape from multiple convex shapes.
+
 WORK IN PROGRESS, to be continued soon... )
 
 ### Adding 3D
