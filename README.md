@@ -296,14 +296,14 @@ Here's how a general implementation of the Minkowski sum support function for an
 // In general a vector has one or more components
 
 vec sum (vec a, vec b) {
-    return a + b; // [ a.x + b.x, a.y + b.y, ... ]
+    return a + b; // [ a.x + b.x, a.y + b.y, a.z + b.z, ... ]
 }
 
 //-----------------------------------------------------------------------------
 // Dot product is the sum of all corresponding components of both vectors multiplied 
 
 float dotProduct (vec a, vec b) {
-    return a * b; // a.x * b.x + a.y * b.y + ...
+    return a * b; // a.x * b.x + a.y * b.y + a.z * b.z + ...
 }
 
 //-----------------------------------------------------------------------------
