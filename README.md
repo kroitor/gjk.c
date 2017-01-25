@@ -395,12 +395,25 @@ A full-on collision when a shape overlaps or penetrates another shape usually lo
 
 ![A usual case of overlapping or penetrating collision](https://cloud.githubusercontent.com/assets/1294454/22180045/d361a334-e075-11e6-8436-b756a6a5cfcb.jpg "A usual case of overlapping or penetrating collision")
 
-When 2D-shapes overlap there is usually at least one way to build a 2-simplex that encloses the Origin. But there can be other types of non-penetrating collisions without overlapping, when shapes touch edge-to-edge or meet at one single point. In GJK these collisions are usually called *degenerate case*. They are not collisions but contacts in general sense. Here are some examples of what a degenerate case collision (a touch) in GJK is:
+When 2D-shapes overlap there is usually at least one way to build a 2-simplex that encloses the Origin. But there can be other types of non-penetrating collisions without overlapping, when shapes touch edge-to-edge or meet at one single point. In GJK these collisions are usually called *degenerate case*. They are not collisions but contacts in general sense. By design GJK handles all degenerate cases absolutely fine.
+
+Here are some examples of what a degenerate case collision (a touch) in GJK is:
 
 ![A GJK degenerate case of non-penetrating collision (a touch) in 2D](https://cloud.githubusercontent.com/assets/1294454/22180044/d36159f6-e075-11e6-869a-06b14c96cedf.jpg "A GJK degenerate case of non-penetrating collision (a touch) in 2D")
 ![A GJK degenerate case of non-penetrating collision (a touch) in 2D](https://cloud.githubusercontent.com/assets/1294454/22180046/d3625888-e075-11e6-9432-7ff7566eb509.jpg "A GJK degenerate case of non-penetrating collision (a touch) in 2D")
 ![A GJK degenerate case of non-penetrating collision (a touch) in 2D](https://cloud.githubusercontent.com/assets/1294454/22180043/d352cbd4-e075-11e6-95f3-956725d0cb27.jpg "A GJK degenerate case of non-penetrating collision (a touch) in 2D")
 ![A GJK degenerate case of non-penetrating collision (a touch) in 2D](https://cloud.githubusercontent.com/assets/1294454/22180042/d33b626e-e075-11e6-97fa-360e24fd0739.jpg "A GJK degenerate case of non-penetrating collision (a touch) in 2D")
+
+It may seem like a lot of special cases to handle, but in fact, GJK already does that intrinsically. Check out the following:
+```
+0-simplex =  nothing  + 1 point = 1 point
+1-simplex = 0-simplex + 1 point = 2 points
+2-simplex = 1-simplex + 1 point = 3 points
+    ...   =    ...    + 1 point =    ...
+```
+It's clear that each new dimension adds one more point to the simplex. A 1-simplex (a segment) consists of even simpler 0-simplices (points). Likewise, a 2-simplex (a triangle) contains or consists of 1-simplices (segments).
+
+GJK evolves the simplex from the very beginning each time. So a simplex passes through all stages of its evolution during the process. The evolution stops when no further progress is possible. 
 
 WORK IN PROGRESS, to be continued soon... )
 
