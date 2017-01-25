@@ -406,12 +406,12 @@ Here are some examples of what a degenerate case collision (a touch) in GJK is:
 
 It may seem like a lot of special cases to handle, but in fact, GJK already does that intrinsically. Check out the following:
 ```
-0-simplex =  nothing  + 1 point = 1 point
-1-simplex = 0-simplex + 1 point = 2 points
+0-simplex =  nothing  + 1 point = 1 point  
+1-simplex = 0-simplex + 1 point = 2 points 
 2-simplex = 1-simplex + 1 point = 3 points
     ...   =    ...    + 1 point =    ...
 ```
-It's clear that each new dimension adds one more point to the simplex. A 1-simplex (a segment) consists of even simpler 0-simplices (points). Likewise, a 2-simplex (a triangle) contains or consists of 1-simplices (segments).
+It's clear that each new dimension adds one more point to the simplex. A 2-simplex (a triangle) contains or consists of 1-simplices (segments). A 1-simplex (a segment) consists of even simpler 0-simplices (points). 
 
 GJK evolves the simplex from the very beginning each time. So a simplex passes through all stages of its evolution during the process. The evolution stops when no further progress is possible. 
 
