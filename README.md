@@ -363,15 +363,28 @@ All of that is done in a loop. The algorithm tries different points and checks i
 
 Some people might be reasonably worried of the possibility that the evolution of GJK runs out of control and continues on and on without ever stopping. It might even become intelligent some day and who knows what could happen... So they add a limit of iterations into their implementations which is a countdown that cuts power off when the game is over, forcing the algorithm to stop. It's like an emergency halt or a safety button in case something goes wrong with float number precision or whatever. But that is actually not necessary in general.
 
-...
+In search for a 2-simplex the algorithm has to obtain 3 points, one by one, to make a triangle. The resulting set of points is initially empty. The process of finding three points is done step-by-step. First, the algorithm finds the first point and adds it to the resulting set. Then it finds and adds the second point, and then it finds and adds the third one. So, while being built, the 2-simplex kinda *evolves* actually passing through all stages of evolution from a 0-simplex (one point, the first one in the resulting set), through a 1-simplex (segment of two points, with the second point added to the set), to a 2-simplex (three points, with the third point added to the resulting set). 
 
-Let us do a single iteration of the main loop by an example, step-by-step. To build a 2-simplex in 2D we need three points that would enclose the Origin within a triangle and we have our nice support function for that. Before we begin the search for three points we reserve a place for each one of them and label or tag each place `C`, `B` and `A` in that order. Their naming might be a little confusing, as we've used `A` and `B` to denote opposite points previously in this text, but it's an ancient tradition, sorry, can't do much about that. These will be placeholders for the points we might find in the search process.
+![Simplices in various spaces](https://cloud.githubusercontent.com/assets/1294454/22043033/dd0fea8a-dd1e-11e6-9ec7-dd2c6103291f.jpg "Simplices in various spaces")
 
-The first point `C` is the easiest to obtain. You just choose a random direction `D` and call the support function which calculates that point for you as we did earlier. Once you get the first resulting point, you place it in placeholder `C`. From now on we will be referring to that point by that label or tag `C`. Don't forget, that `C` is a point on the difference contour line in Minkowski space.
+A 2-simplex (a triangle) contains or consists of 1-simplices (segments). A 1-simplex (a segment) consists of even simpler 0-simplices (points). It's clear that each new dimension adds one more point to the simplex. So, in general:
 
-...
+```
+0-simplex =    nothing    + 1 point = 1 point  
+1-simplex =   0-simplex   + 1 point = 2 points 
+2-simplex =   1-simplex   + 1 point = 3 points
+3-simplex =   2-simplex   + 1 point = 4 points
+   ...    =      ...      + 1 point =    ...
+N-simplex = (N-1)-simplex + 1 point = N+1 points
+```
 
-The second point `B` is also quite easy to get. You simply reverse your initial direction `D` and call the support function again passing it `-D` this time. Note that `-D` is a negative version of `D`, which in 2D geometry means simply *'the opposite direction'* or *'the other side'*. You call the support function with the opposite direction and get the second point which is labelled or tagged as `B`.
+GJK evolves the simplex from the very beginning each time, restarting the evolution when no further progress is possible in current branch. So a simplex passes through all stages of its evolution upon each iteration of the main loop. 
+
+Let us do a single iteration of the main evolution loop by an example, step-by-step. To build a 2-simplex in 2D we need three points that would enclose the Origin within a triangle and we have our nice support function for that. Before we begin the search for three points we reserve a place for each one of them and label or tag each place `C`, `B` and `A` in that order. Their naming might be a little confusing, as we've used `A` and `B` to denote opposite points previously in this text, but it's an ancient tradition, sorry, can't do much about that. These will be placeholders for the points we might find in the search process. Initially our resulting set of points is empty (all placeholders are empty).
+
+The first point `C` is the easiest to obtain. You just choose a random direction `D` and call the support function which calculates that point for you as we did earlier. Once you get the first resulting point, you place it in placeholder `C`. From now on we will be referring to that point by that label or tag `C`. Don't forget, that `C` is a point on the difference contour line in Minkowski space. Now we have a 0-simplex (a point) in our resulting set and it is the first stage of current iteration of evolution.
+
+The second point `B` is also quite easy to get. You simply reverse your initial direction `D` and call the support function again passing it `-D` this time. Note that `-D` is a negative version of `D`, which in 2D geometry means simply *'the opposite direction'* or *'the other side'*. You call the support function with the opposite direction and get the second point which is labelled or tagged as `B`. And now there's a 1-simplex (a segment of two points) in the resulting set, and it is the second stage of that same iteration of evolution.
 
 ...
 
@@ -404,18 +417,7 @@ Here are some examples of what a degenerate case collision (a touch) in GJK is:
 ![A GJK degenerate case of non-penetrating collision (a touch) in 2D](https://cloud.githubusercontent.com/assets/1294454/22180043/d352cbd4-e075-11e6-95f3-956725d0cb27.jpg "A GJK degenerate case of non-penetrating collision (a touch) in 2D")
 ![A GJK degenerate case of non-penetrating collision (a touch) in 2D](https://cloud.githubusercontent.com/assets/1294454/22180042/d33b626e-e075-11e6-97fa-360e24fd0739.jpg "A GJK degenerate case of non-penetrating collision (a touch) in 2D")
 
-It may seem like a lot of special cases to handle, but in fact, GJK already does that intrinsically. A 2-simplex (a triangle) contains or consists of 1-simplices (segments). A 1-simplex (a segment) consists of even simpler 0-simplices (points). It's clear that each new dimension adds one more point to the simplex. So, in general:
-
-```
-0-simplex =    nothing    + 1 point = 1 point  
-1-simplex =   0-simplex   + 1 point = 2 points 
-2-simplex =   1-simplex   + 1 point = 3 points
-3-simplex =   2-simplex   + 1 point = 4 points
-   ...    =      ...      + 1 point =    ...
-N-simplex = (N-1)-simplex + 1 point = N+1 points
-```
-
-GJK evolves the simplex from the very beginning each time. So a simplex passes through all stages of its evolution during the process. The evolution stops when no further progress is possible. 
+It may seem like a lot of special cases to handle, but in fact, GJK already does that intrinsically. 
 
 WORK IN PROGRESS, to be continued soon... )
 
