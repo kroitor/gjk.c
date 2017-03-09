@@ -357,7 +357,7 @@ This is where the actual logic of GJK kicks in. The general plan of GJK is:
 3. If it does, there is a collision – hooray and thanks for the support, support function )
 4. If it doesn't, well... try other points, why not?
 5. If a simplex cannot be built at all no matter how many times you try – it might be a *degenerate case* (explained later).
-6. If it's not a degenerate case, than there's no collision.
+6. If it's not a degenerate case, then there's no collision.
 
 All of that is done in a loop. The algorithm tries different points and checks if they satisfy the condition. The whole process is called *evolution*. If it succeeds to enclose the Origin in another branch of evolution (upon another loop iteration), then the intersection is detected. If not, it tries again until finally it either succeeds or fails. 
 
