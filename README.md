@@ -404,7 +404,7 @@ Now let's take a look at the Minkowski space as seen by GJK algorithm at this po
 
 ![The GJK simplex after completing the 2nd stage of evolution](https://cloud.githubusercontent.com/assets/1294454/25153389/06b3b44e-2495-11e7-9a2f-f5c87c32c82b.jpg "The GJK simplex after completing the 2nd stage of evolution")
 
-The algorithm's current view into surreal Minkowski world is on the left side – there's 1-simplex segment CB of two points. The simplex has evolved from being a single point `C` 0-simplex into a 1-simplex or a segment of two points `CB`, in other words, our simplex has become a little more complex and obtained an extra dimension )
+The algorithm's current view into surreal Minkowski world is on the left side – there's 1-simplex segment `CB` of two points. The simplex has evolved from being a single point `C` 0-simplex into a 1-simplex or a segment of two points `CB`, in other words, our simplex has become a little more complex and obtained an extra dimension )
 
 Before we proceed to the third point `A` we might need to gain even more intuition about what is going on here.  Seeing that segment `CB` on the image above and seeing the whole set of Minkowski sum points on the right side, humans can quickly visually find the third point to enclose the Origin. Easy. But for a machine to know where to look for the third point, we have to make a critical decision in which direction it should be looking next.
 
