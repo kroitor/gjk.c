@@ -390,7 +390,7 @@ The first point `C` is the easiest to obtain. You just choose a random direction
 
 ![Obtaining the first point C (GJK iterative evolution)](https://cloud.githubusercontent.com/assets/1294454/25108220/124100ae-23dd-11e7-9f63-9eb125f8acd7.jpg "Obtaining the first point C (GJK iterative evolution)")
 
-The second point `B` is also quite easy to get. You simply reverse your initial direction `D` and call the support function again passing it `-D` this time. Note that `-D` is a negative version of `D`, which in 2D geometry means simply *'the opposite direction'* or *'the other side'*. You call the support function with the opposite direction and get the second point which is labelled or tagged as capital `B`. And now there's a 1-simplex (a segment of two points) in the resulting set, and it is the second stage of that same iteration of evolution. Here's what we get after the second step:
+The second point `B` is also quite easy to get. You simply reverse your initial direction `D` and call the support function again passing it `-D` this time. Note that `-D` is a negative version of `D`, which in 2D geometry means simply *'the opposite direction'* or *'the other side'*. You call the support function with the opposite direction and get the second point which is labelled or tagged as capital `B`. And now there's a 1-simplex (a segment of two points, `C` and `B`) in the resulting set, and it is the second stage of that same iteration of evolution. Here's what we get after the second step:
 
 ![Obtaining the second point B (GJK iterative evolution)](https://cloud.githubusercontent.com/assets/1294454/25108449/7a4b2c64-23de-11e7-813b-a7388d85a716.jpg "Obtaining the second point B (GJK iterative evolution)")
 
