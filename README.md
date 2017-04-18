@@ -402,13 +402,13 @@ The second point `B` is quite easy to get. From now on we set new direction `D =
 
 You call the support function with your new opposite direction `D` and get the second point which is labelled or tagged as capital `B`. And now there's a 1-simplex (a segment of two points, `C` and `B`) in the resulting set, and it is the second stage of that same iteration of evolution. Here's what we get after the second step:
 
-![Obtaining the second point B (GJK iterative evolution)](https://cloud.githubusercontent.com/assets/1294454/25108449/7a4b2c64-23de-11e7-813b-a7388d85a716.jpg "Obtaining the second point B (GJK iterative evolution)")
+![Obtaining the second point B (GJK iterative evolution)](https://cloud.githubusercontent.com/assets/1294454/25157552/c0fc12a0-24aa-11e7-88d5-adfbd48d1ee4.jpg "Obtaining the second point B (GJK iterative evolution)")
 
 By calling the support function the second time with the opposite direction you get a second point `B` which is another point on the same contour in Minkowski space. That second point `B` is exactly opposite to the first point `C`, because initial directions passed into the support function were opposite, right? Remember that the algorithm doesn't know anything about the whole set of Minkowski points, it currently only knows about points `C` and `B` that were found during first two stages of the evolution
 
 Now let's take a look at the Minkowski space as seen by GJK algorithm at this point. The left part of the image below shows the 1-simplex of two points (segment CB) in Minkowski space, and on the right we see the same segment with the full set of Minkowski sum points added for visual reference and for explanation purposes (the algorithm only sees the left side of this picture, not the right side):
 
-![The GJK simplex after completing the 2nd stage of evolution](https://cloud.githubusercontent.com/assets/1294454/25157552/c0fc12a0-24aa-11e7-88d5-adfbd48d1ee4.jpg "The GJK simplex after completing the 2nd stage of evolution")
+![The GJK simplex after completing the 2nd stage of evolution](https://cloud.githubusercontent.com/assets/1294454/25153389/06b3b44e-2495-11e7-9a2f-f5c87c32c82b.jpg "The GJK simplex after completing the 2nd stage of evolution")
 
 The algorithm's current view into surreal Minkowski world is on the left side – there's 1-simplex segment `CB` of two points. The simplex has evolved from being a single point `C` 0-simplex into a 1-simplex or a segment of two points `CB`, in other words, our simplex has become a little more complex and obtained an extra dimension )
 
