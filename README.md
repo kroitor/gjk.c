@@ -392,13 +392,13 @@ The first point `C` is the easiest to obtain. You just choose a random direction
 
 Once we got the first difference of most distant opposite points along a certain direction-line we need to choose a different direction, to find some other point of Minkowski resulting set. Remember, that the magic of GJK says that we have to surround the Origin from all sides to detect a collision. As with 1D number line where a segment can surround the Origin with two of its endpoints, in 2D we can surround the Origin from all sides with three *endpoints* or vertices of a triangle. So our goal is to find such a 2-simplex that would enclose the Origin within itself. 
 
-The logic behind this can be described in the following way: imagine we *stand at* point `C` and look towards the Origin from that perspective. We want to find next point that would be *beyond* the Origin as seen by us. If there's no such point – we will not be able to surround the Origin with current point `C` and there's probably no collision at least on this iteration.
+The logic behind this can be described in the following way: imagine we *stand at* point `C` and look towards the Origin from that perspective. We want to find next point that would be *beyond* the Origin as seen by us. If there's no such point then we will not be able to surround the Origin with current point `C` and there's probably no collision at least on this iteration.
 
-So, standing at point `C` we need to check if there's a point which is further away from us than the Origin is, in the direction from us towards the Origin. But we obtained current point `C` by following a particular direction `D` from the Origin in the first place, right? So reversing that direction we would be a good choice for us to try to find the next point beyond the Origin there (just by looking backwards from where we are now).
+So, standing at point `C` we need to check if there's a point which is further away from us than the Origin is, in the direction from us towards the Origin. The direction from point `C` towards the origin `O` is the direction `CO` which is the reversed opposite of direction from origin to point `C`, so that `CO == -OC`. So we should be looking in direction `CO` next as we hope to find some point beyond the Origin there.
 
-![Choosing a direction for 2nd stage of GJK evolution](https://cloud.githubusercontent.com/assets/1294454/25156798/a2a80dd6-24a5-11e7-8f39-12d079e0d3d4.jpg "Choosing a direction for 2nd stage of GJK evolution")
+![Choosing a direction for 2nd stage of GJK evolution](https://cloud.githubusercontent.com/assets/1294454/25157327/4931c1a8-24a9-11e7-9a15-375384dded56.jpg "Choosing a direction for 2nd stage of GJK evolution")
 
-The second point `B` is quite easy to get. You reverse your initial direction `D` and call the support function again passing it `-D` this time. Note that `-D` is a negative version of `D`, which in 2D geometry means simply *'the opposite direction'* or *'the other side'* (beyond Origin). From now on we set new direction `D = -D`, and we will refer to it as `D` without the negative sign. The support function finds the other two most distant opposite points `a` and `b` and it looks in both directions `D` and `-D` (yes, again) in the process.
+The second point `B` is quite easy to get. From now on we set new direction `D = -OC` which is equal to `CO`, and we will refer to it as our new direction `D` without the negative sign. The support function finds the other two most distant opposite points `a` and `b` and it looks in both directions `D` and `-D` (yes, again) in the process.
 
 You call the support function with your new opposite direction `D` and get the second point which is labelled or tagged as capital `B`. And now there's a 1-simplex (a segment of two points, `C` and `B`) in the resulting set, and it is the second stage of that same iteration of evolution. Here's what we get after the second step:
 
@@ -408,7 +408,7 @@ By calling the support function the second time with the opposite direction you 
 
 Now let's take a look at the Minkowski space as seen by GJK algorithm at this point. The left part of the image below shows the 1-simplex of two points (segment CB) in Minkowski space, and on the right we see the same segment with the full set of Minkowski sum points added for visual reference and for explanation purposes (the algorithm only sees the left side of this picture, not the right side):
 
-![The GJK simplex after completing the 2nd stage of evolution](https://cloud.githubusercontent.com/assets/1294454/25153389/06b3b44e-2495-11e7-9a2f-f5c87c32c82b.jpg "The GJK simplex after completing the 2nd stage of evolution")
+![The GJK simplex after completing the 2nd stage of evolution](https://cloud.githubusercontent.com/assets/1294454/25157552/c0fc12a0-24aa-11e7-88d5-adfbd48d1ee4.jpg "The GJK simplex after completing the 2nd stage of evolution")
 
 The algorithm's current view into surreal Minkowski world is on the left side – there's 1-simplex segment `CB` of two points. The simplex has evolved from being a single point `C` 0-simplex into a 1-simplex or a segment of two points `CB`, in other words, our simplex has become a little more complex and obtained an extra dimension )
 
