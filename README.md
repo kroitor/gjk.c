@@ -473,13 +473,13 @@ For a 1D number line we need a 1-simplex of two points to enclose the Origin. If
 
 WORK IN PROGRESS, A live demo of GJK in a 3D-space and a video of GJK in action coming up soon )
 
-### Contact Information
+### Collision Details
 
-The version of GJK which gives a boolean answer to a yes/no collision test is simplified. The algorithm is able to not only detect the fact of intersection, but is also capable of giving back the exact depth of penetration and information about points of contact, so that the collision could be handled properly as needed.
+The version of GJK which gives a boolean answer to a yes/no collision test is somewhat simplified. The algorithm is able to not only detect the fact of intersection, but is also capable of giving back the exact depth of penetration and information about points of contact, so that the collision could be handled properly as needed.
 
-The simplified yes/no test is often called a *bastardized* version of GJK algorithm in comparison with its original purpose of calculating detailed collisions. But the simplified version described in the text above is easier for understanding. Having understood the simple yes/no GJK test it is much easier to grasp the Gilbert-Johnson-Keerthi algorithm in its entirety. We will proceed to cover the rest of GJK functionality below.
+The simplified yes/no test is often called a *bastardized* version of GJK algorithm in comparison to its original purpose of calculating detailed collisions. But the simplified version described in the text above is easier for understanding. Having understood the simple yes/no GJK test it is much easier to grasp the Gilbert-Johnson-Keerthi algorithm in its entirety. We will proceed to cover the rest of GJK functionality below.
 
-#### Distance or Depth Of Collision
+#### Distance or Depth Of Penetration
 
 WORK IN PROGRESS, to be continued soon... )
 
