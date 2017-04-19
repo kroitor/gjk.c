@@ -406,7 +406,7 @@ You call the support function with your new opposite direction `D` and get the s
 
 ![Obtaining the second point B (GJK iterative evolution)](https://cloud.githubusercontent.com/assets/1294454/25157552/c0fc12a0-24aa-11e7-88d5-adfbd48d1ee4.jpg "Obtaining the second point B (GJK iterative evolution)")
 
-By calling the support function the second time with the opposite direction you get a second point `B` which is another point on the same contour in Minkowski space. That second point `B` is exactly opposite to the first point `C`, because initial directions passed into the support function were opposite, right? Remember that the algorithm doesn't know anything about the whole set of Minkowski points, it currently only knows about points `C` and `B` that were found during first two stages of the evolution
+By calling the support function the second time with the opposite direction you get a second point `B` which is another point on the same contour in Minkowski space. That second point `B` is exactly opposite to the first point `C`, because initial directions passed into the support function were opposite, right? Remember that the algorithm doesn't know anything about the whole set of Minkowski points, it currently only knows about points `C` and `B` that were found during first two stages of the evolution.
 
 Now let's take a look at the Minkowski space as seen by GJK algorithm at this point. The left part of the image below shows the 1-simplex of two points (segment CB) in Minkowski space, and on the right we see the same segment with the full set of Minkowski sum points added for visual reference and for explanation purposes (the algorithm only sees the left side of this picture, not the right side):
 
