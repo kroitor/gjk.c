@@ -394,7 +394,7 @@ Once we got the first difference of most distant opposite points along a certain
 
 The logic behind this can be described in the following way: imagine we *stand at* point `C` and look towards the Origin from that perspective. We want to find next point that would be *beyond* the Origin as seen by us. If there's no such point thenÂ we will not be able to surround the Origin with current point `C` and there's probably no collision at least on this iteration.
 
-So, standing at point `C` we need to check if there's a point which is further away from us than the Origin is, in the direction from us towards the Origin. The direction from point `C` towards the origin `O` is the direction `CO` which is the reversed opposite of direction from origin to point `C`, so that `CO == -OC`. So we should be looking in direction `CO` next as we hope to find some point beyond the Origin there.
+So, standing at point `C` we need to check if there's a point which is further away from us than the Origin is, in the direction from us towards the Origin. The direction from point `C` towards the origin `O` is the direction `CO` which is the reversed opposite of direction from origin to point `C`, so that `CO == -OC`. So we should be looking in direction `CO` next as we hope to find some point beyond the Origin there. The idea of *looking beyond Origin from your current standpoint* is the key principle of the search for simplex in GJK. It helps to find quickly the biggest simplex surrounding the Origin by taking the most distant opposite points of Minkowski sum.
 
 ![Choosing a direction for 2nd stage of GJK evolution](https://cloud.githubusercontent.com/assets/1294454/25157327/4931c1a8-24a9-11e7-9a15-375384dded56.jpg "Choosing a direction for 2nd stage of GJK evolution")
 
@@ -414,7 +414,7 @@ The algorithm's current view into surreal Minkowski world is on the left side â€
 
 Before we proceed to the third point `A` we might need to gain even more intuition about what is going on here.  Seeing that segment `CB` on the image above and seeing the whole set of Minkowski sum points on the right side, humans can quickly visually locate the third point to enclose the Origin. Easy. But for a machine to know where to look for the third point, we have to make a critical decision in which direction it should be looking next.
 
-The logic of GJK goes this way: imagine we *stand anywhere on the segment* `CB` and look towards the Origin from that perspective. We want to find such a third point that would be at least *beyond* the Origin (as seen by us relatively to the segment `CB` that we're *standing on*). So, again, if we cannot find a third point beyond the Origin then we will not be able to surround it using current segment `CB` and there's no collision at least on this iteration. The idea of *looking beyond Origin from your current standpoint* is the key principle of the search for simplex in GJK...
+The logic of GJK goes this way: imagine we *stand anywhere on the segment* `CB` and look towards the Origin from that perspective. We want to find such a third point that would be at least *beyond* the Origin (as seen by us relatively to the segment `CB` that we're *standing on*). So, again, if we cannot find a third point beyond the Origin then we will not be able to surround it using current segment `CB` and there's no collision at least on this iteration. 
 
 WORK IN PROGRESS, A live demo of GJK in a 2D-space and a video of GJK in action coming up soon )
 
