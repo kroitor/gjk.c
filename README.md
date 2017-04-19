@@ -398,7 +398,7 @@ So, standing at point `C` we need to check if there's a point which is further a
 
 ![Choosing a direction for 2nd stage of GJK evolution](https://cloud.githubusercontent.com/assets/1294454/25157327/4931c1a8-24a9-11e7-9a15-375384dded56.jpg "Choosing a direction for 2nd stage of GJK evolution")
 
-The idea of *looking beyond Origin from your current standpoint* is the key principle of the search for simplex in GJK. It helps to quickly find the biggest simplex by taking the most distant opposite points of Minkowski sum. The bigger the simplex the better are chances that it will surround the Origin at some early iteration.
+The idea of *looking beyond Origin from your current standpoint* is the key principle of the search for simplex in GJK. It helps to quickly find the biggest simplex by taking the most distant opposite points of Minkowski sum. The bigger the simplex the better are chances that it will surround the Origin upon some early iteration.
 
 The second point `B` is quite easy to get. From now on we set new direction `D = -OC` which is equal to `CO`, and we will refer to it as our new direction `D` without the negative sign. The support function finds the other two most distant opposite points `a` and `b` and it looks in both directions `D` and `-D` (yes, again) in the process.
 
