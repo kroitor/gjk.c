@@ -398,7 +398,7 @@ If we cannot reach for a point beyond the Origin from current standpoint `C`, th
 
 So, standing at point `C` we need to check if there's a point which is further away from us than the Origin is, in the direction from us towards the Origin. The direction from point `C` towards the origin `O` is the direction `CO` which is the reversed opposite of direction from origin to point `C`, so that `CO == -OC`. Therefore we should be looking in direction `CO` next as we hope to find some point beyond the Origin there.
 
-![Choosing a direction for 2nd stage of GJK evolution](https://cloud.githubusercontent.com/assets/1294454/25157327/4931c1a8-24a9-11e7-9a15-375384dded56.jpg "Choosing a direction for 2nd stage of GJK evolution")
+![Choosing a direction for 2nd stage of GJK evolution](https://cloud.githubusercontent.com/assets/1294454/25163108/87781846-24d0-11e7-93f0-0c82a89c6bb9.jpg "Choosing a direction for 2nd stage of GJK evolution")
 
 The idea of *looking beyond Origin from your current standpoint* is the key principle of the search for simplex in GJK. It helps to quickly find the biggest simplex by taking the most distant opposite points of Minkowski sum. The bigger the simplex the higher the chances that it will surround the Origin upon some early iteration.
 
