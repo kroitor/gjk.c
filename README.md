@@ -394,9 +394,11 @@ Once we got the first difference of most distant opposite points along a certain
 
 The logic behind this can be described in the following way: imagine we *stand at* point `C` and look towards the Origin from that perspective. We want to find next point that would be *beyond* the Origin as seen by us. If there's no such point then we will not be able to surround the Origin with current point `C` and there's probably no collision at least on this iteration.
 
-So, standing at point `C` we need to check if there's a point which is further away from us than the Origin is, in the direction from us towards the Origin. The direction from point `C` towards the origin `O` is the direction `CO` which is the reversed opposite of direction from origin to point `C`, so that `CO == -OC`. So we should be looking in direction `CO` next as we hope to find some point beyond the Origin there. The idea of *looking beyond Origin from your current standpoint* is the key principle of the search for simplex in GJK. It helps to quickly find the biggest simplex by taking the most distant opposite points of Minkowski sum. The bigger the simplex the better are chances that it will surround the Origin at some early iteration.
+So, standing at point `C` we need to check if there's a point which is further away from us than the Origin is, in the direction from us towards the Origin. The direction from point `C` towards the origin `O` is the direction `CO` which is the reversed opposite of direction from origin to point `C`, so that `CO == -OC`. So we should be looking in direction `CO` next as we hope to find some point beyond the Origin there.
 
 ![Choosing a direction for 2nd stage of GJK evolution](https://cloud.githubusercontent.com/assets/1294454/25157327/4931c1a8-24a9-11e7-9a15-375384dded56.jpg "Choosing a direction for 2nd stage of GJK evolution")
+
+The idea of *looking beyond Origin from your current standpoint* is the key principle of the search for simplex in GJK. It helps to quickly find the biggest simplex by taking the most distant opposite points of Minkowski sum. The bigger the simplex the better are chances that it will surround the Origin at some early iteration.
 
 The second point `B` is quite easy to get. From now on we set new direction `D = -OC` which is equal to `CO`, and we will refer to it as our new direction `D` without the negative sign. The support function finds the other two most distant opposite points `a` and `b` and it looks in both directions `D` and `-D` (yes, again) in the process.
 
