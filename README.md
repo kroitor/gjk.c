@@ -396,7 +396,7 @@ The logic behind this can be described in the following way: imagine we *stand a
 
 If we cannot reach for a point beyond the Origin from current standpoint `C`, then there's probably some distance between initial shapes (at least those two shapes don't intersect along direction `D`). So, in that case no collision is detected on that particular iteration and another iteration of evolution has to be started with a different initial direction `D`. The halting criteria of GJK algorithm says that current iteration stops if our simplex fails to include (or surround) the Origin, handling these cases will be explained in more detail later in this text.
 
-So, standing at point `C` we need to check if there's a point which is further away from us than the Origin is, in the direction from us towards the Origin. The direction from point `C` towards the origin `O` is the direction `CO` which is the reversed opposite of direction from origin to point `C`, so that `CO == -OC`. Therefore we should be looking in direction `CO` next as we hope to find some point beyond the Origin there.
+Standing at point `C` we need to check if there's a point which is further away from us than the Origin is, in the direction from us towards the Origin. The direction from point `C` towards the Origin `O` is the direction `CO` which is the reversed opposite of direction from Origin to point `C`, so that `CO == -OC`. Therefore we should be looking in direction `CO` next as we hope to find some point beyond the Origin there.
 
 ![Choosing a direction for 2nd stage of GJK evolution](https://cloud.githubusercontent.com/assets/1294454/25163108/87781846-24d0-11e7-93f0-0c82a89c6bb9.jpg "Choosing a direction for 2nd stage of GJK evolution")
 
