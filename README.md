@@ -422,7 +422,9 @@ The logic of GJK goes this way: imagine we *stand anywhere on the segment* `CB` 
 
 ![Choosing a direction for 3rd stage of GJK evolution](https://cloud.githubusercontent.com/assets/1294454/25166261/26cc765a-24e3-11e7-9f6e-87d64be6ca12.jpg "Choosing a direction for 3rd stage of GJK evolution")
 
-WORK IN PROGRESS, A live demo of GJK in a 2D-space and a video of GJK in action coming up soon )
+The image above shows the direction to look for the last point of triangle simplex. To find the exact direction vector, you just take one a perpendicular to the segment `CB`. If you tilt your head to the right a little while looking at the segment `CB`, you will immediately notice the following simple fact: any segment kinda cuts the coordinate plane into two halfes, to the left and to the right of the segment. And the Origin always ends up either on one side of the segment `CB` or on the other side. All we have to do to find the next direction vector is just take a perpendicular (often called *a normal*) to `CB` that points towards the Origin.
+
+WORK IN PROGRESS, to be continued soom... A live demo of GJK in a 2D-space and a video of GJK in action coming up )
 
 ...
 
