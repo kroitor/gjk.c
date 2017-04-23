@@ -426,7 +426,7 @@ The image above shows the direction to look for the last point of triangle simpl
 
 There are two possible directions perpendicular to segment `CB`, the one pointing towards the Origin and the one pointing the opposite way (away from the Origin). In order to get the one pointing towards the Origin, we can do a simple vector math trick, called *[vector triple product](https://en.wikipedia.org/wiki/Triple_product#Vector_triple_product)*. It is also known as *triple product expansion* because there's a fast formula (expanded equation) with only a few multiplications and subtractions for calculating the resulting perpendicular.
 
-It works like this: take a cross product of the segment `BC` (same as `-CB`) with a segment `BO` (from endpoint to the Origin) and then take a cross product of that with the segment `BC` again, basically two cross products done sequentially. You have to be precise with the order of vertices when calculating vector triple product using the expansion formula, but if done carefully and correctly, this always gives a perpendicular to segment `CB` pointing towards the Origin. 
+It works like this: take a cross product of the segment `CB` with a segment `CO` (from endpoint to the Origin) and then take a cross product of that with the segment `CB` again, basically two cross products done sequentially. You have to be precise with the order of vertices when calculating vector triple product using the expansion formula, but if done carefully and correctly, this always gives a perpendicular to segment `CB` pointing towards the Origin. 
 
 WORK IN PROGRESS, to be continued soom... A live demo of GJK in a 2D-space and a video of GJK in action coming up )
 
