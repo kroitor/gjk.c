@@ -440,7 +440,7 @@ Now that we have all three points for a complete triangle (a full 2-simplex), th
 
 For each edge (each side) of a triangle you need two things: a normal vector (a perpendicular) to that side towards Origin and a vector from opposite vertex to the Origin. Then you check if dot product of the two vectors is positive (greater than zero)...
 
-WORK IN PROGRESS, to be continued soom... A live demo of GJK in a 2D-space and a video of GJK in action coming up )
+WORK IN PROGRESS, to be continued soon. A live demo of GJK in a 2D-space and a video of GJK in action coming up )
 
 ...
 
