@@ -436,7 +436,7 @@ We obtained point A and now we have a complete triangle of three points in total
 
 ![The GJK simplex after completing the 3rd stage of evolution](https://cloud.githubusercontent.com/assets/1294454/25315541/3a5b5ad6-285f-11e7-8783-3acb05b25606.jpg "The GJK simplex after completing the 3rd stage of evolution")
 
-Now that we have all three points for a complete triangle (a full 2-simplex), the only task that's left is to test if the Origin is really contained inside that triangle. In other words, if our resulting simplex surrounds the Origin from all sides, then the whole Minkowski sum also does surround the Origin as well, and it follows that there was a collision between two initial shapes. The most straightforward way to test if a point is inside a triangle (the Origin is a point at zero), is to do a bunch of dot product operations.
+Now that we have all three points for a complete triangle (a full 2-simplex), the only task that's left is to test if the Origin is really contained inside that triangle. In other words, if our resulting simplex surrounds the Origin from all sides, then the whole Minkowski sum also does surround the Origin as well, and it follows that there was a collision between two initial shapes. The most straightforward way to test if a point is inside a triangle (the Origin is a point at zero) is to do a bunch of dot product operations.
 
 For each edge (each side) of a triangle you need two things: a normal vector (a perpendicular) to that side towards the Origin and a vector from opposite vertex to the Origin. Then you check if dot product of the two vectors is positive (greater than zero)...
 
