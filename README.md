@@ -428,7 +428,7 @@ There are two possible directions perpendicular to segment `CB`, the one pointin
 
 It works like this: take a cross product of the segment `CB` with a segment `CO` (from endpoint to the Origin) and then take a cross product of the result with the segment `CB` again, basically two cross products done sequentially, involving the same segment `CB` twice. You have to be precise with the order of vertices when calculating vector triple product using the expansion formula, but if done carefully and correctly, this always gives a perpendicular to segment `CB` pointing towards the Origin. 
 
-Now we set our final direction `D` to that perpendicular to `CB` pointing towards Origin. That will be a direction to search for point A of our triangle simplex. This is also the last stage of the evolution of the 2-simplex. We call our support function and pass new direction `D` along with the two shapes. The image below shows the result after calling the support function for the 3rd time:
+We set our final direction `D` to that perpendicular to `CB` pointing towards Origin. That will be a direction to search for point A of our triangle simplex. This is also the last stage of the evolution of the 2-simplex. We call our support function and pass new direction `D` along with the two shapes. The image below shows the result after calling the support function for the 3rd time:
 
 ![The GJK simplex after completing the 3rd stage of evolution](https://cloud.githubusercontent.com/assets/1294454/25314806/523d6236-2853-11e7-8c50-5e35404ff9a6.jpg "The GJK simplex after completing the 3rd stage of evolution")
 
