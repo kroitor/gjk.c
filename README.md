@@ -410,7 +410,7 @@ You call the support function with your new opposite direction `D` and get the s
 
 By calling the support function the second time with the opposite direction you get a second point `B` which is another point on the same contour in Minkowski space. That second point `B` is exactly opposite to the first point `C`, because initial directions passed into the support function were opposite, right? 
 
-Having point `B` we need to verify that it is indeed beyond Origin as seen from point `C`. In other words, we have to check if point `B` is further away from point `C` than the Origin is in direction from `C` towards the Origin. If a dot product of `CO ⋅ OB` is positive, then point `B` is really beyond the Origin as seen from point `C` and the evolution continues, otherwise there's no collision and the evolution stops or restarts in a different direction. In geometry the sign of dot product of two vectors basically says if those two vectors are oriented in roughly the same way.
+Having point `B` we need to verify that it is indeed beyond Origin as seen from point `C`. In other words, we have to check if point `B` is further away from point `C` than the Origin is in direction from `C` towards the Origin. If a dot product of `CO ⋅ OB` is positive, then point `B` is really beyond the Origin as seen from point `C` and the evolution continues, otherwise there's no collision and the evolution stops or restarts in a different direction. In geometry the sign of dot product of two vectors basically tells if their orientation is the same.
 
 ```if ((CO ⋅ OB) > 0) // test if point B is beyond Origin as seen from point C```
 
