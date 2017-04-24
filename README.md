@@ -434,7 +434,7 @@ There are two possible directions perpendicular to segment `CB`, the one pointin
 
 ```CB ⨯ CO ⨯ CB```
 
-It is also known as *triple product expansion* because there's a very fast formula (an expanded equation) with only a few multiplications and subtractions for calculating the resulting perpendicular:
+There's also a very fast formula for this (an expanded equation) aka *triple product expansion* with only a few multiplications and subtractions for calculating the resulting perpendicular:
 
 ```a ⨯ (b ⨯ c) = b(a ⋅ c) - c(a ⋅ b)```
 
