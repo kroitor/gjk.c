@@ -412,6 +412,8 @@ By calling the support function the second time with the opposite direction you 
 
 Having point `B` we need to verify that it is indeed beyond Origin as seen from point `C`. In other words, we have to check if point `B` is further away from point `C` than the Origin is in direction from `C` towards the Origin. If a dot product of `CO ⋅ OB` is positive, then point `B` is really beyond the Origin as seen from point `C` and the evolution continues, otherwise there's no collision and the evolution stops or restarts in a different direction. In geometry the sign of dot product of two vectors basically says if those two vectors are pointing to same side or opposite sides.
 
+```if ((CO ⋅ OB) > 0) // test if point B is beyond Origin as seen from point C```
+
 This test for *a point beyond Origin* can also be explained as follows: we know that point `C` is located on the contour of Minkowski sum (this is a feature of our support function) and point `B` is on the opposite side of that same contour, so the Origin must be in between `C` and `B`, otherwise we're not reaching far enough to surround it, and if we cannot surround it, then there's probably some distance between the two initial shapes, therefore no intersection.
 
 Remember that the algorithm doesn't know anything about the whole set of Minkowski points, it currently only knows about points `C` and `B` that were found during first two stages of the evolution. Now let's take a look at the Minkowski space as seen by GJK algorithm at this point. The left part of the image below shows the 1-simplex of two points (segment `CB`) in Minkowski space, and on the right we see the same segment with the full set of Minkowski sum points added for visual reference and for explanation purposes (the algorithm only sees the left side of this picture, not the right side):
@@ -434,7 +436,7 @@ There are two possible directions perpendicular to segment `CB`, the one pointin
 
 It is also known as *triple product expansion* because there's a very fast formula (an expanded equation) with only a few multiplications and subtractions for calculating the resulting perpendicular:
 
-```a⨯(b⨯c) = b(a⋅c) - c(a⋅b)```
+```a ⨯ (b ⨯ c) = b(a ⋅ c) - c(a ⋅ b)```
 
 You have to be precise with the order of vertices when calculating vector triple product using the expansion formula, but if done carefully and correctly, this always gives a perpendicular to segment `CB` pointing towards the Origin. 
 
