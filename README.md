@@ -438,7 +438,7 @@ It is also known as *triple product expansion* because there's a very fast formu
 
 ```a ⨯ (b ⨯ c) = b(a ⋅ c) - c(a ⋅ b)```
 
-You have to be precise with the orientation of vectors when calculatin triple product using the expansion formula, but if done carefully and correctly, this always gives a perpendicular to segment `CB` pointing towards the Origin. 
+You have to be precise with the orientation of vectors when using the expansion formula, but if done carefully and correctly, this always gives a perpendicular to segment `CB` pointing towards the Origin. 
 
 We set our final direction `D` to that perpendicular to `CB` pointing towards Origin. That will be a direction to search for point A of our triangle simplex. This is also the last stage of the evolution of the 2-simplex. We call our support function and pass new direction `D` along with the two shapes. The image below shows the result after calling the support function for the 3rd time:
 
