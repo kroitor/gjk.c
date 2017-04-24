@@ -428,9 +428,15 @@ The logic of GJK goes this way: imagine we *stand anywhere on the segment* `CB` 
 
 The image above shows the direction to look for the last point of triangle simplex. To find the exact direction vector, you just take one of perpendiculars to the segment `CB`. If you tilt your head to the right a little while looking at the segment `CB`, you will immediately notice the following simple fact: any segment kinda cuts the coordinate plane into two halfes, to the left and to the right of the segment. And the Origin always ends up either on one side of the segment `CB` or on the other side. All we have to do to find the next direction vector is just take a perpendicular (often called *a normal*) to `CB` that points towards the Origin.
 
-There are two possible directions perpendicular to segment `CB`, the one pointing towards the Origin and the one pointing the opposite way (away from the Origin). In order to get the one pointing towards the Origin, we can do a simple vector math trick, called *[vector triple product](https://en.wikipedia.org/wiki/Triple_product#Vector_triple_product)*. It works like this: take a cross product of the segment `CB` with a segment `CO` (from endpoint to the Origin) and then take a cross product of the result with the segment `CB` again, basically two cross products done sequentially, involving the same segment `CB` twice, `CB ⨯ CO ⨯ CB`. 
+There are two possible directions perpendicular to segment `CB`, the one pointing towards the Origin and the one pointing the opposite way (away from the Origin). In order to get the one pointing towards the Origin, we can do a simple vector math trick, called *[vector triple product](https://en.wikipedia.org/wiki/Triple_product#Vector_triple_product)*. It works like this: take a cross product of the segment `CB` with a segment `CO` (from endpoint to the Origin) and then take a cross product of the result with the segment `CB` again, basically two cross products done sequentially, involving the same segment `CB` twice:
 
-It is also known as *triple product expansion* because there's a very fast formula (expanded equation `a⨯(b⨯c) = b(a⋅c) - c(a⋅b)`) with only a few multiplications and subtractions for calculating the resulting perpendicular. You have to be precise with the order of vertices when calculating vector triple product using the expansion formula, but if done carefully and correctly, this always gives a perpendicular to segment `CB` pointing towards the Origin. 
+```CB ⨯ CO ⨯ CB```
+
+It is also known as *triple product expansion* because there's a very fast formula (an expanded equation) with only a few multiplications and subtractions for calculating the resulting perpendicular:
+
+```a⨯(b⨯c) = b(a⋅c) - c(a⋅b)```
+
+You have to be precise with the order of vertices when calculating vector triple product using the expansion formula, but if done carefully and correctly, this always gives a perpendicular to segment `CB` pointing towards the Origin. 
 
 We set our final direction `D` to that perpendicular to `CB` pointing towards Origin. That will be a direction to search for point A of our triangle simplex. This is also the last stage of the evolution of the 2-simplex. We call our support function and pass new direction `D` along with the two shapes. The image below shows the result after calling the support function for the 3rd time:
 
