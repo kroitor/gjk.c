@@ -410,7 +410,7 @@ You call the support function with your new opposite direction `D` and get the s
 
 By calling the support function the second time with the opposite direction you get a second point `B` which is another point on the same contour in Minkowski space. That second point `B` is exactly opposite to the first point `C`, because initial directions passed into the support function were opposite, right? 
 
-Having point `B` we need to verify that it is indeed beyond Origin as seen from point `C`. In other words, we have to check if point `B` is further away from point `C` than the Origin is in direction from `C` towards the Origin. If a dot product of `CO ⋅ OB` is positive, then point `B` is really beyond the Origin as seen from point `C` and the evolution continues, otherwise there's no collision and the evolution stops or restarts in a different direction. In geometry the sign of dot product of two vectors basically says if those two vectors are pointing to same side or opposite sides.
+Having point `B` we need to verify that it is indeed beyond Origin as seen from point `C`. In other words, we have to check if point `B` is further away from point `C` than the Origin is in direction from `C` towards the Origin. If a dot product of `CO ⋅ OB` is positive, then point `B` is really beyond the Origin as seen from point `C` and the evolution continues, otherwise there's no collision and the evolution stops or restarts in a different direction. In geometry the sign of dot product of two vectors basically says if those two vectors are oriented in roughly the same way.
 
 ```if ((CO ⋅ OB) > 0) // test if point B is beyond Origin as seen from point C```
 
@@ -438,7 +438,7 @@ It is also known as *triple product expansion* because there's a very fast formu
 
 ```a ⨯ (b ⨯ c) = b(a ⋅ c) - c(a ⋅ b)```
 
-You have to be precise with the order of vertices when calculating vector triple product using the expansion formula, but if done carefully and correctly, this always gives a perpendicular to segment `CB` pointing towards the Origin. 
+You have to be precise with the orientation of vectors when calculatin triple product using the expansion formula, but if done carefully and correctly, this always gives a perpendicular to segment `CB` pointing towards the Origin. 
 
 We set our final direction `D` to that perpendicular to `CB` pointing towards Origin. That will be a direction to search for point A of our triangle simplex. This is also the last stage of the evolution of the 2-simplex. We call our support function and pass new direction `D` along with the two shapes. The image below shows the result after calling the support function for the 3rd time:
 
