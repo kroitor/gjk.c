@@ -165,7 +165,7 @@ E (2, 4)
 F (4, 4)
 G (3, 2)
 ```
-Now, because we have much more numbers here, the arithmetic becomes a little more involved, but its still very easy – we literally subtract all points of one shape from all points of another shape one by one.
+Now, because we have much more numbers here, the arithmetic becomes a little more involved, but it's still very easy – we literally subtract all points of one shape from all points of another shape one by one.
 ```
 A - E = (1 - 2, 3 - 4) = (-1, -1)
 A - F = (1 - 4, 3 - 4) = (-2, -1)
