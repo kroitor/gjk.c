@@ -487,7 +487,7 @@ A non-overlapping collision will yield a Minkowski sum that has an Origin on its
 
 So, the Origin can either be inside the Minkowski sum, or it can be on the edge of the sum. And the trick is to check if the Origin is actually one of the points of your simplex. The Origin can also end up exactly on one of the sides of your simplex, between two points of the simplex.
 
-Basically, to each stage of evolution you add a check, to see if the Origin is already included in your not-fully-evolved simplex or not. That is enough to detect all degenerate cases. If the Origin is already included in your half-build simplex upon some early stage of evolution, then you don't have to evolve it further. Then you can stop and signal a collision (or no collision, at your discretion). You can differentiate between a penetrating collision or not, by counting degenerate collisions or not counting them as being collisions.
+Basically, to each stage of evolution you add a check, to see if the Origin is already included in your not-fully-evolved simplex or not. That is enough to detect all degenerate cases. If the Origin is already included in your half-built simplex upon some early stage of evolution, then you don't have to evolve it further. Then you can stop and signal a collision (or no collision, at your discretion). You can differentiate between a penetrating collision or not, by counting degenerate collisions or not counting them as being collisions.
 
 WORK IN PROGRESS, to be continued soon... )
 
