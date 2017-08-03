@@ -204,7 +204,8 @@ And this is where the true power of simplicity of GJK comes into play. Think thi
 
 Now our task of arithmetically enclosing the Origin within our resulting shape simplifies a little bit. We have to find such three points from our resulting set of points, that make a triangle that encloses the Origin. In other words, we need to build a 2-simplex that would satisfy our criteria. GJK can build a triangle and test if a certain point lies within that triangle, so we just made this task solvable by a machine.
 
-After we subtracted our initial shapes one from another we got a resulting set of all of the points of a new shape that represents the difference of initial shapes. The most straightforward way to build such an Origin-enclosing triangle from a given set of points is to start taking triples of points (combinations of three points) to see if they form a triangle with the Origin inside it. If a triple of points makes such a triangle, then we can conclude that the difference of two shapes contains the Origin, so initial shapes must have collided or intersected. If not, we try some other triple, and that is done in a loop until we run out of points. If none of the triples did enclose the Origin, then no such triangle was found and there was no collision at all.
+After we subtracted our initial shapes one from another we got a resulting set of all of the points of a new shape that represents the difference of initial shapes. The most straightforward way to build such 
+igin-enclosing triangle from a given set of points is to start taking triples of points (combinations of three points) to see if they form a triangle with the Origin inside it. If a triple of points makes such a triangle, then we can conclude that the difference of two shapes contains the Origin, so initial shapes must have collided or intersected. If not, we try some other triple, and that is done in a loop until we run out of points. If none of the triples did enclose the Origin, then no such triangle was found and there was no collision at all.
 
 So, if we randomly select any three of our points and connect them with line segments, we will probably end up with a triangle similar to one of the following:
 
@@ -483,7 +484,7 @@ Here are some examples of what a degenerate case collision (a touch) in GJK is:
 
 It may seem like a lot of special cases to handle, but in fact, GJK already does that intrinsically. 
 
-A non-overlapping collision will yield a Minkowski sum that has an Origin on its *edge* or *contour*. Remember, in 1D, when two segments have only one common point, the Origin lands on the endpoint of resulting segment. In 2D, when there is only one common point, the Origin in Minkowski space will be located on the contour of the resulting 2D-intersection shape. If two shapes share a common face, then the Origin will be on one of the sides of the resulting triange simplex.
+A non-overlapping collision will yield a Minkowski sum that has the Origin on its *edge* or *contour*. Remember, in 1D, when two segments have only one common point, the Origin lands on the endpoint of resulting segment. In 2D, when there is only one common point, the Origin in Minkowski space will be located on the contour of your resulting 2D-intersection shape. If two shapes share a common face, then the Origin will be on one of the sides of triange simplex.
 
 So, the Origin can either be inside the Minkowski sum, or it can be on the edge of the sum. And the trick is to check if the Origin is actually one of the points of your simplex. The Origin can also end up exactly on one of the sides of your simplex, between two points of the simplex.
 
