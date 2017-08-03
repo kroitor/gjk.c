@@ -485,7 +485,7 @@ It may seem like a lot of special cases to handle, but in fact, GJK already does
 
 A non-overlapping collision will yield a Minkowski sum that has an Origin on its *edge* or *contour*. Remember, in 1D, when two segments have only one common point, the Origin lands on the endpoint of resulting segment. In 2D, when there is only one common point, the Origin in Minkowski space will be located on the contour of the resulting 2D-intersection shape. If two shapes share a common face, then the Origin will be on one of the sides of the resulting triange simplex.
 
-So, the Origin can either be inside the Minkowski sum, or it can be on the edge of the sum. And the trick is to check if the Origin is actually one of the points of your simplex, or it may be located excatly on one of the sides of your simplex, between two points of the simplex.
+So, the Origin can either be inside the Minkowski sum, or it can be on the edge of the sum. And the trick is to check if the Origin is actually one of the points of your simplex, or it may be located exactly on one of the sides of your simplex, between two points of the simplex.
 
 Basically, to each stage of evolution you add a check, to see if the Origin is already included in your not-fully-evolved simplex or not. That is enough to detect all degenerate case. If the Origin is already included in your half-build simplex upon some early stage of evolution, then you don't have to evolve it further. Then you can stop and signal a collision (or no collision, at your discretion).You can differentiate between a penetrating collision or not, by counting degenerate cases as collisions or not counting them as being collisions.
 
