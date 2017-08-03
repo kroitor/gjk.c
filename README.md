@@ -483,7 +483,7 @@ Here are some examples of what a degenerate case collision (a touch) in GJK is:
 
 It may seem like a lot of special cases to handle, but in fact, GJK already does that intrinsically. 
 
-A non-overlapping collision will yield a Minkowski sum that has an Origin on its *edge* or *contour*. Remember, in 1D, when two segments have only one common point, the Origin ends on the endpoint of resulting segment. In 2D, when there is only one common point, the Origin in Minkowski space will be located on the contour of the resulting 2D-intersection shape. If two shapes share a common face, then the Origin will be on one of the sides of the resulting triange simplex.
+A non-overlapping collision will yield a Minkowski sum that has an Origin on its *edge* or *contour*. Remember, in 1D, when two segments have only one common point, the Origin lands on the endpoint of resulting segment. In 2D, when there is only one common point, the Origin in Minkowski space will be located on the contour of the resulting 2D-intersection shape. If two shapes share a common face, then the Origin will be on one of the sides of the resulting triange simplex.
 
 So, the Origin can either be inside the Minkowski sum, or it can be on the edge of the sum. And the trick is to check if the Origin is actually one of the points of your simplex, or it may be located excatly on one of the sides of your simplex, between two points of the simplex.
 
