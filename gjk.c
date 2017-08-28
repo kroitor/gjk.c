@@ -111,7 +111,7 @@ int gjk (const vec2 * vertices1, size_t count1,
     if (dotProduct (a, d) <= 0)
         return 0; // no collision
     
-    d = negate (d); // we will be searching in the opposite direction next
+    d = negate (a); // The next search direction is always towards the origin, so the next search direction is negate(a)
     
     while (1) {
         
