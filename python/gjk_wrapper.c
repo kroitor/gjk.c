@@ -44,7 +44,7 @@ static vec2* sequenceToVec2(PyObject * sequence, Py_ssize_t * sequence_length) {
 
 static PyObject* Gjk_gjk(PyObject * self, PyObject * args) {
     PyObject *_vertices1, *_vertices2, *result;
-    vec2 *vertices1, *vertices2;
+    vec2 *vertices1 = NULL, *vertices2 = NULL;
     Py_ssize_t count1 = 0, count2 = 0;
 
     if (!PyArg_ParseTuple(args, "OO", &_vertices1, &_vertices2))
@@ -58,7 +58,7 @@ static PyObject* Gjk_gjk(PyObject * self, PyObject * args) {
     vertices1 = sequenceToVec2(_vertices1, &count1);
     vertices2 = sequenceToVec2(_vertices2, &count2);
     if (PyErr_Occurred()) {
-        if(!vertices2) free(vertices1);
+        if(vertices1 && !vertices2) free(vertices1);
         return NULL;
     }
 
