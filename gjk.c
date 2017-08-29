@@ -89,6 +89,8 @@ vec2 support (const vec2 * vertices1, size_t count1,
 //-----------------------------------------------------------------------------
 // The GJK yes/no test
 
+int iter_count = 0;
+
 int gjk (const vec2 * vertices1, size_t count1,
          const vec2 * vertices2, size_t count2) {
     
@@ -114,6 +116,7 @@ int gjk (const vec2 * vertices1, size_t count1,
     d = negate (a); // The next search direction is always towards the origin, so the next search direction is negate(a)
     
     while (1) {
+		iter_count++;
         
         a = simplex[++index] = support (vertices1, count1, vertices2, count2, d);
         
@@ -164,28 +167,63 @@ int gjk (const vec2 * vertices1, size_t count1,
 
 //-----------------------------------------------------------------------------
 
+#include <stdlib.h>
+#include <float.h>
+
+float Perturbation()
+{
+	return ((float)rand() / (float)RAND_MAX) * FLT_EPSILON * 100.0f * ((rand() % 2) ? 1.0f : -1.0f);
+}
+
+vec2 Jostle(vec2 a)
+{
+	vec2 b;
+	b.x = a.x + Perturbation();
+	b.y = a.y + Perturbation();
+	return b;
+}
+
 int main(int argc, const char * argv[]) {
     
     // test case from dyn4j
     
     vec2 vertices1[] = {
-        { 4, 11 },
-        { 4, 5 },
-        { 9, 9 },
+        { 4.0f, 11.0f },
+        { 5.0f, 5.0f },
+        { 9.0f, 9.0f },
     };
     
     vec2 vertices2[] = {
-        { 5, 7 },
-        { 7, 3 },
-        { 10, 2 },
-        { 12, 7 },
+        { 4.0f, 11.0f },
+        { 5.0f, 5.0f },
+        { 9.0f, 9.0f },
     };
 
     size_t count1 = sizeof (vertices1) / sizeof (vec2); // == 3
     size_t count2 = sizeof (vertices2) / sizeof (vec2); // == 4
+
+	while (1)
+	{
+		vec2 a[sizeof (vertices1) / sizeof (vec2)];
+		vec2 b[sizeof (vertices2) / sizeof (vec2)];
+
+		for (size_t i = 0; i < count1; ++i) a[i] = Jostle(vertices1[i]);
+		for (size_t i = 0; i < count2; ++i) b[i] = Jostle(vertices2[i]);
+
+		int collisionDetected = gjk (a, count1, b, count2);
+		if (!collisionDetected)
+		{
+			printf("Found failing case:\n\t{%f, %f}, {%f, %f}, {%f, %f}\n\t{%f, %f}, {%f, %f}, {%f, %f}\n\n",
+				a[0].x, a[0].y, a[1].x, a[1].y, a[2].x, a[2].y,
+				b[0].x, b[0].y, b[1].x, b[1].y, b[2].x, b[2].y
+			);
+		}
+		else
+		{
+			printf("Collision correctly detected\n");
+		}
+		iter_count = 0;
+	}
     
-    int collisionDetected = gjk (vertices1, count1, vertices2, count2);
-    
-    printf (collisionDetected ? "Bodies collide!\n" : "No collision\n");
     return 0;
 }
