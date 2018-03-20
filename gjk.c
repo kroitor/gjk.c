@@ -60,7 +60,7 @@ size_t indexOfFurthestPoint (const vec2 * vertices, size_t count, vec2 d) {
     
     float maxProduct = dotProduct (d, vertices[0]);
     size_t index = 0;
-    for (size_t i = 0; i < count; i++) {
+    for (size_t i = 1; i < count; i++) {
         float product = dotProduct (d, vertices[i]);
         if (product > maxProduct) {
             maxProduct = product;
