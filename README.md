@@ -531,6 +531,7 @@ Most of the info (along with reference implementation) was taken from dyn4j. It 
 1. http://www.dyn4j.org/2010/04/gjk-gilbert-johnson-keerthi/ GJK description (+ a lot of other useful articles)
 2. http://mollyrocket.com/849 Awesome old-school GJK / Minkowski space video by Casey Muratori
 3. https://github.com/wnbittle/dyn4j Quality source code for reference
+4. https://www.youtube.com/watch?v=-GZOGJ26yxE – A video of a seminar by [Elmer Gilbert Professor Emeritus Aerospace Engineering, University of Michigan](https://aero.engin.umich.edu/people/elmer-gilbert/)
 
 ## P.S. 3D-version coming soon...
 ![3D-version of GJK in plain C coming soon...](http://s21.postimg.org/da9txc3uv/Screen_Shot_2016_01_13_at_09_13_12.jpg "3D-version of GJK in plain C coming soon...")
