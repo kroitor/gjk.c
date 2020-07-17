@@ -116,7 +116,7 @@ int gjk (const vec2 * vertices1, size_t count1,
     d = negate (a); // The next search direction is always towards the origin, so the next search direction is negate(a)
     
     while (1) {
-		iter_count++;
+        iter_count++;
         
         a = simplex[++index] = support (vertices1, count1, vertices2, count2, d);
         
