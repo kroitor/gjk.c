@@ -7,7 +7,7 @@ Fuck licenses and copyright. I made it for learning purposes, this is public kno
 ## Usage Example
 This is an illustration of the example case from [dyn4j](http://www.dyn4j.org/2010/04/gjk-gilbert-johnson-keerthi/).
 
-![Example case from dyn4j](http://www.dyn4j.org/wp-content/uploads/2010/04/gjk-figure1.png "Example case from dyn4j")
+![Example case from dyn4j](https://user-images.githubusercontent.com/1294454/133015814-8e2fd47d-0f58-430d-8403-016cc5649cdb.png "Example case from dyn4j")
 
 The two tested polygons are defined as arrays of plain C vector struct type. This implementation of GJK doesn't really care about the order of the vertices in the arrays, as it treats all sets of points as *convex polygons*.
 
